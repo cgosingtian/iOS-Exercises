@@ -8,6 +8,12 @@
 
 #import "KLBHypnosisView.h"
 
+@interface KLBHypnosisView ()
+
+@property (nonatomic,retain) UIColor *circleColor;
+- (void)setCircleColor:(UIColor *)circleColor;
+@end
+
 @implementation KLBHypnosisView
 
 - (id)initWithFrame:(CGRect)frame
@@ -16,6 +22,7 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
+        self.circleColor = [UIColor lightGrayColor];
     }
     return self;
 }
@@ -45,7 +52,8 @@
     }
     
     // "all strokes hereafter will be light gray"
-    [[UIColor lightGrayColor] setStroke];
+    //[[UIColor lightGrayColor] setStroke];
+    [self.circleColor setStroke];
     
     [path setLineWidth:10];
     [path stroke];
@@ -90,5 +98,23 @@
     
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    float red = (arc4random() % 100) / 100.0;
+    float green = (arc4random() % 100) / 100.0;
+    float blue = (arc4random() % 100) / 100.0;
+    
+    UIColor *randomColor = [UIColor colorWithRed:red
+                                           green:green
+                                            blue:blue
+                                           alpha:1.0];
+    self.circleColor = randomColor;
+}
+
+- (void)setCircleColor:(UIColor *)circleColor
+{
+    _circleColor = circleColor;
+    [self setNeedsDisplay];
+}
 
 @end
