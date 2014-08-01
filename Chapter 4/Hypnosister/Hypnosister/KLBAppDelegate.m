@@ -7,6 +7,7 @@
 //
 
 #import "KLBAppDelegate.h"
+#import "KLBHypnosisView.h"
 
 @implementation KLBAppDelegate
 
@@ -14,6 +15,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    CGRect firstViewFrame = CGRectMake(160, 240, 100, 150);
+    
+    KLBHypnosisView *firstView = [[KLBHypnosisView alloc] initWithFrame:firstViewFrame];
+    [firstView setBackgroundColor:[UIColor redColor]];
+    
+    [self.window addSubview:firstView];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

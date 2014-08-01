@@ -19,6 +19,7 @@
 		4FCF3C7C198B418D003D2E61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCF3C64198B418C003D2E61 /* UIKit.framework */; };
 		4FCF3C84198B418D003D2E61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FCF3C82198B418D003D2E61 /* InfoPlist.strings */; };
 		4FCF3C86198B418D003D2E61 /* HypnosisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF3C85198B418D003D2E61 /* HypnosisterTests.m */; };
+		4FCF3C94198B4500003D2E61 /* KLBHypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF3C93198B4500003D2E61 /* KLBHypnosisView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		4FCF3C81198B418D003D2E61 /* HypnosisterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HypnosisterTests-Info.plist"; sourceTree = "<group>"; };
 		4FCF3C83198B418D003D2E61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4FCF3C85198B418D003D2E61 /* HypnosisterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HypnosisterTests.m; sourceTree = "<group>"; };
+		4FCF3C92198B4500003D2E61 /* KLBHypnosisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBHypnosisView.h; sourceTree = "<group>"; };
+		4FCF3C93198B4500003D2E61 /* KLBHypnosisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBHypnosisView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 			children = (
 				4FCF3C6F198B418C003D2E61 /* KLBAppDelegate.h */,
 				4FCF3C70198B418C003D2E61 /* KLBAppDelegate.m */,
+				4FCF3C92198B4500003D2E61 /* KLBHypnosisView.h */,
+				4FCF3C93198B4500003D2E61 /* KLBHypnosisView.m */,
 				4FCF3C72198B418C003D2E61 /* Images.xcassets */,
 				4FCF3C67198B418C003D2E61 /* Supporting Files */,
 			);
@@ -241,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FCF3C71198B418C003D2E61 /* KLBAppDelegate.m in Sources */,
+				4FCF3C94198B4500003D2E61 /* KLBHypnosisView.m in Sources */,
 				4FCF3C6D198B418C003D2E61 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
