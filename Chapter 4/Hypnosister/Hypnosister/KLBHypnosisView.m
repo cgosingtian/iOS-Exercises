@@ -50,14 +50,43 @@
     [path setLineWidth:10];
     [path stroke];
     
+    
+    
     CGContextRef currentContext = UIGraphicsGetCurrentContext();
     
+    //draw gradient start
     CGContextSaveGState(currentContext);
+    
+    // Draw your gradient here
+    CGFloat locations[2] = { 0.0, 1.0 };
+    CGFloat components[8] = { 1.0, 0.0, 0.0, 1.0, // Start color is red
+        1.0, 1.0, 0.0, 1.0 }; // End color is yellow
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(colorspace, components,
+                                                                 locations, 2);
+    CGPoint startPoint = CGPointMake(0, center.y - 100);
+    CGPoint endPoint = CGPointMake(0, center.y + 150);
+    
+    UIBezierPath *pathTriangle = [[UIBezierPath alloc] init];
+    [pathTriangle moveToPoint:CGPointMake(center.x, center.y - 100.0)];
+    [pathTriangle addLineToPoint:CGPointMake(center.x + 100.0, center.y + 150.0)];
+    [pathTriangle addLineToPoint:CGPointMake(center.x - 100.0, center.y + 150.0)];
+
+    [pathTriangle addClip]; // add the triangle to the context
+    //[pathTriangle fill];
+    
+    CGContextDrawLinearGradient(currentContext, gradient, startPoint, endPoint, 0); // gradient on triangle
+    
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorspace);
+    CGContextRestoreGState(currentContext); // gradient triangle end
+    
+    CGContextSaveGState(currentContext); // shadow start
     CGContextSetShadow(currentContext, CGSizeMake(5.0, 5.0), 0.0);
     
-    [[UIImage imageNamed:@"logo.png"] drawInRect:bounds];
+    [[UIImage imageNamed:@"logo.png"] drawInRect:bounds]; // draw logo
     
-    CGContextRestoreGState(currentContext);
+    CGContextRestoreGState(currentContext); // shadow end
     
 }
 
