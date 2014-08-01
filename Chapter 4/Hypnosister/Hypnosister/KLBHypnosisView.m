@@ -50,7 +50,14 @@
     [path setLineWidth:10];
     [path stroke];
     
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    
+    CGContextSaveGState(currentContext);
+    CGContextSetShadow(currentContext, CGSizeMake(5.0, 5.0), 0.0);
+    
     [[UIImage imageNamed:@"logo.png"] drawInRect:bounds];
+    
+    CGContextRestoreGState(currentContext);
     
 }
 
