@@ -21,7 +21,8 @@
 		4F9B161F198B83F700FB441A /* HypnoNerdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B161E198B83F700FB441A /* HypnoNerdTests.m */; };
 		4F9B162A198B847100FB441A /* KLBHypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B1629198B847100FB441A /* KLBHypnosisView.m */; };
 		4F9B162D198B853400FB441A /* KLBHypnosisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B162C198B853400FB441A /* KLBHypnosisViewController.m */; };
-		4F9B162F198B878600FB441A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9B162E198B878600FB441A /* logo.png */; };
+		4F9B1632198B88F600FB441A /* KLBReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B1631198B88F600FB441A /* KLBReminderViewController.m */; };
+		4F9B1634198B897000FB441A /* KLBReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9B1633198B897000FB441A /* KLBReminderViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,9 @@
 		4F9B1629198B847100FB441A /* KLBHypnosisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBHypnosisView.m; sourceTree = "<group>"; };
 		4F9B162B198B853400FB441A /* KLBHypnosisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBHypnosisViewController.h; sourceTree = "<group>"; };
 		4F9B162C198B853400FB441A /* KLBHypnosisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBHypnosisViewController.m; sourceTree = "<group>"; };
-		4F9B162E198B878600FB441A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		4F9B1630198B88F600FB441A /* KLBReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBReminderViewController.h; sourceTree = "<group>"; };
+		4F9B1631198B88F600FB441A /* KLBReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBReminderViewController.m; sourceTree = "<group>"; };
+		4F9B1633198B897000FB441A /* KLBReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBReminderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +124,10 @@
 				4F9B162B198B853400FB441A /* KLBHypnosisViewController.h */,
 				4F9B162C198B853400FB441A /* KLBHypnosisViewController.m */,
 				4F9B1609198B83F700FB441A /* KLBAppDelegate.m */,
+				4F9B1630198B88F600FB441A /* KLBReminderViewController.h */,
+				4F9B1631198B88F600FB441A /* KLBReminderViewController.m */,
+				4F9B1633198B897000FB441A /* KLBReminderViewController.xib */,
 				4F9B160B198B83F700FB441A /* Images.xcassets */,
-				4F9B162E198B878600FB441A /* logo.png */,
 				4F9B1600198B83F700FB441A /* Supporting Files */,
 			);
 			path = HypnoNerd;
@@ -233,9 +238,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F9B1634198B897000FB441A /* KLBReminderViewController.xib in Resources */,
 				4F9B1604198B83F700FB441A /* InfoPlist.strings in Resources */,
 				4F9B160C198B83F700FB441A /* Images.xcassets in Resources */,
-				4F9B162F198B878600FB441A /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +262,7 @@
 				4F9B160A198B83F700FB441A /* KLBAppDelegate.m in Sources */,
 				4F9B162A198B847100FB441A /* KLBHypnosisView.m in Sources */,
 				4F9B1606198B83F700FB441A /* main.m in Sources */,
+				4F9B1632198B88F600FB441A /* KLBReminderViewController.m in Sources */,
 				4F9B162D198B853400FB441A /* KLBHypnosisViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

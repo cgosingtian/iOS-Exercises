@@ -1,22 +1,23 @@
 //
-//  KLBHypnosisViewController.m
+//  KLBReminderViewController.m
 //  HypnoNerd
 //
 //  Created by Chase Gosingtian on 8/1/14.
 //  Copyright (c) 2014 KLab Cyscorpions, Inc. All rights reserved.
 //
 
-#import "KLBHypnosisViewController.h"
-#import "KLBHypnosisView.h"
+#import "KLBReminderViewController.h"
 
-@implementation KLBHypnosisViewController
+@interface KLBReminderViewController ()
+@property (nonatomic, weak) IBOutlet UIDatePicker *datePicker;
+@end
 
-- (void)loadView
+@implementation KLBReminderViewController
+
+- (IBAction)addReminder:(id)sender
 {
-    CGRect frame = [UIScreen mainScreen].bounds;
-    KLBHypnosisView *backgroundView = [[KLBHypnosisView alloc]initWithFrame:frame];
-    
-    self.view = backgroundView;
+    NSDate *date = self.datePicker.date;
+    NSLog(@"Setting a reminder for %@", date);
 }
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,10 +27,10 @@
     if (self)
     {
         //tab bar item's title
-        self.tabBarItem.title = @"Hypnotize";
+        self.tabBarItem.title = @"Reminder";
         
         //uiimage
-        UIImage *image = [UIImage imageNamed:@"Hypno.png"];
+        UIImage *image = [UIImage imageNamed:@"Time.png"];
         
         self.tabBarItem.image = image;
     }

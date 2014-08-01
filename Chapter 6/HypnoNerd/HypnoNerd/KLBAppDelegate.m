@@ -8,6 +8,7 @@
 
 #import "KLBAppDelegate.h"
 #import "KLBHypnosisViewController.h"
+#import "KLBReminderViewController.h"
 
 @implementation KLBAppDelegate
 
@@ -18,7 +19,15 @@
     
     KLBHypnosisViewController *hvc = [[KLBHypnosisViewController alloc]init];
     
-    [self.window setRootViewController:hvc];
+    //pointer to object that represents main bundle
+    NSBundle *appBundle = [NSBundle mainBundle];
+    
+    KLBReminderViewController *rvc = [[KLBReminderViewController alloc] initWithNibName:@"KLBReminderViewController" bundle:appBundle];
+    
+    UITabBarController *tbc = [[UITabBarController alloc]init];
+    tbc.viewControllers = @[hvc,rvc];
+    
+    [self.window setRootViewController:tbc];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
