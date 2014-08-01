@@ -16,19 +16,25 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    CGRect firstViewFrame = CGRectMake(160, 200, 100, 150); //left, top, width, height
+//    CGRect firstViewFrame = CGRectMake(160, 200, 100, 150); //left, top, width, height
     NSLog(@"Screen height in points: %f",[[UIScreen mainScreen] bounds].size.height);
     NSLog(@"Screen scale is %f", [[UIScreen mainScreen] scale]);
     
-    KLBHypnosisView *firstView = [[KLBHypnosisView alloc] initWithFrame:firstViewFrame];
-    [firstView setBackgroundColor:[UIColor redColor]];
+    KLBHypnosisView *firstView = [[KLBHypnosisView alloc] initWithFrame:self.window.bounds];
+//    [firstView setBackgroundColor:[UIColor redColor]];
     
     [self.window addSubview:firstView];
     
-    CGRect secondFrame = CGRectMake(20, 30, 50, 50);
-    KLBHypnosisView *secondView = [[KLBHypnosisView alloc] initWithFrame:secondFrame];
-    secondView.backgroundColor = [UIColor blueColor];
-    [self.window addSubview:secondView];
+//    CGRect secondFrame = CGRectMake(20, 30, 50, 50);
+//    KLBHypnosisView *secondView = [[KLBHypnosisView alloc] initWithFrame:secondFrame];
+//    secondView.backgroundColor = [UIColor blueColor];
+//    [self.window addSubview:secondView];
+//    
+//    //adding a view to the first view
+//    CGRect thirdFrame = CGRectMake(20, 30, 50, 50);
+//    KLBHypnosisView *thirdView = [[KLBHypnosisView alloc] initWithFrame:thirdFrame];
+//    thirdView.backgroundColor = [UIColor blueColor];
+//    [firstView addSubview:thirdView];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

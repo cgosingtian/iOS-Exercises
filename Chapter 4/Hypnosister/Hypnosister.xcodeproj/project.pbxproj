@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F9B15EC198B652F00FB441A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9B15EB198B652F00FB441A /* logo.png */; };
 		4FCF3C61198B418C003D2E61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCF3C60198B418C003D2E61 /* Foundation.framework */; };
 		4FCF3C63198B418C003D2E61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCF3C62198B418C003D2E61 /* CoreGraphics.framework */; };
 		4FCF3C65198B418C003D2E61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCF3C64198B418C003D2E61 /* UIKit.framework */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F9B15EB198B652F00FB441A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		4FCF3C5D198B418C003D2E61 /* Hypnosister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hypnosister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCF3C60198B418C003D2E61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4FCF3C62198B418C003D2E61 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +117,7 @@
 				4FCF3C92198B4500003D2E61 /* KLBHypnosisView.h */,
 				4FCF3C93198B4500003D2E61 /* KLBHypnosisView.m */,
 				4FCF3C72198B418C003D2E61 /* Images.xcassets */,
+				4F9B15EB198B652F00FB441A /* logo.png */,
 				4FCF3C67198B418C003D2E61 /* Supporting Files */,
 			);
 			path = Hypnosister;
@@ -227,6 +230,7 @@
 			files = (
 				4FCF3C6B198B418C003D2E61 /* InfoPlist.strings in Resources */,
 				4FCF3C73198B418C003D2E61 /* Images.xcassets in Resources */,
+				4F9B15EC198B652F00FB441A /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +448,7 @@
 				4FCF3C8B198B418D003D2E61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FCF3C8C198B418D003D2E61 /* Build configuration list for PBXNativeTarget "HypnosisterTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +457,7 @@
 				4FCF3C8E198B418D003D2E61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
