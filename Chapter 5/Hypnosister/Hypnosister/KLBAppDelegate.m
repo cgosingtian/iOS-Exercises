@@ -17,13 +17,26 @@
     // Override point for customization after application launch.
     
 //    CGRect firstViewFrame = CGRectMake(160, 200, 100, 150); //left, top, width, height
-    NSLog(@"Screen height in points: %f",[[UIScreen mainScreen] bounds].size.height);
-    NSLog(@"Screen scale is %f", [[UIScreen mainScreen] scale]);
+//    NSLog(@"Screen height in points: %f",[[UIScreen mainScreen] bounds].size.height);
+//    NSLog(@"Screen scale is %f", [[UIScreen mainScreen] scale]);
     
-    KLBHypnosisView *firstView = [[KLBHypnosisView alloc] initWithFrame:self.window.bounds];
+    // create cgrects for frames
+    CGRect screenRect = self.window.bounds;
+    CGRect bigRect = screenRect;
+    bigRect.size.width *= 2.0;
+    //bigRect.size.height *= 2.0;
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    [self.window addSubview:scrollView];
+    
+    KLBHypnosisView *normalView = [[KLBHypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:normalView];
+    screenRect.origin.x += screenRect.size.width;
+    KLBHypnosisView *firstView = [[KLBHypnosisView alloc] initWithFrame:screenRect];
 //    [firstView setBackgroundColor:[UIColor redColor]];
     
-    [self.window addSubview:firstView];
+    [scrollView addSubview:firstView];
+    [scrollView setContentSize:bigRect.size];
     
 //    CGRect secondFrame = CGRectMake(20, 30, 50, 50);
 //    KLBHypnosisView *secondView = [[KLBHypnosisView alloc] initWithFrame:secondFrame];
