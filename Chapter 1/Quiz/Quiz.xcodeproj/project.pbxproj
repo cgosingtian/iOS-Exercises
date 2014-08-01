@@ -19,6 +19,8 @@
 		4FA2BC5C198A11D9005CB97E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA2BC44198A11D8005CB97E /* UIKit.framework */; };
 		4FA2BC64198A11D9005CB97E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2BC62198A11D9005CB97E /* InfoPlist.strings */; };
 		4FA2BC66198A11D9005CB97E /* QuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2BC65198A11D9005CB97E /* QuizTests.m */; };
+		4FA2BC78198A15E7005CB97E /* KLBQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2BC76198A15E7005CB97E /* KLBQuizViewController.m */; };
+		4FA2BC79198A15E7005CB97E /* KLBQuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2BC77198A15E7005CB97E /* KLBQuizViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		4FA2BC61198A11D9005CB97E /* QuizTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuizTests-Info.plist"; sourceTree = "<group>"; };
 		4FA2BC63198A11D9005CB97E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4FA2BC65198A11D9005CB97E /* QuizTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizTests.m; sourceTree = "<group>"; };
+		4FA2BC75198A15E7005CB97E /* KLBQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBQuizViewController.h; sourceTree = "<group>"; };
+		4FA2BC76198A15E7005CB97E /* KLBQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBQuizViewController.m; sourceTree = "<group>"; };
+		4FA2BC77198A15E7005CB97E /* KLBQuizViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBQuizViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +112,9 @@
 		4FA2BC46198A11D8005CB97E /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				4FA2BC75198A15E7005CB97E /* KLBQuizViewController.h */,
+				4FA2BC76198A15E7005CB97E /* KLBQuizViewController.m */,
+				4FA2BC77198A15E7005CB97E /* KLBQuizViewController.xib */,
 				4FA2BC4F198A11D8005CB97E /* KLBAppDelegate.h */,
 				4FA2BC50198A11D8005CB97E /* KLBAppDelegate.m */,
 				4FA2BC52198A11D8005CB97E /* Images.xcassets */,
@@ -222,6 +230,7 @@
 			files = (
 				4FA2BC4B198A11D8005CB97E /* InfoPlist.strings in Resources */,
 				4FA2BC53198A11D8005CB97E /* Images.xcassets in Resources */,
+				4FA2BC79198A15E7005CB97E /* KLBQuizViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA2BC51198A11D8005CB97E /* KLBAppDelegate.m in Sources */,
+				4FA2BC78198A15E7005CB97E /* KLBQuizViewController.m in Sources */,
 				4FA2BC4D198A11D8005CB97E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Quiz/Quiz-Prefix.pch";
 				INFOPLIST_FILE = "Quiz/Quiz-Info.plist";
@@ -371,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Quiz/Quiz-Prefix.pch";
 				INFOPLIST_FILE = "Quiz/Quiz-Info.plist";
@@ -438,6 +450,7 @@
 				4FA2BC6B198A11D9005CB97E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FA2BC6C198A11D9005CB97E /* Build configuration list for PBXNativeTarget "QuizTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +459,7 @@
 				4FA2BC6E198A11D9005CB97E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
