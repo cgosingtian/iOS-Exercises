@@ -27,6 +27,7 @@
     //bigRect.size.height *= 2.0;
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    scrollView.pagingEnabled = YES; //scrolling between two images will disallow "stopping" inbetween them
     [self.window addSubview:scrollView];
     
     KLBHypnosisView *normalView = [[KLBHypnosisView alloc] initWithFrame:screenRect];
