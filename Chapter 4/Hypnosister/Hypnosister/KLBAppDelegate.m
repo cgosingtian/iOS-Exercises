@@ -16,12 +16,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    CGRect firstViewFrame = CGRectMake(160, 240, 100, 150);
+    CGRect firstViewFrame = CGRectMake(160, 200, 100, 150); //left, top, width, height
+    NSLog(@"Screen height in points: %f",[[UIScreen mainScreen] bounds].size.height);
+    NSLog(@"Screen scale is %f", [[UIScreen mainScreen] scale]);
     
     KLBHypnosisView *firstView = [[KLBHypnosisView alloc] initWithFrame:firstViewFrame];
     [firstView setBackgroundColor:[UIColor redColor]];
     
     [self.window addSubview:firstView];
+    
+    CGRect secondFrame = CGRectMake(20, 30, 50, 50);
+    KLBHypnosisView *secondView = [[KLBHypnosisView alloc] initWithFrame:secondFrame];
+    secondView.backgroundColor = [UIColor blueColor];
+    [self.window addSubview:secondView];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
