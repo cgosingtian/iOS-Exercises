@@ -20,6 +20,8 @@
 		4F9B161D198B83F700FB441A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9B161B198B83F700FB441A /* InfoPlist.strings */; };
 		4F9B161F198B83F700FB441A /* HypnoNerdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B161E198B83F700FB441A /* HypnoNerdTests.m */; };
 		4F9B162A198B847100FB441A /* KLBHypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B1629198B847100FB441A /* KLBHypnosisView.m */; };
+		4F9B162D198B853400FB441A /* KLBHypnosisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B162C198B853400FB441A /* KLBHypnosisViewController.m */; };
+		4F9B162F198B878600FB441A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9B162E198B878600FB441A /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,9 @@
 		4F9B161E198B83F700FB441A /* HypnoNerdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HypnoNerdTests.m; sourceTree = "<group>"; };
 		4F9B1628198B847100FB441A /* KLBHypnosisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBHypnosisView.h; sourceTree = "<group>"; };
 		4F9B1629198B847100FB441A /* KLBHypnosisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBHypnosisView.m; sourceTree = "<group>"; };
+		4F9B162B198B853400FB441A /* KLBHypnosisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBHypnosisViewController.h; sourceTree = "<group>"; };
+		4F9B162C198B853400FB441A /* KLBHypnosisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBHypnosisViewController.m; sourceTree = "<group>"; };
+		4F9B162E198B878600FB441A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +118,11 @@
 				4F9B1628198B847100FB441A /* KLBHypnosisView.h */,
 				4F9B1629198B847100FB441A /* KLBHypnosisView.m */,
 				4F9B1608198B83F700FB441A /* KLBAppDelegate.h */,
+				4F9B162B198B853400FB441A /* KLBHypnosisViewController.h */,
+				4F9B162C198B853400FB441A /* KLBHypnosisViewController.m */,
 				4F9B1609198B83F700FB441A /* KLBAppDelegate.m */,
 				4F9B160B198B83F700FB441A /* Images.xcassets */,
+				4F9B162E198B878600FB441A /* logo.png */,
 				4F9B1600198B83F700FB441A /* Supporting Files */,
 			);
 			path = HypnoNerd;
@@ -227,6 +235,7 @@
 			files = (
 				4F9B1604198B83F700FB441A /* InfoPlist.strings in Resources */,
 				4F9B160C198B83F700FB441A /* Images.xcassets in Resources */,
+				4F9B162F198B878600FB441A /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +257,7 @@
 				4F9B160A198B83F700FB441A /* KLBAppDelegate.m in Sources */,
 				4F9B162A198B847100FB441A /* KLBHypnosisView.m in Sources */,
 				4F9B1606198B83F700FB441A /* main.m in Sources */,
+				4F9B162D198B853400FB441A /* KLBHypnosisViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
