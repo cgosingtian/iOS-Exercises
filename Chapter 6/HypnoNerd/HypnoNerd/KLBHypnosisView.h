@@ -10,4 +10,6 @@
 
 @interface KLBHypnosisView : UIView
 
+- (void)setCircleColor:(UIColor *)circleColor;
+
 @end

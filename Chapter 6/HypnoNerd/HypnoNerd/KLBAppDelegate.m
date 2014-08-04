@@ -19,7 +19,7 @@
     // Override point for customization after application launch.
     
     //pointer to object that represents main bundle
-    NSBundle *appBundle = [NSBundle mainBundle];
+    //NSBundle *appBundle = [NSBundle mainBundle];
     
     KLBHypnosisViewController *hvc = [[KLBHypnosisViewController alloc]init];
     

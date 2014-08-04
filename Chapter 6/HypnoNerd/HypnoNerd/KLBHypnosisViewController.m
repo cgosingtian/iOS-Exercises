@@ -17,6 +17,15 @@
     KLBHypnosisView *backgroundView = [[KLBHypnosisView alloc]initWithFrame:frame];
     
     self.view = backgroundView;
+    
+    UISegmentedControl *colorOptions = [[UISegmentedControl alloc] initWithItems:@[@"Red",@"Green",@"Blue"]];
+    [colorOptions addTarget:self action:@selector(changeHypnosisViewColor:) forControlEvents:UIControlEventValueChanged];
+    
+    [colorOptions setBackgroundColor:[UIColor whiteColor]];
+    //[colorOptions setTintColor:[UIColor whiteColor]];
+    [colorOptions setFrame:CGRectMake(frame.origin.x+(frame.size.width/2.0)/2.0, frame.origin.y + 30.0, 150.0, 20.0)];
+    
+    [self.view addSubview:colorOptions];
 }
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,5 +51,23 @@
     // Always call the super implementation of viewDidLoad
     [super viewDidLoad];
     NSLog(@"KLBHypnosisViewController loaded its view.");
+}
+
+- (void)changeHypnosisViewColor:(id)sender
+{
+    KLBHypnosisView *hv = (KLBHypnosisView *)self.view;
+    
+    switch ([sender selectedSegmentIndex])
+    {
+        case 0:
+            [hv setCircleColor:[UIColor redColor]];
+            break;
+        case 1:
+            [hv setCircleColor:[UIColor greenColor]];
+            break;
+        case 2:
+            [hv setCircleColor:[UIColor blueColor]];
+            break;
+    }
 }
 @end
