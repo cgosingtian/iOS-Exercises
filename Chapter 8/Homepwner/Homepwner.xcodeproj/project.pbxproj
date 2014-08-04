@@ -19,6 +19,9 @@
 		4F73B3D5198F8C95003B2F22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3BD198F8C95003B2F22 /* UIKit.framework */; };
 		4F73B3DD198F8C95003B2F22 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F73B3DB198F8C95003B2F22 /* InfoPlist.strings */; };
 		4F73B3DF198F8C95003B2F22 /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3DE198F8C95003B2F22 /* HomepwnerTests.m */; };
+		4F73B3EA198F8DA2003B2F22 /* KLBItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */; };
+		4F73B3F0198F8FC3003B2F22 /* KLBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3EF198F8FC3003B2F22 /* KLBItem.m */; };
+		4F73B3F3198F90D2003B2F22 /* KLBItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,12 @@
 		4F73B3DA198F8C95003B2F22 /* HomepwnerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HomepwnerTests-Info.plist"; sourceTree = "<group>"; };
 		4F73B3DC198F8C95003B2F22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F73B3DE198F8C95003B2F22 /* HomepwnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepwnerTests.m; sourceTree = "<group>"; };
+		4F73B3E8198F8DA2003B2F22 /* KLBItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItemsViewController.h; sourceTree = "<group>"; };
+		4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItemsViewController.m; sourceTree = "<group>"; };
+		4F73B3EE198F8FC3003B2F22 /* KLBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItem.h; sourceTree = "<group>"; };
+		4F73B3EF198F8FC3003B2F22 /* KLBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItem.m; sourceTree = "<group>"; };
+		4F73B3F1198F90D2003B2F22 /* KLBItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItemStore.h; sourceTree = "<group>"; };
+		4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItemStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +117,13 @@
 			isa = PBXGroup;
 			children = (
 				4F73B3C8198F8C95003B2F22 /* KLBAppDelegate.h */,
+				4F73B3E8198F8DA2003B2F22 /* KLBItemsViewController.h */,
+				4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */,
 				4F73B3C9198F8C95003B2F22 /* KLBAppDelegate.m */,
+				4F73B3EE198F8FC3003B2F22 /* KLBItem.h */,
+				4F73B3EF198F8FC3003B2F22 /* KLBItem.m */,
+				4F73B3F1198F90D2003B2F22 /* KLBItemStore.h */,
+				4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */,
 				4F73B3CB198F8C95003B2F22 /* Images.xcassets */,
 				4F73B3C0198F8C95003B2F22 /* Supporting Files */,
 			);
@@ -241,6 +256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F73B3CA198F8C95003B2F22 /* KLBAppDelegate.m in Sources */,
+				4F73B3F0198F8FC3003B2F22 /* KLBItem.m in Sources */,
+				4F73B3F3198F90D2003B2F22 /* KLBItemStore.m in Sources */,
+				4F73B3EA198F8DA2003B2F22 /* KLBItemsViewController.m in Sources */,
 				4F73B3C6198F8C95003B2F22 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
