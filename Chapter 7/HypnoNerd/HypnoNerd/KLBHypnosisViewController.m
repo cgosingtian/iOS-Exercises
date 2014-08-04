@@ -9,6 +9,10 @@
 #import "KLBHypnosisViewController.h"
 #import "KLBHypnosisView.h"
 
+@interface KLBHypnosisViewController () <UITextFieldDelegate>
+
+@end
+
 @implementation KLBHypnosisViewController
 
 - (void)loadView
@@ -26,6 +30,19 @@
     [colorOptions setFrame:CGRectMake(frame.origin.x+(frame.size.width/2.0)/2.0, frame.origin.y + 30.0, 150.0, 20.0)];
     
     [self.view addSubview:colorOptions];
+    
+    //EXERCISE 7 START
+    CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
+    UITextField *textField = [[UITextField alloc] initWithFrame:textFieldRect];
+    // Setting the border style on the text field will allow us to see it more easily
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.placeholder = @"Hypnotize me!";
+    textField.returnKeyType = UIReturnKeyDone;
+    
+    textField.delegate = self;
+    
+    [backgroundView addSubview:textField];
+    //EXERCISE 7 END
 }
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -68,6 +85,42 @@
         case 2:
             [hv setCircleColor:[UIColor blueColor]];
             break;
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+//    NSLog(@"%@", textField.text);
+    [textField resignFirstResponder];
+    if (![textField.text isEqualToString:@""])
+    {
+        [self drawHypnoticMessage:textField.text];
+        [textField setText:@""];
+        return YES;
+    }
+    else return NO;
+}
+
+- (void)drawHypnoticMessage:(NSString *)message
+{
+    for (int i = 0; i < 20; i++)
+    {
+        UILabel *messageLabel = [[UILabel alloc]init];
+        
+        messageLabel.backgroundColor = [UIColor clearColor];
+        messageLabel.textColor = [UIColor whiteColor];
+        messageLabel.text = message;
+        
+        [messageLabel sizeToFit];
+
+        int width = self.view.frame.size.width - messageLabel.bounds.size.width;
+        int x = arc4random() % width;
+        int height = self.view.frame.size.height - messageLabel.bounds.size.height;
+        int y = arc4random() % height;
+        
+        [messageLabel setFrame:CGRectMake(x, y, messageLabel.bounds.size.width, messageLabel.bounds.size.height)];
+        
+        [self.view addSubview:messageLabel];
     }
 }
 @end
