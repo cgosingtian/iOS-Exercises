@@ -9,6 +9,7 @@
 #import "KLBAppDelegate.h"
 #import "KLBHypnosisViewController.h"
 #import "KLBReminderViewController.h"
+#import "KLBQuizViewController.h"
 
 @implementation KLBAppDelegate
 
@@ -17,15 +18,18 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    KLBHypnosisViewController *hvc = [[KLBHypnosisViewController alloc]init];
-    
     //pointer to object that represents main bundle
     NSBundle *appBundle = [NSBundle mainBundle];
     
-    KLBReminderViewController *rvc = [[KLBReminderViewController alloc] initWithNibName:@"KLBReminderViewController" bundle:appBundle];
+    KLBHypnosisViewController *hvc = [[KLBHypnosisViewController alloc]init];
     
+    //KLBReminderViewController *rvc = [[KLBReminderViewController alloc]initWithNibName:@"KLBReminderViewController" bundle:appBundle];
+    KLBReminderViewController *rvc = [[KLBReminderViewController alloc]init];
+    
+    KLBQuizViewController *qvc = [[KLBQuizViewController alloc]init];
+        
     UITabBarController *tbc = [[UITabBarController alloc]init];
-    tbc.viewControllers = @[hvc,rvc];
+    tbc.viewControllers = @[hvc,rvc,qvc];
     
     [self.window setRootViewController:tbc];
     

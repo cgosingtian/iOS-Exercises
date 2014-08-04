@@ -18,6 +18,11 @@
 {
     NSDate *date = self.datePicker.date;
     NSLog(@"Setting a reminder for %@", date);
+    
+    UILocalNotification *note = [[UILocalNotification alloc] init];
+    note.alertBody = @"Hypnotize me!";
+    note.fireDate = date;
+    [[UIApplication sharedApplication] scheduleLocalNotification:note];
 }
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,6 +41,21 @@
     }
     
     return self;
+}
+
+- (void)viewDidLoad
+{
+    // Always call the super implementation of viewDidLoad
+    [super viewDidLoad];
+    NSLog(@"KLBReminderViewController loaded its view.");
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"override appear");
+    [super viewWillAppear:animated];
+    self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:60];
+//    [self.datePicker setMinimumDate:[NSDate dateWithTimeIntervalSinceNow:60]];
 }
 
 @end

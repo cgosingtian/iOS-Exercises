@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F73B3AB198F55A2003B2F22 /* KLBQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3A9198F55A2003B2F22 /* KLBQuizViewController.m */; };
+		4F73B3AC198F55A2003B2F22 /* KLBQuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F73B3AA198F55A2003B2F22 /* KLBQuizViewController.xib */; };
 		4F9B15FA198B83F700FB441A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9B15F9198B83F700FB441A /* Foundation.framework */; };
 		4F9B15FC198B83F700FB441A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9B15FB198B83F700FB441A /* CoreGraphics.framework */; };
 		4F9B15FE198B83F700FB441A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9B15FD198B83F700FB441A /* UIKit.framework */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F73B3A8198F55A2003B2F22 /* KLBQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBQuizViewController.h; sourceTree = "<group>"; };
+		4F73B3A9198F55A2003B2F22 /* KLBQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBQuizViewController.m; sourceTree = "<group>"; };
+		4F73B3AA198F55A2003B2F22 /* KLBQuizViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBQuizViewController.xib; sourceTree = "<group>"; };
 		4F9B15F6198B83F700FB441A /* HypnoNerd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypnoNerd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9B15F9198B83F700FB441A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F9B15FB198B83F700FB441A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +132,9 @@
 				4F9B1630198B88F600FB441A /* KLBReminderViewController.h */,
 				4F9B1631198B88F600FB441A /* KLBReminderViewController.m */,
 				4F9B1633198B897000FB441A /* KLBReminderViewController.xib */,
+				4F73B3A8198F55A2003B2F22 /* KLBQuizViewController.h */,
+				4F73B3A9198F55A2003B2F22 /* KLBQuizViewController.m */,
+				4F73B3AA198F55A2003B2F22 /* KLBQuizViewController.xib */,
 				4F9B160B198B83F700FB441A /* Images.xcassets */,
 				4F9B1600198B83F700FB441A /* Supporting Files */,
 			);
@@ -241,6 +249,7 @@
 				4F9B1634198B897000FB441A /* KLBReminderViewController.xib in Resources */,
 				4F9B1604198B83F700FB441A /* InfoPlist.strings in Resources */,
 				4F9B160C198B83F700FB441A /* Images.xcassets in Resources */,
+				4F73B3AC198F55A2003B2F22 /* KLBQuizViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F9B160A198B83F700FB441A /* KLBAppDelegate.m in Sources */,
+				4F73B3AB198F55A2003B2F22 /* KLBQuizViewController.m in Sources */,
 				4F9B162A198B847100FB441A /* KLBHypnosisView.m in Sources */,
 				4F9B1606198B83F700FB441A /* main.m in Sources */,
 				4F9B1632198B88F600FB441A /* KLBReminderViewController.m in Sources */,
@@ -460,6 +470,7 @@
 				4F9B1624198B83F700FB441A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F9B1625198B83F700FB441A /* Build configuration list for PBXNativeTarget "HypnoNerdTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +479,7 @@
 				4F9B1627198B83F700FB441A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

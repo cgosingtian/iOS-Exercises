@@ -22,7 +22,7 @@
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
+
     if (self)
     {
         //tab bar item's title
@@ -37,4 +37,10 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    // Always call the super implementation of viewDidLoad
+    [super viewDidLoad];
+    NSLog(@"KLBHypnosisViewController loaded its view.");
+}
 @end
