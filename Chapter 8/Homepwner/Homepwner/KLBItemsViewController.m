@@ -60,6 +60,8 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+    UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo.png"]];
+    [self.tableView setBackgroundView:bg];
 }
 
 - (void)addRandomItem
@@ -69,4 +71,20 @@
     NSLog(@"touch");
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([indexPath row] == [[[KLBItemStore sharedStore] allItems] count] - 1)
+    {
+        return 44.0;
+    }
+    else return 60.0;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row != [[[KLBItemStore sharedStore] allItems] count] - 1)
+    {
+        [[cell textLabel] setFont:[UIFont fontWithName:nil size:20]];
+    }
+}
 @end

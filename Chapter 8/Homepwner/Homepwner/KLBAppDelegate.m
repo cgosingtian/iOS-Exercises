@@ -20,6 +20,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     ivc = [[KLBItemsViewController alloc]init];
+    
+    [[ivc tableView] setRowHeight:60];
+    
     self.window.rootViewController = ivc;
     
     self.window.backgroundColor = [UIColor whiteColor];

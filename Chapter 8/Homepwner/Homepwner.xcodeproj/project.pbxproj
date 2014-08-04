@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F16B1E0198FA51A0058764E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F16B1DF198FA51A0058764E /* logo.png */; };
 		4F73B3BA198F8C95003B2F22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3B9198F8C95003B2F22 /* Foundation.framework */; };
 		4F73B3BC198F8C95003B2F22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3BB198F8C95003B2F22 /* CoreGraphics.framework */; };
 		4F73B3BE198F8C95003B2F22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3BD198F8C95003B2F22 /* UIKit.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F16B1DF198FA51A0058764E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		4F73B3B6198F8C95003B2F22 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F73B3B9198F8C95003B2F22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F73B3BB198F8C95003B2F22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,13 +119,14 @@
 			isa = PBXGroup;
 			children = (
 				4F73B3C8198F8C95003B2F22 /* KLBAppDelegate.h */,
+				4F73B3C9198F8C95003B2F22 /* KLBAppDelegate.m */,
 				4F73B3E8198F8DA2003B2F22 /* KLBItemsViewController.h */,
 				4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */,
-				4F73B3C9198F8C95003B2F22 /* KLBAppDelegate.m */,
 				4F73B3EE198F8FC3003B2F22 /* KLBItem.h */,
 				4F73B3EF198F8FC3003B2F22 /* KLBItem.m */,
 				4F73B3F1198F90D2003B2F22 /* KLBItemStore.h */,
 				4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */,
+				4F16B1DF198FA51A0058764E /* logo.png */,
 				4F73B3CB198F8C95003B2F22 /* Images.xcassets */,
 				4F73B3C0198F8C95003B2F22 /* Supporting Files */,
 			);
@@ -237,6 +240,7 @@
 			files = (
 				4F73B3C4198F8C95003B2F22 /* InfoPlist.strings in Resources */,
 				4F73B3CC198F8C95003B2F22 /* Images.xcassets in Resources */,
+				4F16B1E0198FA51A0058764E /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +460,7 @@
 				4F73B3E4198F8C95003B2F22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F73B3E5198F8C95003B2F22 /* Build configuration list for PBXNativeTarget "HomepwnerTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +469,7 @@
 				4F73B3E7198F8C95003B2F22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
