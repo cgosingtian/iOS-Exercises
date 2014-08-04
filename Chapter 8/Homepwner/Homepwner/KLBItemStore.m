@@ -19,6 +19,7 @@
 {
     KLBItem *item = [KLBItem randomItem];
     [self.privateItems addObject:item];
+    NSLog(@"Adding %@",item);
     return item;
 }
 
@@ -55,6 +56,8 @@
 
 - (NSArray *)allItems
 {
-    return [self.privateItems copy];
+    NSMutableArray *arrCopy = [self.privateItems mutableCopy];
+    [arrCopy addObject:@"No more items!"];
+    return arrCopy;
 }
 @end

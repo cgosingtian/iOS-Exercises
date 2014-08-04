@@ -11,6 +11,6 @@
 
 @interface KLBItemsViewController : UITableViewController <UITableViewDataSource>
 
-
+-(void)addRandomItem;
 
 @end

@@ -9,13 +9,17 @@
 #import "KLBAppDelegate.h"
 #import "KLBItemsViewController.h"
 
-@implementation KLBAppDelegate
+@interface KLBAppDelegate ()
+@property (nonatomic) KLBItemsViewController *ivc;
+@end
 
+@implementation KLBAppDelegate
+@synthesize ivc;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    KLBItemsViewController *ivc = [[KLBItemsViewController alloc]init];
+    ivc = [[KLBItemsViewController alloc]init];
     self.window.rootViewController = ivc;
     
     self.window.backgroundColor = [UIColor whiteColor];
@@ -48,6 +52,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [ivc addRandomItem];
+    [(UITableView *)ivc.view reloadData];
 }
 
 @end
