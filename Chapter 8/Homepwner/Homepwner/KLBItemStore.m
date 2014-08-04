@@ -7,7 +7,54 @@
 //
 
 #import "KLBItemStore.h"
+#import "KLBItem.h"
+
+@interface KLBItemStore ()
+@property (nonatomic) NSMutableArray *privateItems;
+@end
 
 @implementation KLBItemStore
 
+- (KLBItem *)createItem
+{
+    KLBItem *item = [KLBItem randomItem];
+    [self.privateItems addObject:item];
+    return item;
+}
+
++ (instancetype)sharedStore
+{
+    static KLBItemStore *sharedStore;
+    
+    if (!sharedStore)
+    {
+        sharedStore = [[self alloc] initPrivate];
+    }
+    
+    return sharedStore;
+}
+
+// If a programmer calls [[BNRItemStore alloc] init], let him
+// know the error of his ways
+- (instancetype)init
+{
+    [NSException raise:@"Singleton"
+                format:@"Use +[BNRItemStore sharedStore]"];
+    return nil;
+}
+
+// Here is the real (secret) initializer
+- (instancetype)initPrivate
+{
+    self = [super init];
+    if (self) {
+        _privateItems = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+- (NSArray *)allItems
+{
+    return [self.privateItems copy];
+}
 @end
