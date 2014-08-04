@@ -120,6 +120,17 @@
         
         [messageLabel setFrame:CGRectMake(x, y, messageLabel.bounds.size.width, messageLabel.bounds.size.height)];
         
+        UIInterpolatingMotionEffect *motionEffect = [[UIInterpolatingMotionEffect alloc]initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        motionEffect.minimumRelativeValue = @-25;
+        motionEffect.maximumRelativeValue = @25;
+        [messageLabel addMotionEffect:motionEffect];
+        
+        motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y"
+            type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        motionEffect.minimumRelativeValue = @-25;
+        motionEffect.maximumRelativeValue = @25;
+        [messageLabel addMotionEffect:motionEffect];
+        
         [self.view addSubview:messageLabel];
     }
 }

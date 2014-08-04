@@ -16,6 +16,8 @@
 
 @implementation KLBHypnosisView
 
+@synthesize sv;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -23,6 +25,11 @@
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
         self.circleColor = [UIColor lightGrayColor];
+        
+        sv = [[UIScrollView alloc] initWithFrame:frame];
+        [sv setPagingEnabled:NO];
+        [sv setMaximumZoomScale:99.0];
+        [self addSubview:sv];
     }
     return self;
 }

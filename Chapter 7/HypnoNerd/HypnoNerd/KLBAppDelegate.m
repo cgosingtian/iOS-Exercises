@@ -10,8 +10,15 @@
 #import "KLBHypnosisViewController.h"
 #import "KLBReminderViewController.h"
 #import "KLBQuizViewController.h"
+#import "KLBHypnosisView.h"
+
+@interface KLBAppDelegate ()
+@property (nonatomic,strong) KLBHypnosisViewController *hvc;
+@end
 
 @implementation KLBAppDelegate
+
+@synthesize hvc;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,8 +28,9 @@
     //pointer to object that represents main bundle
     //NSBundle *appBundle = [NSBundle mainBundle];
     
-    KLBHypnosisViewController *hvc = [[KLBHypnosisViewController alloc]init];
-    
+    hvc = [[KLBHypnosisViewController alloc]init];
+    [[(KLBHypnosisView *)hvc.view sv] setDelegate:self];
+        
     //KLBReminderViewController *rvc = [[KLBReminderViewController alloc]initWithNibName:@"KLBReminderViewController" bundle:appBundle];
     KLBReminderViewController *rvc = [[KLBReminderViewController alloc]init];
     
@@ -30,6 +38,7 @@
         
     UITabBarController *tbc = [[UITabBarController alloc]init];
     tbc.viewControllers = @[hvc,rvc,qvc];
+    //    [self.window addSubview:sv];
     
     [self.window setRootViewController:tbc];
     
@@ -63,6 +72,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return hvc.view;
 }
 
 @end

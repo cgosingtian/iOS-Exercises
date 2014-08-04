@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KLBAppDelegate : UIResponder <UIApplicationDelegate>
+@interface KLBAppDelegate : UIResponder <UIApplicationDelegate,UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
