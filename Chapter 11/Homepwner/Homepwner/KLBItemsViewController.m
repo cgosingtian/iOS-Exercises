@@ -208,17 +208,23 @@
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KLBDetailViewController *detailViewController =
-    [[KLBDetailViewController alloc] init];
+    if (indexPath.row != [[[KLBItemStore sharedStore] allItems] count]-1)
+    {
+        KLBDetailViewController *detailViewController = [[KLBDetailViewController alloc] init];
     
-    NSArray *items = [[KLBItemStore sharedStore] allItems];
-    KLBItem *selectedItem = [items objectAtIndex:indexPath.row];
+        NSArray *items = [[KLBItemStore sharedStore] allItems];
+        KLBItem *selectedItem = [items objectAtIndex:indexPath.row];
     
-    detailViewController.item = selectedItem;
+        detailViewController.item = selectedItem;
     
-    // Push it onto the top of the navigation controller's stack
-    [self.navigationController pushViewController:detailViewController
-                                         animated:YES];
+        // Push it onto the top of the navigation controller's stack
+        [self.navigationController pushViewController:detailViewController
+                                             animated:YES];
+    }
+    else
+    {
+        [self resignFirstResponder];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -10,11 +10,13 @@
 #import "KLBDateViewController.h"
 #import "KLBItem.h"
 
-@interface KLBDetailViewController ()
+@interface KLBDetailViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @end
 
@@ -70,6 +72,24 @@
     dvc.item = self.item;
     
     [self.navigationController pushViewController:dvc animated:YES];
+}
+
+- (IBAction)takePicture:(id)sender {
+    UIImagePickerController *picControl = [[UIImagePickerController alloc]init];
+    
+    // If the device has a camera, take a picture, otherwise,
+    // just pick from photo library
+    if ([UIImagePickerController
+         isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        picControl.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        picControl.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    picControl.delegate = self;
+    
+    //present image picker to screen
+    [self presentViewController:picControl animated:YES completion:NULL];
 }
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
