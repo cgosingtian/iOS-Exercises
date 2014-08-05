@@ -7,6 +7,7 @@
 //
 
 #import "KLBDetailViewController.h"
+#import "KLBDateViewController.h"
 #import "KLBItem.h"
 
 @interface KLBDetailViewController ()
@@ -62,6 +63,13 @@
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.valueField resignFirstResponder];
+}
+- (IBAction)changeDate:(id)sender {
+    KLBDateViewController *dvc = [[KLBDateViewController alloc]init];
+    
+    dvc.item = self.item;
+    
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
