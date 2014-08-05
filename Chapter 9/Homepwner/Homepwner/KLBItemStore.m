@@ -65,4 +65,10 @@
     [arrCopy addObject:@"No more items!"];
     return arrCopy;
 }
+
+- (void)moveItemAtIndex:(NSUInteger)fromIndex
+                toIndex:(NSUInteger)toIndex
+{
+    [self.privateItems exchangeObjectAtIndex:fromIndex withObjectAtIndex:toIndex];
+}
 @end

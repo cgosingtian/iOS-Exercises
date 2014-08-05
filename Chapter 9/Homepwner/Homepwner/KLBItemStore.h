@@ -17,5 +17,7 @@
 +(instancetype)sharedStore;
 -(KLBItem *)createItem;
 -(void)removeItem:(KLBItem *)item;
+- (void)moveItemAtIndex:(NSUInteger)fromIndex
+                toIndex:(NSUInteger)toIndex;
 
 @end

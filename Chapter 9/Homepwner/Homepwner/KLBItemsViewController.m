@@ -162,4 +162,26 @@
     else return true;
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    if (destinationIndexPath.row != [[[KLBItemStore sharedStore] allItems] count]-1)
+    {
+        [[KLBItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row
+                                            toIndex:destinationIndexPath.row];
+    }
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    //prevent user from moving an item to the last row that has "No more items!" message
+    if(proposedDestinationIndexPath.row == [[[KLBItemStore sharedStore] allItems] count]-1)
+    {
+        return sourceIndexPath;
+    }
+    else
+    {
+        return proposedDestinationIndexPath;
+    }
+}
+
 @end
