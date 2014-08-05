@@ -51,6 +51,12 @@
     item.valueInDollars = [self.valueField.text intValue];
 }
 
+- (void)setItem:(KLBItem *)item
+{
+    _item = item;
+    self.navigationItem.title = item.itemName;
+}
+
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{
 //    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
