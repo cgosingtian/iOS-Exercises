@@ -33,6 +33,9 @@
         // Set this bar button item as the right item in the navigationItem
         navItem.rightBarButtonItem = bbi;
         
+        //creates a button for you with selector that activates set editing
+        navItem.leftBarButtonItem = self.editButtonItem;
+        
 //        for (int i = 0; i < 5; i++) {
 //            [[KLBItemStore sharedStore] createItem];
 //        }
@@ -80,8 +83,8 @@
            forCellReuseIdentifier:@"UITableViewCell"];
     UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo.png"]];
     
-    UIView *header = self.headerView;
-    [self.tableView setTableHeaderView:header];
+//    UIView *header = self.headerView;
+//    [self.tableView setTableHeaderView:header];
     
     [self.tableView setBackgroundView:bg];
 }
@@ -120,40 +123,40 @@
     }
 }
 
-- (UIView *)headerView
-{
-    // If you have not loaded the headerView yet...
-    if (!_headerView) {
-        // Load HeaderView.xib
-        [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
-                                      owner:self
-                                    options:nil];
-    }
-    
-    if (!_headerView) NSLog(@"nullll");
-    return _headerView;
-}
+//- (UIView *)headerView
+//{
+//    // If you have not loaded the headerView yet...
+//    if (!_headerView) {
+//        // Load HeaderView.xib
+//        [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
+//                                      owner:self
+//                                    options:nil];
+//    }
+//    
+//    if (!_headerView) NSLog(@"nullll");
+//    return _headerView;
+//}
 
 - (IBAction)addNewItem:(id)sender
 {
     [self addRandomItem];
 }
 
-- (IBAction)toggleEditingMode:(id)sender
-{
-    // If you are currently in editing mode...
-    if (self.isEditing) {
-        // Change text of button to inform user of state
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-        // Turn off editing mode
-        [self setEditing:NO animated:YES];
-    } else {
-        // Change text of button to inform user of state
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-        // Enter editing mode
-        [self setEditing:YES animated:YES];
-    }
-}
+//- (IBAction)toggleEditingMode:(id)sender
+//{
+//    // If you are currently in editing mode...
+//    if (self.isEditing) {
+//        // Change text of button to inform user of state
+//        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+//        // Turn off editing mode
+//        [self setEditing:NO animated:YES];
+//    } else {
+//        // Change text of button to inform user of state
+//        [sender setTitle:@"Done" forState:UIControlStateNormal];
+//        // Enter editing mode
+//        [self setEditing:YES animated:YES];
+//    }
+//}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
