@@ -28,6 +28,8 @@
     self.serialField.text = item.serialNumber;
     self.valueField.text = [NSString stringWithFormat:@"%d",item.valueInDollars];
     
+    [self.valueField setKeyboardType:UIKeyboardTypeNumberPad];
+    
     static NSDateFormatter *dateFormatter;
     if (!dateFormatter)
     {
