@@ -14,5 +14,5 @@
 -(void)addRandomItem;
 
 - (IBAction)addNewItem:(id)sender;
-- (IBAction)toggleEditingMode:(id)sender;
+//- (IBAction)toggleEditingMode:(id)sender;
 @end

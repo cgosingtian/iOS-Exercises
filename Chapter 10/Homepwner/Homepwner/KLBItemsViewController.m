@@ -12,7 +12,7 @@
 #import "KLBItemStore.h"
 
 @interface KLBItemsViewController ()
-@property (nonatomic, strong) IBOutlet UIView *headerView; //strong because top-level view; weak otherwise
+//@property (nonatomic, strong) IBOutlet UIView *headerView; //strong because top-level view; weak otherwise
 @end
 
 @implementation KLBItemsViewController
@@ -29,7 +29,7 @@
         UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                 target:self
-                                action:@selector(addRandomItem)];
+                                action:@selector(addNewItem:)];
         // Set this bar button item as the right item in the navigationItem
         navItem.rightBarButtonItem = bbi;
         
