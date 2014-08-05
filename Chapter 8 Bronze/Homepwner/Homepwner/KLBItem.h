@@ -15,6 +15,7 @@
     int _valueInDollars;
     NSDate *_dateCreated;
 }
+//@property (nonatomic) NSInteger valueInDollars;
 
 + (instancetype)randomItem;
 
@@ -31,7 +32,7 @@
 - (void)setSerialNumber:(NSString *)str;
 - (NSString *)serialNumber;
 
-- (void)setValueInDollars:(int)v;
+- (void)setValueInDollars:(int)value;
 - (int)valueInDollars;
 
 - (NSDate *)dateCreated;

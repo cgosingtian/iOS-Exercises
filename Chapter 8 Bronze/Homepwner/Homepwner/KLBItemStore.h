@@ -16,5 +16,7 @@
 
 +(instancetype)sharedStore;
 -(KLBItem *)createItem;
+-(NSArray *)filteredItemsWithValueInDollarGreaterThan:(NSInteger)num;
+-(NSArray *)filteredItemsWithValueInDollarLessThanEqualTo:(NSInteger)num;
 
 @end

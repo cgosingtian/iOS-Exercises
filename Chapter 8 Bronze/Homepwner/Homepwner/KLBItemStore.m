@@ -58,6 +58,23 @@
 {
     NSMutableArray *arrCopy = [self.privateItems mutableCopy];
     [arrCopy addObject:@"No more items!"];
-    return arrCopy;
+    return [arrCopy copy];
+}
+
+- (NSArray *)filteredItemsWithValueInDollarGreaterThan:(NSInteger)num
+{
+    NSMutableArray *arrCopy = [self.privateItems mutableCopy];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"valueInDollars > %d",num];
+    [arrCopy filterUsingPredicate:filter];
+    [arrCopy addObject:@"No more items!"];
+    return [arrCopy copy];
+}
+- (NSArray *)filteredItemsWithValueInDollarLessThanEqualTo:(NSInteger)num
+{
+    NSMutableArray *arrCopy = [self.privateItems mutableCopy];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"valueInDollars <= %d",num];
+    [arrCopy filterUsingPredicate:filter];
+    [arrCopy addObject:@"No more items!"];
+    return [arrCopy copy];
 }
 @end

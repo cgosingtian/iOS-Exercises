@@ -10,6 +10,8 @@
 
 @implementation KLBItem
 
+//@synthesize valueInDollars;
+
 + (instancetype)randomItem
 {
     // Create an immutable array of three adjectives
@@ -101,9 +103,9 @@
     return _serialNumber;
 }
 
-- (void)setValueInDollars:(int)v
+- (void)setValueInDollars:(int)value
 {
-    _valueInDollars = v;
+    _valueInDollars = value;
 }
 
 - (int)valueInDollars
