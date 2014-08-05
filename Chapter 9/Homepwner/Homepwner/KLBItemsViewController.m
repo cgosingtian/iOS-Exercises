@@ -184,4 +184,9 @@
     }
 }
 
+//bronze challenge
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"Remove";
+}
+
 @end
