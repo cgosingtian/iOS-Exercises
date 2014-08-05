@@ -57,10 +57,10 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [ivc addRandomItem];
-    [(UITableView *)ivc.view reloadData];
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [ivc addRandomItem];
+//    [(UITableView *)ivc.view reloadData];
+//}
 
 @end

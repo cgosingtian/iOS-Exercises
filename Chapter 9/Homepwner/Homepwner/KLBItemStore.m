@@ -23,6 +23,11 @@
     return item;
 }
 
+-(void)removeItem:(KLBItem *)item
+{
+    [self.privateItems removeObjectIdenticalTo:item];
+}
+
 + (instancetype)sharedStore
 {
     static KLBItemStore *sharedStore;

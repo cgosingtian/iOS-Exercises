@@ -16,5 +16,6 @@
 
 +(instancetype)sharedStore;
 -(KLBItem *)createItem;
+-(void)removeItem:(KLBItem *)item;
 
 @end

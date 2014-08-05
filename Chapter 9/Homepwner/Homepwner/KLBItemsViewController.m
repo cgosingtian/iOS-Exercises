@@ -19,10 +19,11 @@
 -(instancetype)init
 {
     self = [super initWithStyle:UITableViewStylePlain];
-    if (self) {\
-        for (int i = 0; i < 5; i++) {
-            [[KLBItemStore sharedStore] createItem];
-        }
+    if (self) {
+//        for (int i = 0; i < 5; i++) {
+//            [[KLBItemStore sharedStore] createItem];
+//        }
+        
     }
     return self;
 }
@@ -139,6 +140,26 @@
         // Enter editing mode
         [self setEditing:YES animated:YES];
     }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // If the table view is asking to commit a delete command...
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSArray *items = [[KLBItemStore sharedStore] allItems];
+        KLBItem *item = items[indexPath.row];
+        [[KLBItemStore sharedStore] removeItem:item];
+        // Also remove that row from the table view with an animation
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == [[[KLBItemStore sharedStore] allItems] count]-1)
+        return false;
+    else return true;
 }
 
 @end
