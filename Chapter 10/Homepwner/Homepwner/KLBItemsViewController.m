@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 KLab Cyscorpions, Inc. All rights reserved.
 //
 
+#import "KLBDetailViewController.h"
 #import "KLBItemsViewController.h"
 #import "KLBItem.h"
 #import "KLBItemStore.h"
@@ -187,6 +188,28 @@
 //bronze challenge
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"Remove";
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    KLBDetailViewController *detailViewController =
+    [[KLBDetailViewController alloc] init];
+    
+    NSArray *items = [[KLBItemStore sharedStore] allItems];
+    KLBItem *selectedItem = [items objectAtIndex:indexPath.row];
+    
+    detailViewController.item = selectedItem;
+    
+    // Push it onto the top of the navigation controller's stack
+    [self.navigationController pushViewController:detailViewController
+                                         animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 @end

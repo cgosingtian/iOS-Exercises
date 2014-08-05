@@ -24,6 +24,8 @@
 		4F73B3F0198F8FC3003B2F22 /* KLBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3EF198F8FC3003B2F22 /* KLBItem.m */; };
 		4F73B3F3198F90D2003B2F22 /* KLBItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */; };
 		4FF50DEA19908F9C00AB01D8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF50DE919908F9C00AB01D8 /* HeaderView.xib */; };
+		4FF50DEE1990B77600AB01D8 /* KLBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */; };
+		4FF50DEF1990B77600AB01D8 /* KLBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		4F73B3F1198F90D2003B2F22 /* KLBItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItemStore.h; sourceTree = "<group>"; };
 		4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItemStore.m; sourceTree = "<group>"; };
 		4FF50DE919908F9C00AB01D8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		4FF50DEB1990B77600AB01D8 /* KLBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBDetailViewController.h; sourceTree = "<group>"; };
+		4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBDetailViewController.m; sourceTree = "<group>"; };
+		4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +127,9 @@
 			children = (
 				4F73B3C8198F8C95003B2F22 /* KLBAppDelegate.h */,
 				4F73B3C9198F8C95003B2F22 /* KLBAppDelegate.m */,
+				4FF50DEB1990B77600AB01D8 /* KLBDetailViewController.h */,
+				4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */,
+				4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */,
 				4F73B3E8198F8DA2003B2F22 /* KLBItemsViewController.h */,
 				4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */,
 				4FF50DE919908F9C00AB01D8 /* HeaderView.xib */,
@@ -241,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF50DEF1990B77600AB01D8 /* KLBDetailViewController.xib in Resources */,
 				4F73B3C4198F8C95003B2F22 /* InfoPlist.strings in Resources */,
 				4F73B3CC198F8C95003B2F22 /* Images.xcassets in Resources */,
 				4F16B1E0198FA51A0058764E /* logo.png in Resources */,
@@ -266,6 +275,7 @@
 				4F73B3CA198F8C95003B2F22 /* KLBAppDelegate.m in Sources */,
 				4F73B3F0198F8FC3003B2F22 /* KLBItem.m in Sources */,
 				4F73B3F3198F90D2003B2F22 /* KLBItemStore.m in Sources */,
+				4FF50DEE1990B77600AB01D8 /* KLBDetailViewController.m in Sources */,
 				4F73B3EA198F8DA2003B2F22 /* KLBItemsViewController.m in Sources */,
 				4F73B3C6198F8C95003B2F22 /* main.m in Sources */,
 			);

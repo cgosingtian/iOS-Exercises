@@ -23,7 +23,9 @@
     
     [[ivc tableView] setRowHeight:60];
     
-    self.window.rootViewController = ivc;
+    UINavigationController *unc = [[UINavigationController alloc]initWithRootViewController:ivc];
+    
+    self.window.rootViewController = unc;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
