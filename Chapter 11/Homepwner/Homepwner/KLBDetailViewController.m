@@ -65,11 +65,11 @@
     self.navigationItem.title = item.itemName;
 }
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    //[self.valueField resignFirstResponder];
-    [self.view endEditing:YES];
-}
+//- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    //[self.valueField resignFirstResponder];
+//    [self.view endEditing:YES];
+//}
 - (IBAction)changeDate:(id)sender {
     KLBDateViewController *dvc = [[KLBDateViewController alloc]init];
     
@@ -91,6 +91,7 @@
     }
     
     picControl.delegate = self;
+    picControl.allowsEditing = YES;
     
     //present image picker to screen
     [self presentViewController:picControl animated:YES completion:NULL];
@@ -100,7 +101,7 @@
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     // Get picked image from info dictionary
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    UIImage *image = info[UIImagePickerControllerEditedImage];
     // Put that image onto the screen in our image view
     self.imageView.image = image;
     
@@ -115,6 +116,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [textField resignFirstResponder];
     return YES;
+}
+- (IBAction)backgroundTapped:(id)sender {
+    [self.view endEditing:YES];
 }
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
