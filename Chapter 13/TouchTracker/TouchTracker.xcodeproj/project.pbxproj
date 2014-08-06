@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F5E2EF81991D2310085BB5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5E2EF71991D2310085BB5C /* Foundation.framework */; };
+		4F5E2EFA1991D2310085BB5C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5E2EF91991D2310085BB5C /* CoreGraphics.framework */; };
+		4F5E2EFC1991D2310085BB5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5E2EFB1991D2310085BB5C /* UIKit.framework */; };
+		4F5E2F021991D2310085BB5C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F5E2F001991D2310085BB5C /* InfoPlist.strings */; };
+		4F5E2F041991D2310085BB5C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F031991D2310085BB5C /* main.m */; };
+		4F5E2F081991D2310085BB5C /* KLBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F071991D2310085BB5C /* KLBAppDelegate.m */; };
+		4F5E2F0A1991D2310085BB5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F5E2F091991D2310085BB5C /* Images.xcassets */; };
+		4F5E2F111991D2310085BB5C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5E2F101991D2310085BB5C /* XCTest.framework */; };
+		4F5E2F121991D2310085BB5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5E2EF71991D2310085BB5C /* Foundation.framework */; };
+		4F5E2F131991D2310085BB5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5E2EFB1991D2310085BB5C /* UIKit.framework */; };
+		4F5E2F1B1991D2310085BB5C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F5E2F191991D2310085BB5C /* InfoPlist.strings */; };
+		4F5E2F1D1991D2310085BB5C /* TouchTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F1C1991D2310085BB5C /* TouchTrackerTests.m */; };
+		4F5E2F2C1991D29A0085BB5C /* KLBLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F2B1991D29A0085BB5C /* KLBLine.m */; };
+		4F5E2F311991D31D0085BB5C /* KLBDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F301991D31D0085BB5C /* KLBDrawView.m */; };
+		4F5E2F341991D3480085BB5C /* KLBDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F331991D3480085BB5C /* KLBDrawViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F5E2F141991D2310085BB5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F5E2EEC1991D2310085BB5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F5E2EF31991D2310085BB5C;
+			remoteInfo = TouchTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4F5E2EF41991D2310085BB5C /* TouchTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F5E2EF71991D2310085BB5C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4F5E2EF91991D2310085BB5C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4F5E2EFB1991D2310085BB5C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4F5E2EFF1991D2310085BB5C /* TouchTracker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TouchTracker-Info.plist"; sourceTree = "<group>"; };
+		4F5E2F011991D2310085BB5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4F5E2F031991D2310085BB5C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4F5E2F051991D2310085BB5C /* TouchTracker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouchTracker-Prefix.pch"; sourceTree = "<group>"; };
+		4F5E2F061991D2310085BB5C /* KLBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLBAppDelegate.h; sourceTree = "<group>"; };
+		4F5E2F071991D2310085BB5C /* KLBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLBAppDelegate.m; sourceTree = "<group>"; };
+		4F5E2F091991D2310085BB5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4F5E2F0F1991D2310085BB5C /* TouchTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F5E2F101991D2310085BB5C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4F5E2F181991D2310085BB5C /* TouchTrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TouchTrackerTests-Info.plist"; sourceTree = "<group>"; };
+		4F5E2F1A1991D2310085BB5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4F5E2F1C1991D2310085BB5C /* TouchTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchTrackerTests.m; sourceTree = "<group>"; };
+		4F5E2F2A1991D29A0085BB5C /* KLBLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBLine.h; sourceTree = "<group>"; };
+		4F5E2F2B1991D29A0085BB5C /* KLBLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBLine.m; sourceTree = "<group>"; };
+		4F5E2F2F1991D31D0085BB5C /* KLBDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KLBDrawView.h; path = TouchTracker/Views/KLBDrawView.h; sourceTree = SOURCE_ROOT; };
+		4F5E2F301991D31D0085BB5C /* KLBDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KLBDrawView.m; path = TouchTracker/Views/KLBDrawView.m; sourceTree = SOURCE_ROOT; };
+		4F5E2F321991D3480085BB5C /* KLBDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBDrawViewController.h; sourceTree = "<group>"; };
+		4F5E2F331991D3480085BB5C /* KLBDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBDrawViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F5E2EF11991D2310085BB5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F5E2EFA1991D2310085BB5C /* CoreGraphics.framework in Frameworks */,
+				4F5E2EFC1991D2310085BB5C /* UIKit.framework in Frameworks */,
+				4F5E2EF81991D2310085BB5C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F5E2F0C1991D2310085BB5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F5E2F111991D2310085BB5C /* XCTest.framework in Frameworks */,
+				4F5E2F131991D2310085BB5C /* UIKit.framework in Frameworks */,
+				4F5E2F121991D2310085BB5C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F5E2EEB1991D2310085BB5C = {
+			isa = PBXGroup;
+			children = (
+				4F5E2EFD1991D2310085BB5C /* TouchTracker */,
+				4F5E2F161991D2310085BB5C /* TouchTrackerTests */,
+				4F5E2EF61991D2310085BB5C /* Frameworks */,
+				4F5E2EF51991D2310085BB5C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4F5E2EF51991D2310085BB5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2EF41991D2310085BB5C /* TouchTracker.app */,
+				4F5E2F0F1991D2310085BB5C /* TouchTrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F5E2EF61991D2310085BB5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2EF71991D2310085BB5C /* Foundation.framework */,
+				4F5E2EF91991D2310085BB5C /* CoreGraphics.framework */,
+				4F5E2EFB1991D2310085BB5C /* UIKit.framework */,
+				4F5E2F101991D2310085BB5C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F5E2EFD1991D2310085BB5C /* TouchTracker */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F2E1991D2D20085BB5C /* Controllers */,
+				4F5E2F2D1991D2C40085BB5C /* Views */,
+				4F5E2F291991D29A0085BB5C /* Models */,
+				4F5E2F061991D2310085BB5C /* KLBAppDelegate.h */,
+				4F5E2F071991D2310085BB5C /* KLBAppDelegate.m */,
+				4F5E2F091991D2310085BB5C /* Images.xcassets */,
+				4F5E2EFE1991D2310085BB5C /* Supporting Files */,
+			);
+			path = TouchTracker;
+			sourceTree = "<group>";
+		};
+		4F5E2EFE1991D2310085BB5C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2EFF1991D2310085BB5C /* TouchTracker-Info.plist */,
+				4F5E2F001991D2310085BB5C /* InfoPlist.strings */,
+				4F5E2F031991D2310085BB5C /* main.m */,
+				4F5E2F051991D2310085BB5C /* TouchTracker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4F5E2F161991D2310085BB5C /* TouchTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F1C1991D2310085BB5C /* TouchTrackerTests.m */,
+				4F5E2F171991D2310085BB5C /* Supporting Files */,
+			);
+			path = TouchTrackerTests;
+			sourceTree = "<group>";
+		};
+		4F5E2F171991D2310085BB5C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F181991D2310085BB5C /* TouchTrackerTests-Info.plist */,
+				4F5E2F191991D2310085BB5C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4F5E2F291991D29A0085BB5C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F2A1991D29A0085BB5C /* KLBLine.h */,
+				4F5E2F2B1991D29A0085BB5C /* KLBLine.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F5E2F2D1991D2C40085BB5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F2F1991D31D0085BB5C /* KLBDrawView.h */,
+				4F5E2F301991D31D0085BB5C /* KLBDrawView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4F5E2F2E1991D2D20085BB5C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F321991D3480085BB5C /* KLBDrawViewController.h */,
+				4F5E2F331991D3480085BB5C /* KLBDrawViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F5E2EF31991D2310085BB5C /* TouchTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F5E2F201991D2320085BB5C /* Build configuration list for PBXNativeTarget "TouchTracker" */;
+			buildPhases = (
+				4F5E2EF01991D2310085BB5C /* Sources */,
+				4F5E2EF11991D2310085BB5C /* Frameworks */,
+				4F5E2EF21991D2310085BB5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TouchTracker;
+			productName = TouchTracker;
+			productReference = 4F5E2EF41991D2310085BB5C /* TouchTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4F5E2F0E1991D2310085BB5C /* TouchTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F5E2F231991D2320085BB5C /* Build configuration list for PBXNativeTarget "TouchTrackerTests" */;
+			buildPhases = (
+				4F5E2F0B1991D2310085BB5C /* Sources */,
+				4F5E2F0C1991D2310085BB5C /* Frameworks */,
+				4F5E2F0D1991D2310085BB5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F5E2F151991D2310085BB5C /* PBXTargetDependency */,
+			);
+			name = TouchTrackerTests;
+			productName = TouchTrackerTests;
+			productReference = 4F5E2F0F1991D2310085BB5C /* TouchTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F5E2EEC1991D2310085BB5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KLB;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "KLab Cyscorpions, Inc.";
+				TargetAttributes = {
+					4F5E2F0E1991D2310085BB5C = {
+						TestTargetID = 4F5E2EF31991D2310085BB5C;
+					};
+				};
+			};
+			buildConfigurationList = 4F5E2EEF1991D2310085BB5C /* Build configuration list for PBXProject "TouchTracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4F5E2EEB1991D2310085BB5C;
+			productRefGroup = 4F5E2EF51991D2310085BB5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F5E2EF31991D2310085BB5C /* TouchTracker */,
+				4F5E2F0E1991D2310085BB5C /* TouchTrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F5E2EF21991D2310085BB5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F5E2F021991D2310085BB5C /* InfoPlist.strings in Resources */,
+				4F5E2F0A1991D2310085BB5C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F5E2F0D1991D2310085BB5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F5E2F1B1991D2310085BB5C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F5E2EF01991D2310085BB5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F5E2F2C1991D29A0085BB5C /* KLBLine.m in Sources */,
+				4F5E2F081991D2310085BB5C /* KLBAppDelegate.m in Sources */,
+				4F5E2F341991D3480085BB5C /* KLBDrawViewController.m in Sources */,
+				4F5E2F311991D31D0085BB5C /* KLBDrawView.m in Sources */,
+				4F5E2F041991D2310085BB5C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F5E2F0B1991D2310085BB5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F5E2F1D1991D2310085BB5C /* TouchTrackerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F5E2F151991D2310085BB5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F5E2EF31991D2310085BB5C /* TouchTracker */;
+			targetProxy = 4F5E2F141991D2310085BB5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4F5E2F001991D2310085BB5C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F5E2F011991D2310085BB5C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4F5E2F191991D2310085BB5C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F5E2F1A1991D2310085BB5C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4F5E2F1E1991D2320085BB5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4F5E2F1F1991D2320085BB5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F5E2F211991D2320085BB5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TouchTracker/TouchTracker-Prefix.pch";
+				INFOPLIST_FILE = "TouchTracker/TouchTracker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4F5E2F221991D2320085BB5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TouchTracker/TouchTracker-Prefix.pch";
+				INFOPLIST_FILE = "TouchTracker/TouchTracker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4F5E2F241991D2320085BB5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TouchTracker.app/TouchTracker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TouchTracker/TouchTracker-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TouchTrackerTests/TouchTrackerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4F5E2F251991D2320085BB5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TouchTracker.app/TouchTracker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TouchTracker/TouchTracker-Prefix.pch";
+				INFOPLIST_FILE = "TouchTrackerTests/TouchTrackerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F5E2EEF1991D2310085BB5C /* Build configuration list for PBXProject "TouchTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F5E2F1E1991D2320085BB5C /* Debug */,
+				4F5E2F1F1991D2320085BB5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F5E2F201991D2320085BB5C /* Build configuration list for PBXNativeTarget "TouchTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F5E2F211991D2320085BB5C /* Debug */,
+				4F5E2F221991D2320085BB5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4F5E2F231991D2320085BB5C /* Build configuration list for PBXNativeTarget "TouchTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F5E2F241991D2320085BB5C /* Debug */,
+				4F5E2F251991D2320085BB5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F5E2EEC1991D2310085BB5C /* Project object */;
+}
