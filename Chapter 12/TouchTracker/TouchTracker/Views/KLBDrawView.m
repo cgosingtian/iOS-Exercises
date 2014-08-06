@@ -66,14 +66,29 @@
 - (void)drawRect:(CGRect)rect
 {
     // Draw finished lines in black
-    [[UIColor blackColor] set];
-    NSLog(@"1");
     for (KLBLine *line in self.finishedLines) {
-        NSLog(@"2");
+        int estimatedAngle = [self pointPairToBearingDegrees:line.begin secondPoint:line.end];
+        
+        if (estimatedAngle <= 90)
+        {
+            [[UIColor purpleColor] set];
+        } else if (estimatedAngle <= 180)
+        {
+            [[UIColor greenColor] set];
+        } else if (estimatedAngle <= 270)
+        {
+            [[UIColor blueColor] set];
+        } else if (estimatedAngle <= 360)
+        {
+            [[UIColor brownColor] set];
+        } else
+        {
+            [[UIColor blackColor] set];
+        }
+        
         [self strokeLine:line];
     }
     for (KLBLine *line in [self.linesInProgress allValues]) {
-        NSLog(@"3");
         // If there is a line currently being drawn, do it in red
         [[UIColor redColor] set];
         [self strokeLine:line];
@@ -133,6 +148,15 @@
         [self.linesInProgress removeObjectForKey:key];
     }
     [self setNeedsDisplay];
+}
+
+- (CGFloat) pointPairToBearingDegrees:(CGPoint)startingPoint secondPoint:(CGPoint) endingPoint
+{
+    CGPoint originPoint = CGPointMake(endingPoint.x - startingPoint.x, endingPoint.y - startingPoint.y); // get origin point to origin by subtracting end from start
+    float bearingRadians = atan2f(originPoint.y, originPoint.x); // get bearing in radians
+    float bearingDegrees = bearingRadians * (180.0 / M_PI); // convert to degrees
+    bearingDegrees = (bearingDegrees > 0.0 ? bearingDegrees : (360.0 + bearingDegrees)); // correct discontinuity
+    return bearingDegrees;
 }
 
 @end
