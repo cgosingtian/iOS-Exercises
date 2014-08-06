@@ -8,6 +8,7 @@
 
 #import "KLBItemStore.h"
 #import "KLBItem.h"
+#import "KLBImageStore.h"
 
 @interface KLBItemStore ()
 @property (nonatomic) NSMutableArray *privateItems;
@@ -25,6 +26,7 @@
 
 -(void)removeItem:(KLBItem *)item
 {
+    [[KLBImageStore sharedStore] deleteImageForKey:item.itemKey];
     [self.privateItems removeObjectIdenticalTo:item];
 }
 

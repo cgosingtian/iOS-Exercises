@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F16B1E0198FA51A0058764E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F16B1DF198FA51A0058764E /* logo.png */; };
+		4F5E2EEA1991BECC0085BB5C /* KLBImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */; };
 		4F73B3BA198F8C95003B2F22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3B9198F8C95003B2F22 /* Foundation.framework */; };
 		4F73B3BC198F8C95003B2F22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3BB198F8C95003B2F22 /* CoreGraphics.framework */; };
 		4F73B3BE198F8C95003B2F22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3BD198F8C95003B2F22 /* UIKit.framework */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		4F16B1DF198FA51A0058764E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		4F5E2EE81991BECC0085BB5C /* KLBImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBImageStore.h; sourceTree = "<group>"; };
+		4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBImageStore.m; sourceTree = "<group>"; };
 		4F73B3B6198F8C95003B2F22 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F73B3B9198F8C95003B2F22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F73B3BB198F8C95003B2F22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,6 +138,8 @@
 				4FF50DEB1990B77600AB01D8 /* KLBDetailViewController.h */,
 				4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */,
 				4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */,
+				4F5E2EE81991BECC0085BB5C /* KLBImageStore.h */,
+				4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */,
 				4FF50DF01990CD1D00AB01D8 /* KLBDateViewController.h */,
 				4FF50DF11990CD1D00AB01D8 /* KLBDateViewController.m */,
 				4FF50DF21990CD1D00AB01D8 /* KLBDateViewController.xib */,
@@ -284,6 +289,7 @@
 				4F73B3CA198F8C95003B2F22 /* KLBAppDelegate.m in Sources */,
 				4F73B3F0198F8FC3003B2F22 /* KLBItem.m in Sources */,
 				4F73B3F3198F90D2003B2F22 /* KLBItemStore.m in Sources */,
+				4F5E2EEA1991BECC0085BB5C /* KLBImageStore.m in Sources */,
 				4FF50DEE1990B77600AB01D8 /* KLBDetailViewController.m in Sources */,
 				4F73B3EA198F8DA2003B2F22 /* KLBItemsViewController.m in Sources */,
 				4F73B3C6198F8C95003B2F22 /* main.m in Sources */,

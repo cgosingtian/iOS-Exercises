@@ -10,6 +10,8 @@
 
 @implementation KLBItem
 
+@synthesize itemKey;
+
 + (instancetype)randomItem
 {
     // Create an immutable array of three adjectives
@@ -63,6 +65,10 @@
         _valueInDollars = value;
         // Set _dateCreated to the current date and time
         _dateCreated = [[NSDate alloc] init];
+        
+        //create nsuuid object and set as key
+        NSUUID *uuid = [[NSUUID alloc] init];
+        itemKey = [uuid UUIDString];
     }
 
     // Return the address of the newly initialized object

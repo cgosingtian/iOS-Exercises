@@ -9,8 +9,9 @@
 #import "KLBDetailViewController.h"
 #import "KLBDateViewController.h"
 #import "KLBItem.h"
+#import "KLBImageStore.h"
 
-@interface KLBDetailViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface KLBDetailViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
@@ -32,6 +33,8 @@
     self.valueField.text = [NSString stringWithFormat:@"%d",item.valueInDollars];
     
     [self.valueField setKeyboardType:UIKeyboardTypeNumberPad];
+    
+    self.imageView.image = [[KLBImageStore sharedStore] imageForKey:item.itemKey];
     
     static NSDateFormatter *dateFormatter;
     if (!dateFormatter)
@@ -64,7 +67,8 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.valueField resignFirstResponder];
+    //[self.valueField resignFirstResponder];
+    [self.view endEditing:YES];
 }
 - (IBAction)changeDate:(id)sender {
     KLBDateViewController *dvc = [[KLBDateViewController alloc]init];
@@ -90,6 +94,27 @@
     
     //present image picker to screen
     [self presentViewController:picControl animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // Get picked image from info dictionary
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    // Put that image onto the screen in our image view
+    self.imageView.image = image;
+    
+    [[KLBImageStore sharedStore] setImage:image forKey:self.item.itemKey];
+    
+    // Take image picker off the screen -
+    // you must call this dismiss method
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
