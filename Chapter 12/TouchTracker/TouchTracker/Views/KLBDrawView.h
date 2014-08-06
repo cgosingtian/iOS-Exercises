@@ -10,4 +10,8 @@
 
 @interface KLBDrawView : UIView
 
+- (NSArray *)finishedLinesImmutable;
+- (void)loadLines:(NSMutableArray *)lines;
+- (void)emptyLines;
+
 @end

@@ -19,6 +19,26 @@
 
 @implementation KLBDrawView
 
+- (void)emptyLines
+{
+    [self.finishedLines removeAllObjects];
+    NSLog(@"emptied");
+}
+
+- (NSArray *)finishedLinesImmutable
+{
+    return [self.finishedLines copy];
+}
+- (void)loadLines:(NSMutableArray *)lines
+{
+    NSLog(@"asdasds");
+    if (lines)
+    {
+        NSLog(@"lines exist");
+        self.finishedLines = lines;
+    }
+}
+
 - (instancetype) initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -47,10 +67,13 @@
 {
     // Draw finished lines in black
     [[UIColor blackColor] set];
+    NSLog(@"1");
     for (KLBLine *line in self.finishedLines) {
+        NSLog(@"2");
         [self strokeLine:line];
     }
     for (KLBLine *line in [self.linesInProgress allValues]) {
+        NSLog(@"3");
         // If there is a line currently being drawn, do it in red
         [[UIColor redColor] set];
         [self strokeLine:line];

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KLBLine : NSObject
+@interface KLBLine : NSObject <NSCoding>
 
 @property (nonatomic) CGPoint begin;
 @property (nonatomic) CGPoint end;

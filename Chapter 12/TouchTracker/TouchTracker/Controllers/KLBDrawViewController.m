@@ -8,12 +8,27 @@
 
 #import "KLBDrawViewController.h"
 #import "KLBDrawView.h"
+#import "KLBLine.h"
 
 @implementation KLBDrawViewController
 
 - (void)loadView
 {
     self.view = [[KLBDrawView alloc] initWithFrame:CGRectZero];
+}
+
+- (void)saveLines
+{
+}
+
+- (void)loadLines
+{
+}
+
+- (void)emptyLines
+{
+    KLBDrawView *drawView = (KLBDrawView *)self.view;
+    [drawView emptyLines];
 }
 
 @end

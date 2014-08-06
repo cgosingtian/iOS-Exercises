@@ -10,4 +10,8 @@
 
 @interface KLBDrawViewController : UIViewController
 
+- (void)saveLines;
+- (void)loadLines;
+- (void)emptyLines;
+
 @end
