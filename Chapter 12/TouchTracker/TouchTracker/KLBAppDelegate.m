@@ -7,13 +7,18 @@
 //
 
 #import "KLBAppDelegate.h"
+#import "KLBDrawViewController.h"
 
 @implementation KLBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
+    KLBDrawViewController *dvc = [[KLBDrawViewController alloc] init];
+    self.window.rootViewController = dvc;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

@@ -19,6 +19,9 @@
 		4F5E2F131991D2310085BB5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5E2EFB1991D2310085BB5C /* UIKit.framework */; };
 		4F5E2F1B1991D2310085BB5C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F5E2F191991D2310085BB5C /* InfoPlist.strings */; };
 		4F5E2F1D1991D2310085BB5C /* TouchTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F1C1991D2310085BB5C /* TouchTrackerTests.m */; };
+		4F5E2F2C1991D29A0085BB5C /* KLBLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F2B1991D29A0085BB5C /* KLBLine.m */; };
+		4F5E2F311991D31D0085BB5C /* KLBDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F301991D31D0085BB5C /* KLBDrawView.m */; };
+		4F5E2F341991D3480085BB5C /* KLBDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F331991D3480085BB5C /* KLBDrawViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,12 @@
 		4F5E2F181991D2310085BB5C /* TouchTrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TouchTrackerTests-Info.plist"; sourceTree = "<group>"; };
 		4F5E2F1A1991D2310085BB5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F5E2F1C1991D2310085BB5C /* TouchTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchTrackerTests.m; sourceTree = "<group>"; };
+		4F5E2F2A1991D29A0085BB5C /* KLBLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBLine.h; sourceTree = "<group>"; };
+		4F5E2F2B1991D29A0085BB5C /* KLBLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBLine.m; sourceTree = "<group>"; };
+		4F5E2F2F1991D31D0085BB5C /* KLBDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KLBDrawView.h; path = TouchTracker/Views/KLBDrawView.h; sourceTree = SOURCE_ROOT; };
+		4F5E2F301991D31D0085BB5C /* KLBDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KLBDrawView.m; path = TouchTracker/Views/KLBDrawView.m; sourceTree = SOURCE_ROOT; };
+		4F5E2F321991D3480085BB5C /* KLBDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBDrawViewController.h; sourceTree = "<group>"; };
+		4F5E2F331991D3480085BB5C /* KLBDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBDrawViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +116,9 @@
 		4F5E2EFD1991D2310085BB5C /* TouchTracker */ = {
 			isa = PBXGroup;
 			children = (
+				4F5E2F2E1991D2D20085BB5C /* Controllers */,
+				4F5E2F2D1991D2C40085BB5C /* Views */,
+				4F5E2F291991D29A0085BB5C /* Models */,
 				4F5E2F061991D2310085BB5C /* KLBAppDelegate.h */,
 				4F5E2F071991D2310085BB5C /* KLBAppDelegate.m */,
 				4F5E2F091991D2310085BB5C /* Images.xcassets */,
@@ -142,6 +154,33 @@
 				4F5E2F191991D2310085BB5C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4F5E2F291991D29A0085BB5C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F2A1991D29A0085BB5C /* KLBLine.h */,
+				4F5E2F2B1991D29A0085BB5C /* KLBLine.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F5E2F2D1991D2C40085BB5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F2F1991D31D0085BB5C /* KLBDrawView.h */,
+				4F5E2F301991D31D0085BB5C /* KLBDrawView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4F5E2F2E1991D2D20085BB5C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F321991D3480085BB5C /* KLBDrawViewController.h */,
+				4F5E2F331991D3480085BB5C /* KLBDrawViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F5E2F2C1991D29A0085BB5C /* KLBLine.m in Sources */,
 				4F5E2F081991D2310085BB5C /* KLBAppDelegate.m in Sources */,
+				4F5E2F341991D3480085BB5C /* KLBDrawViewController.m in Sources */,
+				4F5E2F311991D31D0085BB5C /* KLBDrawView.m in Sources */,
 				4F5E2F041991D2310085BB5C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
