@@ -120,6 +120,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 - (IBAction)backgroundTapped:(id)sender {
     [self.view endEditing:YES];
 }
+- (IBAction)clearImage:(id)sender {
+    self.imageView.image = nil;
+    [[KLBImageStore sharedStore] deleteImageForKey:self.item.itemKey];
+}
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{

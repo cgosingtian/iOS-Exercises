@@ -101,6 +101,11 @@
                                 <action selector="takePicture:" destination="-1" id="7yp-cu-QdF"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem systemItem="stop" id="skX-w5-NKS">
+                            <connections>
+                                <action selector="clearImage:" destination="-1" id="6WM-sH-X0G"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>
