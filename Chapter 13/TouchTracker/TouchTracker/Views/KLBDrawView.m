@@ -9,12 +9,13 @@
 #import "KLBDrawView.h"
 #import "KLBLine.h"
 
-@interface KLBDrawView ()
+@interface KLBDrawView () <UIGestureRecognizerDelegate>
 
 //@property (nonatomic,strong) KLBLine *currentLine;
 @property (nonatomic, strong) NSMutableDictionary *linesInProgress;
 @property (nonatomic,strong) NSMutableArray *finishedLines;
 @property (nonatomic, weak) KLBLine *selectedLine;
+@property (nonatomic, strong) UIPanGestureRecognizer *moveRecognizer;
 
 @end
 
@@ -63,9 +64,60 @@
         [tapRec requireGestureRecognizerToFail:doubleTapRec];
         [self addGestureRecognizer:tapRec];
         
+        UILongPressGestureRecognizer *pressRecognizer =
+        [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                      action:@selector(longPress:)];
+        [self addGestureRecognizer:pressRecognizer];
+        
+        self.moveRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                                      action:@selector(moveLine:)];
+        self.moveRecognizer.delegate = self;
+        self.moveRecognizer.cancelsTouchesInView = NO;
+        [self addGestureRecognizer:self.moveRecognizer];
+        
     } else NSLog(@"Failing init");
     
     return self;
+}
+
+- (void)moveLine:(UIPanGestureRecognizer *)gr
+{
+    // If we have not selected a line, we do not do anything here
+    if (!self.selectedLine) {
+        return;
+    }
+    // When the pan recognizer changes its position... (and the menu is not visible)
+    if (gr.state == UIGestureRecognizerStateChanged && ![[UIMenuController sharedMenuController] isMenuVisible]) {
+        // How far has the pan moved?
+        CGPoint translation = [gr translationInView:self];
+        // Add the translation to the current beginning and end points of the line
+        CGPoint begin = self.selectedLine.begin;
+        CGPoint end = self.selectedLine.end;
+        begin.x += translation.x;
+        begin.y += translation.y;
+        end.x += translation.x;
+        end.y += translation.y;
+        // Set the new beginning and end points of the line
+        self.selectedLine.begin = begin;
+        self.selectedLine.end = end;
+        // Redraw the screen
+        [self setNeedsDisplay];
+        [gr setTranslation:CGPointZero inView:self];
+    }
+}
+
+- (void)longPress:(UIGestureRecognizer*)gr
+{
+    if (gr.state == UIGestureRecognizerStateBegan) {
+        CGPoint point = [gr locationInView:self];
+        self.selectedLine = [self lineAtPoint:point];
+        if (self.selectedLine) {
+            [self.linesInProgress removeAllObjects];
+        }
+    } else if (gr.state == UIGestureRecognizerStateEnded) {
+        self.selectedLine = nil;
+    }
+    [self setNeedsDisplay];
 }
 
 - (void)doubleTap:(UIGestureRecognizer*)gr
@@ -259,5 +311,14 @@
 - (BOOL)canBecomeFirstResponder
 {
     return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)other
+{
+    if (gestureRecognizer == self.moveRecognizer) {
+        return YES;
+    }
+    return NO;
 }
 @end
