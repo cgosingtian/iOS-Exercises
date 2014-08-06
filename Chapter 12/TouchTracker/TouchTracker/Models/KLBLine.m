@@ -10,4 +10,6 @@
 
 @implementation KLBLine
 
+@synthesize begin,end;
+
 @end
