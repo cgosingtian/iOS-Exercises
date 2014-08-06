@@ -12,4 +12,9 @@
 
 @synthesize begin,end;
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"Begin: %f,%f/; End: %f,%f", begin.x,begin.y,end.x,end.y];
+}
+
 @end
