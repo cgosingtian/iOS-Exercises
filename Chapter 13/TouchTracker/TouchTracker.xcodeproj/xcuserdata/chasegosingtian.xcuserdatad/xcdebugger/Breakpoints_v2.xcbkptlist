@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TouchTracker/Views/KLBDrawView.m"
-            timestampString = "428997984.792837"
+            timestampString = "429004477.565709"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "-initWithFrame:"
             landmarkType = "5">
          </BreakpointContent>

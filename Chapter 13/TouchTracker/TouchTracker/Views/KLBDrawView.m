@@ -14,6 +14,7 @@
 //@property (nonatomic,strong) KLBLine *currentLine;
 @property (nonatomic, strong) NSMutableDictionary *linesInProgress;
 @property (nonatomic,strong) NSMutableArray *finishedLines;
+@property (nonatomic, weak) KLBLine *selectedLine;
 
 @end
 
@@ -49,9 +50,86 @@
         self.linesInProgress = [[NSMutableDictionary alloc] init];
         self.backgroundColor = [UIColor grayColor];
         self.multipleTouchEnabled = YES;
+        
+        UITapGestureRecognizer *doubleTapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
+        doubleTapRec.numberOfTapsRequired = 2;
+        doubleTapRec.delaysTouchesBegan = YES;
+        [self addGestureRecognizer:doubleTapRec];
+        
+        UITapGestureRecognizer *tapRec =
+        [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(tap:)];
+        tapRec.delaysTouchesBegan = YES;
+        [tapRec requireGestureRecognizerToFail:doubleTapRec];
+        [self addGestureRecognizer:tapRec];
+        
     } else NSLog(@"Failing init");
     
     return self;
+}
+
+- (void)doubleTap:(UIGestureRecognizer*)gr
+{
+    NSLog(@"Recognized Double Tap");
+    [self.linesInProgress removeAllObjects];
+    [self.finishedLines removeAllObjects];
+    [self setNeedsDisplay];
+}
+
+- (void)tap:(UIGestureRecognizer *)gr
+{
+    NSLog(@"Recognized tap");
+    
+    CGPoint point = [gr locationInView:self];
+    self.selectedLine = [self lineAtPoint:point];
+    
+    if (self.selectedLine)
+    {
+        [self becomeFirstResponder];
+        
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        
+        UIMenuItem *deleteItem = [[UIMenuItem alloc]initWithTitle:@"Delete" action:@selector(deleteLine:)];
+        
+        menu.menuItems = @[deleteItem];
+        
+        [menu setTargetRect:CGRectMake(point.x, point.y, 0, 2) inView:self];
+        [menu setMenuVisible:YES animated:YES];
+    }
+    else
+    {
+        [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+    }
+    
+    [self setNeedsDisplay];
+}
+
+- (void)deleteLine:(id)sender
+{
+    
+    [self.finishedLines removeObject:self.selectedLine];
+    self.selectedLine = nil;
+    [self setNeedsDisplay];
+}
+
+- (KLBLine *)lineAtPoint:(CGPoint)p
+{
+    // Find a line close to p
+    for (KLBLine *l in self.finishedLines) {
+        CGPoint start = l.begin;
+        CGPoint end = l.end;
+        // Check a few points on the line
+        for (float t = 0.0; t <= 1.0; t += 0.05) {
+            float x = start.x + t * (end.x - start.x);
+            float y = start.y + t * (end.y - start.y);
+            // If the tapped point is within 20 points, let's return this line
+            if (hypot(x - p.x, y - p.y) < 20.0) {
+                return l;
+            }
+        }
+    }
+    // If nothing is close enough to the tapped point, then we did not select a line
+    return nil;
 }
 
 - (void)strokeLine:(KLBLine *)line
@@ -65,28 +143,35 @@
 }
 - (void)drawRect:(CGRect)rect
 {
-    // Draw finished lines in black
+    if (self.selectedLine)
+    {
+        [[UIColor greenColor] set];
+        [self strokeLine:self.selectedLine];
+    }
     for (KLBLine *line in self.finishedLines) {
-        int estimatedAngle = [self pointPairToBearingDegrees:line.begin secondPoint:line.end];
-        
-        if (estimatedAngle <= 90)
+        if (line != self.selectedLine)
         {
-            [[UIColor purpleColor] set];
-        } else if (estimatedAngle <= 180)
-        {
-            [[UIColor greenColor] set];
-        } else if (estimatedAngle <= 270)
-        {
-            [[UIColor blueColor] set];
-        } else if (estimatedAngle <= 360)
-        {
-            [[UIColor brownColor] set];
-        } else
-        {
-            [[UIColor blackColor] set];
+            int estimatedAngle = [self pointPairToBearingDegrees:line.begin secondPoint:line.end];
+            
+            if (estimatedAngle <= 90)
+            {
+                [[UIColor purpleColor] set];
+            } else if (estimatedAngle <= 180)
+            {
+                [[UIColor orangeColor] set];
+            } else if (estimatedAngle <= 270)
+            {
+                [[UIColor blueColor] set];
+            } else if (estimatedAngle <= 360)
+            {
+                [[UIColor brownColor] set];
+            } else
+            {
+                [[UIColor blackColor] set];
+            }
+            
+            [self strokeLine:line];
         }
-        
-        [self strokeLine:line];
     }
     for (KLBLine *line in [self.linesInProgress allValues]) {
         // If there is a line currently being drawn, do it in red
@@ -171,4 +256,8 @@
     return bearingDegrees;
 }
 
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
 @end
