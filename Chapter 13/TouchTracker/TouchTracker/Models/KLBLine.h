@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KLBLine : NSObject <NSCoding>
+@interface KLBLine : NSObject //<NSCoding>
 
 @property (nonatomic) CGPoint begin;
 @property (nonatomic) CGPoint end;
+@property (nonatomic) float thickness;
 
 @end

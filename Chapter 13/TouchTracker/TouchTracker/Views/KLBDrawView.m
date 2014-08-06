@@ -13,9 +13,10 @@
 
 //@property (nonatomic,strong) KLBLine *currentLine;
 @property (nonatomic, strong) NSMutableDictionary *linesInProgress;
-@property (nonatomic,strong) NSMutableArray *finishedLines;
+@property (nonatomic, strong) NSMutableArray *finishedLines;
 @property (nonatomic, weak) KLBLine *selectedLine;
 @property (nonatomic, strong) UIPanGestureRecognizer *moveRecognizer;
+@property (nonatomic) CGFloat lineWidth;
 
 @end
 
@@ -47,6 +48,7 @@
     
     if (self)
     {
+        self.lineWidth = 10;
         self.finishedLines = [[NSMutableArray alloc] init];
         self.linesInProgress = [[NSMutableDictionary alloc] init];
         self.backgroundColor = [UIColor grayColor];
@@ -82,6 +84,8 @@
 
 - (void)moveLine:(UIPanGestureRecognizer *)gr
 {
+    self.lineWidth = ([gr velocityInView:self].x + [gr velocityInView:self].y) / 2;
+    
     // If we have not selected a line, we do not do anything here
     if (!self.selectedLine) {
         return;
@@ -103,6 +107,11 @@
         // Redraw the screen
         [self setNeedsDisplay];
         [gr setTranslation:CGPointZero inView:self];
+    }
+    
+    if (gr.state == UIGestureRecognizerStateEnded)
+    {
+        self.lineWidth = 10;
     }
 }
 
@@ -187,7 +196,7 @@
 - (void)strokeLine:(KLBLine *)line
 {
     UIBezierPath *bp = [UIBezierPath bezierPath];
-    bp.lineWidth = 10;
+    bp.lineWidth = line.thickness;
     bp.lineCapStyle = kCGLineCapRound;
     [bp moveToPoint:line.begin];
     [bp addLineToPoint:line.end];
@@ -228,6 +237,7 @@
     for (KLBLine *line in [self.linesInProgress allValues]) {
         // If there is a line currently being drawn, do it in red
         [[UIColor redColor] set];
+        line.thickness = self.lineWidth;
         [self strokeLine:line];
     }
 }
@@ -247,6 +257,7 @@
             KLBLine *line = [[KLBLine alloc] init];
             line.begin = location;
             line.end = location;
+            line.thickness = self.lineWidth;
         
             NSValue *key = [NSValue valueWithNonretainedObject:t];
             self.linesInProgress[key] = line;
@@ -281,6 +292,7 @@
     {
         NSValue *key = [NSValue valueWithNonretainedObject:t];
         KLBLine *line = self.linesInProgress[key];
+        line.thickness = self.lineWidth;
         [self.finishedLines addObject:line];
         [self.linesInProgress removeObjectForKey:key];
     }

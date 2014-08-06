@@ -10,27 +10,27 @@
 
 @implementation KLBLine
 
-@synthesize begin,end;
+@synthesize begin,end,thickness;
 
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"Begin: %f,%f/; End: %f,%f", begin.x,begin.y,end.x,end.y];
 }
 
--(void)encodeWithCoder:(NSCoder *)encoder{
-    [encoder encodeObject:[NSValue valueWithCGPoint:begin]forKey:@"begin"];
-    [encoder encodeObject:[NSValue valueWithCGPoint:end] forKey:@"end"];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-    if (self = [super init]) {
-        //CGPoint begin,end;
-        NSValue *valBegin = [decoder decodeObjectForKey:@"begin"];
-        [valBegin getValue:&begin];
-        NSValue *valEnd = [decoder decodeObjectForKey:@"end"];
-        [valEnd getValue:&end];
-    }
-    return self;
-}
+//-(void)encodeWithCoder:(NSCoder *)encoder{
+//    [encoder encodeObject:[NSValue valueWithCGPoint:begin]forKey:@"begin"];
+//    [encoder encodeObject:[NSValue valueWithCGPoint:end] forKey:@"end"];
+//}
+//
+//- (id)initWithCoder:(NSCoder *)decoder {
+//    if (self = [super init]) {
+//        //CGPoint begin,end;
+//        NSValue *valBegin = [decoder decodeObjectForKey:@"begin"];
+//        [valBegin getValue:&begin];
+//        NSValue *valEnd = [decoder decodeObjectForKey:@"end"];
+//        [valEnd getValue:&end];
+//    }
+//    return self;
+//}
 
 @end
