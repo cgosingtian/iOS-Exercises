@@ -12,6 +12,59 @@
 #import "KLBItemStore.h"
 #import "KLBImageStore.h"
 
+@class PopoverBackground;
+@interface PopoverBackground: UIPopoverBackgroundView
+@end
+
+@implementation PopoverBackground
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        [self setBackgroundColor:[UIColor lightGrayColor]];
+    }
+    return self;
+}
+- (void)drawRect:(CGRect)rect
+{
+//    UIEdgeInsets popoverInsets = UIEdgeInsetsMake(68.0f, 16.0f, 16.0f, 34.0f);
+//    UIImage *popover = [[UIImage imageNamed:@"logo.png"] resizableImageWithCapInsets:popoverInsets];
+//    [popover drawInRect:rect];
+}
+
++ (CGFloat)arrowBase
+{
+    return 25.0f;
+}
++ (CGFloat)arrowHeight
+{
+    return 16.0f;
+}
+
++ (UIEdgeInsets)contentViewInsets
+{
+    return UIEdgeInsetsMake(0.0f, 5.0f, 5.0f, 5.0f);
+}
+
+- (void)setArrowDirection:(UIPopoverArrowDirection)direction
+{
+    // no-op
+}
+- (UIPopoverArrowDirection)arrowDirection
+{
+    return UIPopoverArrowDirectionUp;
+}
+- (void)setArrowOffset:(CGFloat)offset
+{
+    // no-op
+}
+- (CGFloat)arrowOffset
+{
+    return 0.0f;
+}
+@end
+
 @interface KLBDetailViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate,UIPopoverControllerDelegate>
 
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
@@ -159,6 +212,10 @@
         self.imagePickerPopover = [[UIPopoverController alloc]
                                    initWithContentViewController:picControl];
         self.imagePickerPopover.delegate = self;
+        
+        //popover background view class
+        [self.imagePickerPopover setPopoverBackgroundViewClass:[PopoverBackground class]];
+        
         // Display the popover controller; sender
         // is the camera bar button item
         [self.imagePickerPopover
