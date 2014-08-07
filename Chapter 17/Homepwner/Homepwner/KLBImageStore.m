@@ -19,10 +19,15 @@
 {
     static KLBImageStore *imageStore;
     
-    if (!imageStore)
-    {
-        imageStore = [[self alloc]initPrivate];
-    }
+//    if (!imageStore)
+//    {
+//        imageStore = [[self alloc]initPrivate];
+//    }
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        imageStore = [[self alloc] initPrivate];
+    });
     
     return imageStore;
 }

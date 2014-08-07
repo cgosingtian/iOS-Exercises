@@ -280,7 +280,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 - (void)save:(id)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES
-                                                      completion:NULL];
+                                                      completion:self.dismissBlock];
 }
 
 - (void)cancel:(id)sender
@@ -288,7 +288,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     // If the user cancelled, then remove the BNRItem from the store
     [[KLBItemStore sharedStore] removeItem:self.item];
     [self.presentingViewController dismissViewControllerAnimated:YES
-                                                      completion:NULL];
+                                                      completion:self.dismissBlock];
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil

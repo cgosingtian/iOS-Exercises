@@ -13,6 +13,7 @@
 @interface KLBDetailViewController : UIViewController
 
 @property (nonatomic,strong) KLBItem *item;
+@property (nonatomic, copy) void (^dismissBlock)(void);
 
 - (instancetype)initForNewItem:(BOOL)isNew;
 
