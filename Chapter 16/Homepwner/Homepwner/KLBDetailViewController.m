@@ -58,6 +58,11 @@
     
     [self.view addConstraints:horizontalConstraints];
     [self.view addConstraints:verticalConstraints];
+    
+    [self.imageView setContentHuggingPriority:200
+                                      forAxis:UILayoutConstraintAxisVertical];
+    [self.imageView setContentCompressionResistancePriority:700
+                                                    forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)viewWillAppear:(BOOL)animated
