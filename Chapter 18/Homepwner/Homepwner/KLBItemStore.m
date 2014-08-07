@@ -18,7 +18,8 @@
 
 - (KLBItem *)createItem
 {
-    KLBItem *item = [KLBItem randomItem];
+    //KLBItem *item = [KLBItem randomItem];
+    KLBItem *item = [[KLBItem alloc] init];
     [self.privateItems addObject:item];
     NSLog(@"Adding %@",item);
     return item;
@@ -52,7 +53,7 @@
 - (instancetype)init
 {
     [NSException raise:@"Singleton"
-                format:@"Use +[BNRItemStore sharedStore]"];
+                format:@"Use +[KLBItemStore sharedStore]"];
     return nil;
 }
 
@@ -61,7 +62,14 @@
 {
     self = [super init];
     if (self) {
-        _privateItems = [[NSMutableArray alloc] init];
+        //_privateItems = [[NSMutableArray alloc] init];
+        
+        NSString *path = [self itemArchivePath];
+        _privateItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        // If the array hadn't been saved previously, create a new empty one
+        if (!_privateItems) {
+            _privateItems = [[NSMutableArray alloc] init];
+        }
     }
     return self;
 }

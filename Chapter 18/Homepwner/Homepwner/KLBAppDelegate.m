@@ -45,7 +45,7 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     BOOL success = [[KLBItemStore sharedStore] saveChanges];
     if (success) {
-        NSLog(@"Saved all of the BNRItems");
+        NSLog(@"Saved all of the KLBItems");
     }
     else {
         NSLog(@"Could not save any of the BNRItems");
