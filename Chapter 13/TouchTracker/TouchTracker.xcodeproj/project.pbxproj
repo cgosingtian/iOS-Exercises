@@ -404,6 +404,7 @@
 				GCC_PREFIX_HEADER = "TouchTracker/TouchTracker-Prefix.pch";
 				INFOPLIST_FILE = "TouchTracker/TouchTracker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -417,6 +418,7 @@
 				GCC_PREFIX_HEADER = "TouchTracker/TouchTracker-Prefix.pch";
 				INFOPLIST_FILE = "TouchTracker/TouchTracker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -480,6 +482,7 @@
 				4F5E2F221991D2320085BB5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F5E2F231991D2320085BB5C /* Build configuration list for PBXNativeTarget "TouchTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +491,7 @@
 				4F5E2F251991D2320085BB5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

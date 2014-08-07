@@ -84,7 +84,7 @@
 
 - (void)moveLine:(UIPanGestureRecognizer *)gr
 {
-    self.lineWidth = ([gr velocityInView:self].x + [gr velocityInView:self].y) / 2;
+    self.lineWidth = abs(([gr velocityInView:self].x + [gr velocityInView:self].y) / 2);
     
     // If we have not selected a line, we do not do anything here
     if (!self.selectedLine) {
@@ -204,6 +204,9 @@
 }
 - (void)drawRect:(CGRect)rect
 {
+#ifdef VIEW_DEBUG
+    NSLog(@"DEBUG: Entering drawRect");
+#endif
     if (self.selectedLine)
     {
         [[UIColor greenColor] set];
