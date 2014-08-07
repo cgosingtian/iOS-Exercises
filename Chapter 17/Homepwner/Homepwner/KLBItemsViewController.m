@@ -89,23 +89,6 @@
     [self.tableView setBackgroundView:bg];
 }
 
-- (void)addRandomItem
-{
-    KLBItem *newItem = [[KLBItemStore sharedStore] createItem];
-    
-    //We could just tell the table to refresh itself...
-    //[(UITableView *)self.view reloadData];
-    
-    ///...or we could have the table animate the insertion of the new item:
-    
-    // Figure out where that item is in the array
-    NSInteger lastRow = [[[KLBItemStore sharedStore] allItems] indexOfObject:newItem];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    // Insert this new row into the table
-    [self.tableView insertRowsAtIndexPaths:@[indexPath]
-                          withRowAnimation:UITableViewRowAnimationTop];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([indexPath row] == [[[KLBItemStore sharedStore] allItems] count] - 1)
@@ -139,7 +122,27 @@
 
 - (IBAction)addNewItem:(id)sender
 {
-    [self addRandomItem];
+    KLBItem *newItem = [[KLBItemStore sharedStore] createItem];
+    
+    //We could just tell the table to refresh itself...
+    //[(UITableView *)self.view reloadData];
+    
+    ///...or we could have the table animate the insertion of the new item:
+    /*
+     // Figure out where that item is in the array
+     NSInteger lastRow = [[[KLBItemStore sharedStore] allItems] indexOfObject:newItem];
+     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+     // Insert this new row into the table
+     [self.tableView insertRowsAtIndexPaths:@[indexPath]
+     withRowAnimation:UITableViewRowAnimationTop];
+     */
+    
+    KLBDetailViewController *detailViewController =
+    [[KLBDetailViewController alloc] initForNewItem:YES];
+    detailViewController.item = newItem;
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:detailViewController];
+    [self presentViewController:navController animated:YES completion:NULL];
 }
 
 //- (IBAction)toggleEditingMode:(id)sender
@@ -210,7 +213,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row != [[[KLBItemStore sharedStore] allItems] count]-1)
     {
-        KLBDetailViewController *detailViewController = [[KLBDetailViewController alloc] init];
+        //KLBDetailViewController *detailViewController = [[KLBDetailViewController alloc] init];
+        
+        KLBDetailViewController *detailViewController = [[KLBDetailViewController alloc] initForNewItem:NO];
     
         NSArray *items = [[KLBItemStore sharedStore] allItems];
         KLBItem *selectedItem = [items objectAtIndex:indexPath.row];

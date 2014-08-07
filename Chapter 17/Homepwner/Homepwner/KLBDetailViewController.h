@@ -14,4 +14,6 @@
 
 @property (nonatomic,strong) KLBItem *item;
 
+- (instancetype)initForNewItem:(BOOL)isNew;
+
 @end

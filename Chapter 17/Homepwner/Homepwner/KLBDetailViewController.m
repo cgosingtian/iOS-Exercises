@@ -9,15 +9,19 @@
 #import "KLBDetailViewController.h"
 #import "KLBDateViewController.h"
 #import "KLBItem.h"
+#import "KLBItemStore.h"
 #import "KLBImageStore.h"
 
-@interface KLBDetailViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate>
+@interface KLBDetailViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate,UIPopoverControllerDelegate>
+
+@property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 
 @end
 
@@ -87,6 +91,10 @@
     }
     
     self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
+    
+    UIInterfaceOrientation io =
+    [[UIApplication sharedApplication] statusBarOrientation];
+    [self prepareViewsForOrientation:io];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -123,6 +131,12 @@
 - (IBAction)takePicture:(id)sender {
     UIImagePickerController *picControl = [[UIImagePickerController alloc]init];
     
+    if ([self.imagePickerPopover isPopoverVisible])
+    {
+        [self.imagePickerPopover dismissPopoverAnimated:YES];
+        self.imagePickerPopover = nil;
+    }
+    
     // If the device has a camera, take a picture, otherwise,
     // just pick from photo library
     if ([UIImagePickerController
@@ -136,7 +150,30 @@
     picControl.allowsEditing = YES;
     
     //present image picker to screen
-    [self presentViewController:picControl animated:YES completion:NULL];
+    //[self presentViewController:picControl animated:YES completion:NULL];
+    
+    // Place image picker on the screen
+    // Check for iPad device before instantiating the popover controller
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        // Create a new popover controller that will display the imagePicker
+        self.imagePickerPopover = [[UIPopoverController alloc]
+                                   initWithContentViewController:picControl];
+        self.imagePickerPopover.delegate = self;
+        // Display the popover controller; sender
+        // is the camera bar button item
+        [self.imagePickerPopover
+         presentPopoverFromBarButtonItem:sender
+         permittedArrowDirections:UIPopoverArrowDirectionAny
+         animated:YES];
+    } else {
+        [self presentViewController:picControl animated:YES completion:NULL];
+    }
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    NSLog(@"User dismissed popover");
+    self.imagePickerPopover = nil;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker
@@ -151,7 +188,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     // Take image picker off the screen -
     // you must call this dismiss method
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    //[self dismissViewControllerAnimated:YES completion:NULL];
+    
+    if (self.imagePickerPopover) {
+        // Dismiss it
+        [self.imagePickerPopover dismissPopoverAnimated:YES];
+        self.imagePickerPopover = nil;
+    } else {
+        // Dismiss the modal image picker
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -165,6 +211,28 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 - (IBAction)clearImage:(id)sender {
     self.imageView.image = nil;
     [[KLBImageStore sharedStore] deleteImageForKey:self.item.itemKey];
+}
+
+- (void)prepareViewsForOrientation:(UIInterfaceOrientation)orientation
+{
+    // Is it an iPad? No preparation necessary
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        return;
+    }
+    // Is it landscape?
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        self.imageView.hidden = YES;
+        self.cameraButton.enabled = NO;
+    } else {
+        self.imageView.hidden = NO;
+        self.cameraButton.enabled = YES;
+    }
+}
+- (void)willAnimateRotationToInterfaceOrientation:
+(UIInterfaceOrientation)toInterfaceOrientation
+                                         duration:(NSTimeInterval)duration
+{
+    [self prepareViewsForOrientation:toInterfaceOrientation];
 }
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -187,5 +255,48 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 //    [super didReceiveMemoryWarning];
 //    // Dispose of any resources that can be recreated.
 //}
+
+- (instancetype)initForNewItem:(BOOL)isNew
+{
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        // we're setting these navigation items because we will be wrapping this VC with a ui nav VC
+        if (isNew) {
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]
+                                         initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                         target:self
+                                         action:@selector(save:)];
+            self.navigationItem.rightBarButtonItem = doneItem;
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc]
+                                           initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                           target:self
+                                           action:@selector(cancel:)];
+            self.navigationItem.leftBarButtonItem = cancelItem;
+        }
+    }
+    return self;
+}
+
+- (void)save:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES
+                                                      completion:NULL];
+}
+
+- (void)cancel:(id)sender
+{
+    // If the user cancelled, then remove the BNRItem from the store
+    [[KLBItemStore sharedStore] removeItem:self.item];
+    [self.presentingViewController dismissViewControllerAnimated:YES
+                                                      completion:NULL];
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil
+                         bundle:(NSBundle *)nibBundleOrNil
+{
+    [NSException raise:@"Wrong initializer"
+                format:@"Use initForNewItem:"];
+    return nil;
+}
 
 @end

@@ -11,8 +11,6 @@
 
 @interface KLBItemsViewController : UITableViewController <UITableViewDataSource>
 
--(void)addRandomItem;
-
 - (IBAction)addNewItem:(id)sender;
 //- (IBAction)toggleEditingMode:(id)sender;
 @end
