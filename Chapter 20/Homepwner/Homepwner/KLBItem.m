@@ -147,7 +147,8 @@
     [aCoder encodeObject:self.dateCreated forKey:@"dateCreated"];
     [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
     [aCoder encodeInt:self.valueInDollars forKey:@"valueInDollars"];
-    [aCoder encodeObject:UIImagePNGRepresentation(self.thumbnail) forKey:@"thumbnail"];
+    //[aCoder encodeObject:UIImagePNGRepresentation(self.thumbnail) forKey:@"thumbnail"];
+    [aCoder encodeObject:self.thumbnail forKey:@"thumbnail"];
 }
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -158,7 +159,8 @@
         _dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
         itemKey = [aDecoder decodeObjectForKey:@"itemKey"];
         _valueInDollars = [aDecoder decodeIntForKey:@"valueInDollars"];
-        thumbnail = [UIImage imageWithData:[aDecoder decodeObjectForKey:@"thumbnail"]];
+        //thumbnail = [UIImage imageWithData:[aDecoder decodeObjectForKey:@"thumbnail"]];
+        thumbnail =[aDecoder decodeObjectForKey:@"thumbnail"];
     }
     return self;
 }

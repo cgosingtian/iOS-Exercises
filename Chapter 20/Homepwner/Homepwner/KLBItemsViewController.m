@@ -118,6 +118,7 @@
             
             // Create a new BNRImageViewController and set its image
             KLBImageViewController *ivc = [[KLBImageViewController alloc] init];
+            //ivc.view.autoresizingMask = UIViewAutoresizingNone;
             ivc.image = img;
             // Present a 600x600 popover from the rect
             self.imagePopover = [[UIPopoverController alloc]

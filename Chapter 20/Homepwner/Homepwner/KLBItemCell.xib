@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -18,19 +17,19 @@
                         <rect key="frame" x="2" y="1" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="MGd-x0-Wbg" secondAttribute="height" multiplier="40:40" id="Wns-Lg-Yfm"/>
+                            <constraint firstAttribute="height" constant="40" id="VHO-42-D27"/>
                             <constraint firstAttribute="width" constant="40" id="hVQ-Hc-KPo"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAe-pA-Qha">
-                        <rect key="frame" x="47" y="5" width="217" height="21"/>
+                        <rect key="frame" x="47" y="5" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzm-VR-Ucs">
-                        <rect key="frame" x="47" y="22" width="217" height="16"/>
+                        <rect key="frame" x="47" y="22" width="33" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,8 +41,8 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxl-YX-uth">
-                        <rect key="frame" x="2" y="2" width="40" height="40"/>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxl-YX-uth">
+                        <rect key="frame" x="2" y="1" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,26 +54,22 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="kzm-VR-Ucs" secondAttribute="bottom" constant="5" id="1IS-Cc-L0S"/>
-                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="leading" secondItem="pxl-YX-uth" secondAttribute="leading" id="5HZ-gm-CeO"/>
-                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="bottom" secondItem="pxl-YX-uth" secondAttribute="bottom" id="AOc-bJ-gHN"/>
+                    <constraint firstItem="DAe-pA-Qha" firstAttribute="leading" secondItem="pxl-YX-uth" secondAttribute="trailing" constant="5" id="BRU-Di-JgO"/>
                     <constraint firstItem="MGd-x0-Wbg" firstAttribute="leading" secondItem="dpk-OY-VHs" secondAttribute="leading" constant="2" id="JBy-x1-aL6"/>
-                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="top" secondItem="dpk-OY-VHs" secondAttribute="top" constant="1" id="LkO-aH-h9P"/>
                     <constraint firstItem="P21-PD-aoA" firstAttribute="centerY" secondItem="dpk-OY-VHs" secondAttribute="centerY" id="Pbr-7T-P9V"/>
-                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="width" secondItem="pxl-YX-uth" secondAttribute="width" id="UMu-l6-8MO"/>
-                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="top" secondItem="pxl-YX-uth" secondAttribute="top" id="Zlp-SV-V7h"/>
                     <constraint firstItem="kzm-VR-Ucs" firstAttribute="leading" secondItem="DAe-pA-Qha" secondAttribute="leading" id="aX9-jE-Fbn"/>
-                    <constraint firstItem="P21-PD-aoA" firstAttribute="leading" secondItem="kzm-VR-Ucs" secondAttribute="trailing" constant="8" symbolic="YES" id="ddO-Si-Mrq"/>
-                    <constraint firstItem="P21-PD-aoA" firstAttribute="leading" secondItem="DAe-pA-Qha" secondAttribute="trailing" constant="8" symbolic="YES" id="edL-Ma-mo7"/>
-                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="height" secondItem="pxl-YX-uth" secondAttribute="height" id="kk2-Fm-hu1"/>
+                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="trailing" secondItem="pxl-YX-uth" secondAttribute="trailing" id="cGd-c8-p8m"/>
+                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="bottom" secondItem="pxl-YX-uth" secondAttribute="bottom" id="gmu-ih-gzO"/>
+                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="top" secondItem="pxl-YX-uth" secondAttribute="top" id="nBW-59-kcQ"/>
+                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="leading" secondItem="pxl-YX-uth" secondAttribute="leading" id="nQ7-wu-eab"/>
                     <constraint firstItem="DAe-pA-Qha" firstAttribute="top" secondItem="dpk-OY-VHs" secondAttribute="top" constant="5" id="phg-pk-BZR"/>
-                    <constraint firstItem="DAe-pA-Qha" firstAttribute="leading" secondItem="pxl-YX-uth" secondAttribute="trailing" constant="5" id="tbN-iC-QlO"/>
                     <constraint firstAttribute="trailing" secondItem="P21-PD-aoA" secondAttribute="trailing" constant="6" id="yPp-Oo-JOA"/>
-                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="trailing" secondItem="pxl-YX-uth" secondAttribute="trailing" id="ylJ-fu-M4A"/>
-                    <constraint firstAttribute="bottom" secondItem="MGd-x0-Wbg" secondAttribute="bottom" constant="2" id="zdM-cC-Aed"/>
+                    <constraint firstItem="pxl-YX-uth" firstAttribute="centerY" secondItem="P21-PD-aoA" secondAttribute="centerY" id="yvI-WY-tzv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageViewWidthConstraint" destination="hVQ-Hc-KPo" id="t2o-vH-g4G"/>
+                <outlet property="imageViewHeightConstraint" destination="VHO-42-D27" id="LlA-W4-3Ib"/>
+                <outlet property="imageViewWidthConstraint" destination="hVQ-Hc-KPo" id="SBz-Wn-VDL"/>
                 <outlet property="nameLabel" destination="DAe-pA-Qha" id="yGy-d8-Pij"/>
                 <outlet property="serialNumberLabel" destination="kzm-VR-Ucs" id="GIo-cf-kDK"/>
                 <outlet property="thumbnailView" destination="MGd-x0-Wbg" id="bCG-Ja-1X5"/>
