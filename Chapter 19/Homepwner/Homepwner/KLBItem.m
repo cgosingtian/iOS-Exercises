@@ -147,6 +147,7 @@
     [aCoder encodeObject:self.dateCreated forKey:@"dateCreated"];
     [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
     [aCoder encodeInt:self.valueInDollars forKey:@"valueInDollars"];
+    [aCoder encodeObject:UIImagePNGRepresentation(self.thumbnail) forKey:@"thumbnail"];
 }
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -157,6 +158,7 @@
         _dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
         itemKey = [aDecoder decodeObjectForKey:@"itemKey"];
         _valueInDollars = [aDecoder decodeIntForKey:@"valueInDollars"];
+        thumbnail = [UIImage imageWithData:[aDecoder decodeObjectForKey:@"thumbnail"]];
     }
     return self;
 }
@@ -196,6 +198,9 @@
 {
     if (!thumbnail)
     {
+        NSLog(@"Creating thumbnail for item with image but no thumbnail...");
+        // this is for compatibility with previously saved items that
+        // didn't have thumbnails prior to this version
         [self setThumbnailFromImage:[[KLBImageStore sharedStore] imageForKey:itemKey]];
     }
     

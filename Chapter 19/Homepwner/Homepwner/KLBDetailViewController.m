@@ -242,6 +242,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     self.imageView.image = image;
     
     [[KLBImageStore sharedStore] setImage:image forKey:self.item.itemKey];
+    [self.item setThumbnailFromImage:image];
     
     // Take image picker off the screen -
     // you must call this dismiss method

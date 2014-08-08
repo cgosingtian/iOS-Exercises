@@ -41,20 +41,34 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxl-YX-uth">
+                        <rect key="frame" x="2" y="2" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="showImage:" destination="uK5-aK-L3F" eventType="touchUpInside" id="e5i-aL-UL9"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="kzm-VR-Ucs" secondAttribute="bottom" constant="5" id="12g-g4-04N"/>
                     <constraint firstItem="MGd-x0-Wbg" firstAttribute="leading" secondItem="dpk-OY-VHs" secondAttribute="leading" constant="2" id="3fR-9f-geo"/>
                     <constraint firstItem="P21-PD-aoA" firstAttribute="leading" secondItem="kzm-VR-Ucs" secondAttribute="trailing" constant="8" id="4sx-DV-oCN"/>
+                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="leading" secondItem="pxl-YX-uth" secondAttribute="leading" id="9K1-iv-6AO"/>
                     <constraint firstAttribute="centerY" secondItem="P21-PD-aoA" secondAttribute="centerY" id="Buv-yg-QCM"/>
+                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="bottom" secondItem="pxl-YX-uth" secondAttribute="bottom" id="FXi-bJ-JZH"/>
                     <constraint firstItem="DAe-pA-Qha" firstAttribute="leading" secondItem="MGd-x0-Wbg" secondAttribute="trailing" constant="5" id="RZ9-Ml-wDs"/>
                     <constraint firstItem="P21-PD-aoA" firstAttribute="leading" secondItem="DAe-pA-Qha" secondAttribute="trailing" constant="8" id="UlN-hz-2kX"/>
+                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="top" secondItem="pxl-YX-uth" secondAttribute="top" id="XuQ-BX-fet"/>
                     <constraint firstItem="kzm-VR-Ucs" firstAttribute="leading" secondItem="DAe-pA-Qha" secondAttribute="leading" id="bLl-uk-qpu"/>
                     <constraint firstItem="DAe-pA-Qha" firstAttribute="top" secondItem="dpk-OY-VHs" secondAttribute="top" constant="5" id="bg4-Ir-UxO"/>
                     <constraint firstAttribute="centerY" secondItem="MGd-x0-Wbg" secondAttribute="centerY" id="d8D-pF-0gp"/>
                     <constraint firstAttribute="trailing" secondItem="P21-PD-aoA" secondAttribute="trailing" constant="6" id="irb-m7-Vdw"/>
                     <constraint firstItem="kzm-VR-Ucs" firstAttribute="leading" secondItem="MGd-x0-Wbg" secondAttribute="trailing" constant="5" id="nUq-qr-ZUZ"/>
                     <constraint firstItem="DAe-pA-Qha" firstAttribute="leading" secondItem="MGd-x0-Wbg" secondAttribute="trailing" constant="5" id="tED-Qh-q3l"/>
+                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="trailing" secondItem="pxl-YX-uth" secondAttribute="trailing" id="zpM-Z9-hqd"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

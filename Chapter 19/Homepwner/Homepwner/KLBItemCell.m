@@ -12,4 +12,11 @@
 
 @synthesize nameLabel,imageView,valueLabel,serialNumberLabel;
 
+- (IBAction)showImage:(id)sender
+{
+    if (self.actionBlock) {
+        self.actionBlock();
+    }
+}
+
 @end
