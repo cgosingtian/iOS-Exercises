@@ -8,7 +8,7 @@
 
 #import "KLBImageViewController.h"
 
-@interface KLBImageViewController ()
+@interface KLBImageViewController () <UIGestureRecognizerDelegate>
 
 @end
 
@@ -40,6 +40,22 @@
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.view = imageView;
+    
+    self.view.userInteractionEnabled = YES;
+    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinch:)];
+    [self.view addGestureRecognizer:pinchRecognizer];
+}
+
+- (void)pinch:(UIPinchGestureRecognizer *)gr
+{
+    NSLog(@"pinched");
+    gr.view.transform = CGAffineTransformScale(gr.view.transform, gr.scale, gr.scale);
+    gr.scale = 1;
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"test");
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -50,6 +66,13 @@
     UIImageView *imageView = (UIImageView *)self.view;
     imageView.image = self.image;
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+}
+
+
 
 /*
 #pragma mark - Navigation
