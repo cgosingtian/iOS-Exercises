@@ -10,6 +10,8 @@
 #import "KLBItemsViewController.h"
 #import "KLBItem.h"
 #import "KLBItemStore.h"
+#import "KLBItemCell.h"
+#import "KLBImageStore.h"
 
 @interface KLBItemsViewController ()
 //@property (nonatomic, strong) IBOutlet UIView *headerView; //strong because top-level view; weak otherwise
@@ -63,24 +65,36 @@
 //                           reuseIdentifier:@"UITableViewCell"];
     
     // Get a new or recycled cell
-    UITableViewCell *cell =
-    [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
-                                    forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
+    KLBItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KLBItemCell" forIndexPath:indexPath];
+
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
     NSArray *items = [[KLBItemStore sharedStore] allItems];
     KLBItem *item = items[indexPath.row];
-    cell.textLabel.text = [item description];
+//    cell.textLabel.text = [item description];
+    
+    cell.nameLabel.text = item.itemName;
+    cell.serialNumberLabel.text = item.serialNumber;
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    cell.thumbnailView.image = item.thumbnail;
+
     return cell;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:@"UITableViewCell"];
+    
+    //[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    // Load the NIB file
+    UINib *nib = [UINib nibWithNibName:@"KLBItemCell" bundle:nil];
+    // Register this NIB, which contains the cell
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:@"KLBItemCell"];
+    
     UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"logo.png"]];
     
 //    UIView *header = self.headerView;
@@ -89,22 +103,22 @@
     [self.tableView setBackgroundView:bg];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([indexPath row] == [[[KLBItemStore sharedStore] allItems] count] - 1)
-    {
-        return 44.0;
-    }
-    else return 60.0;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([indexPath row] == [[[KLBItemStore sharedStore] allItems] count] - 1)
+//    {
+//        return 44.0;
+//    }
+//    else return 60.0;
+//}
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row != [[[KLBItemStore sharedStore] allItems] count] - 1)
-    {
-        [[cell textLabel] setFont:[UIFont fontWithName:nil size:20]];
-    }
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (indexPath.row != [[[KLBItemStore sharedStore] allItems] count] - 1)
+//    {
+//        [[cell textLabel] setFont:[UIFont fontWithName:nil size:20]];
+//    }
+//}
 
 //- (UIView *)headerView
 //{
@@ -178,34 +192,34 @@
     }
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == [[[KLBItemStore sharedStore] allItems] count]-1)
-        return false;
-    else return true;
-}
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (indexPath.row == [[[KLBItemStore sharedStore] allItems] count]-1)
+//        return false;
+//    else return true;
+//}
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    if (destinationIndexPath.row != [[[KLBItemStore sharedStore] allItems] count]-1)
-    {
+//    if (destinationIndexPath.row != [[[KLBItemStore sharedStore] allItems] count]-1)
+//    {
         [[KLBItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row
                                             toIndex:destinationIndexPath.row];
-    }
+//    }
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
-{
-    //prevent user from moving an item to the last row that has "No more items!" message
-    if(proposedDestinationIndexPath.row == [[[KLBItemStore sharedStore] allItems] count]-1)
-    {
-        return sourceIndexPath;
-    }
-    else
-    {
-        return proposedDestinationIndexPath;
-    }
-}
+//- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+//{
+//    //prevent user from moving an item to the last row that has "No more items!" message
+//    if(proposedDestinationIndexPath.row == [[[KLBItemStore sharedStore] allItems] count]-1)
+//    {
+//        return sourceIndexPath;
+//    }
+//    else
+//    {
+//        return proposedDestinationIndexPath;
+//    }
+//}
 
 //bronze challenge
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -215,8 +229,8 @@
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row != [[[KLBItemStore sharedStore] allItems] count]-1)
-    {
+//    if (indexPath.row != [[[KLBItemStore sharedStore] allItems] count]-1)
+//    {
         //KLBDetailViewController *detailViewController = [[KLBDetailViewController alloc] init];
         
         KLBDetailViewController *detailViewController = [[KLBDetailViewController alloc] initForNewItem:NO];
@@ -229,11 +243,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         // Push it onto the top of the navigation controller's stack
         [self.navigationController pushViewController:detailViewController
                                              animated:YES];
-    }
-    else
-    {
-        [self resignFirstResponder];
-    }
+//    }
+//    else
+//    {
+//        [self resignFirstResponder];
+//    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -77,7 +77,7 @@
 - (NSArray *)allItems
 {
     NSMutableArray *arrCopy = [self.privateItems mutableCopy];
-    [arrCopy addObject:@"No more items!"];
+    //[arrCopy addObject:@"No more items!"];
     return arrCopy;
 }
 

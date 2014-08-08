@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uK5-aK-L3F" customClass="KLBItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uK5-aK-L3F" id="dpk-OY-VHs">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MGd-x0-Wbg">
+                        <rect key="frame" x="2" y="2" width="40" height="40"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="LBf-XH-ajI"/>
+                            <constraint firstAttribute="width" constant="40" id="mBd-hQ-9GM"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAe-pA-Qha">
+                        <rect key="frame" x="47" y="5" width="217" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzm-VR-Ucs">
+                        <rect key="frame" x="47" y="22" width="217" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P21-PD-aoA">
+                        <rect key="frame" x="272" y="11" width="42" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="kzm-VR-Ucs" secondAttribute="bottom" constant="5" id="12g-g4-04N"/>
+                    <constraint firstItem="MGd-x0-Wbg" firstAttribute="leading" secondItem="dpk-OY-VHs" secondAttribute="leading" constant="2" id="3fR-9f-geo"/>
+                    <constraint firstItem="P21-PD-aoA" firstAttribute="leading" secondItem="kzm-VR-Ucs" secondAttribute="trailing" constant="8" id="4sx-DV-oCN"/>
+                    <constraint firstAttribute="centerY" secondItem="P21-PD-aoA" secondAttribute="centerY" id="Buv-yg-QCM"/>
+                    <constraint firstItem="DAe-pA-Qha" firstAttribute="leading" secondItem="MGd-x0-Wbg" secondAttribute="trailing" constant="5" id="RZ9-Ml-wDs"/>
+                    <constraint firstItem="P21-PD-aoA" firstAttribute="leading" secondItem="DAe-pA-Qha" secondAttribute="trailing" constant="8" id="UlN-hz-2kX"/>
+                    <constraint firstItem="kzm-VR-Ucs" firstAttribute="leading" secondItem="DAe-pA-Qha" secondAttribute="leading" id="bLl-uk-qpu"/>
+                    <constraint firstItem="DAe-pA-Qha" firstAttribute="top" secondItem="dpk-OY-VHs" secondAttribute="top" constant="5" id="bg4-Ir-UxO"/>
+                    <constraint firstAttribute="centerY" secondItem="MGd-x0-Wbg" secondAttribute="centerY" id="d8D-pF-0gp"/>
+                    <constraint firstAttribute="trailing" secondItem="P21-PD-aoA" secondAttribute="trailing" constant="6" id="irb-m7-Vdw"/>
+                    <constraint firstItem="kzm-VR-Ucs" firstAttribute="leading" secondItem="MGd-x0-Wbg" secondAttribute="trailing" constant="5" id="nUq-qr-ZUZ"/>
+                    <constraint firstItem="DAe-pA-Qha" firstAttribute="leading" secondItem="MGd-x0-Wbg" secondAttribute="trailing" constant="5" id="tED-Qh-q3l"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="DAe-pA-Qha" id="yGy-d8-Pij"/>
+                <outlet property="serialNumberLabel" destination="kzm-VR-Ucs" id="GIo-cf-kDK"/>
+                <outlet property="thumbnailView" destination="MGd-x0-Wbg" id="bCG-Ja-1X5"/>
+                <outlet property="valueLabel" destination="P21-PD-aoA" id="RB6-TO-Cej"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

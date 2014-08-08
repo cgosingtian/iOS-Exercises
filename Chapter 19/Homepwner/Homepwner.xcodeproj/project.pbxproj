@@ -24,6 +24,8 @@
 		4F73B3EA198F8DA2003B2F22 /* KLBItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */; };
 		4F73B3F0198F8FC3003B2F22 /* KLBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3EF198F8FC3003B2F22 /* KLBItem.m */; };
 		4F73B3F3198F90D2003B2F22 /* KLBItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */; };
+		4F7D55FF199456EB006834D1 /* KLBItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D55FE199456EB006834D1 /* KLBItemCell.m */; };
+		4F7D560219946B66006834D1 /* KLBItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7D56001994570F006834D1 /* KLBItemCell.xib */; };
 		4FF50DEA19908F9C00AB01D8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF50DE919908F9C00AB01D8 /* HeaderView.xib */; };
 		4FF50DEE1990B77600AB01D8 /* KLBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */; };
 		4FF50DEF1990B77600AB01D8 /* KLBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */; };
@@ -67,6 +69,9 @@
 		4F73B3EF198F8FC3003B2F22 /* KLBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItem.m; sourceTree = "<group>"; };
 		4F73B3F1198F90D2003B2F22 /* KLBItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItemStore.h; sourceTree = "<group>"; };
 		4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItemStore.m; sourceTree = "<group>"; };
+		4F7D55FD199456EB006834D1 /* KLBItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItemCell.h; sourceTree = "<group>"; };
+		4F7D55FE199456EB006834D1 /* KLBItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItemCell.m; sourceTree = "<group>"; };
+		4F7D56001994570F006834D1 /* KLBItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBItemCell.xib; sourceTree = "<group>"; };
 		4FF50DE919908F9C00AB01D8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		4FF50DEB1990B77600AB01D8 /* KLBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBDetailViewController.h; sourceTree = "<group>"; };
 		4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBDetailViewController.m; sourceTree = "<group>"; };
@@ -140,6 +145,9 @@
 				4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */,
 				4F5E2EE81991BECC0085BB5C /* KLBImageStore.h */,
 				4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */,
+				4F7D55FD199456EB006834D1 /* KLBItemCell.h */,
+				4F7D55FE199456EB006834D1 /* KLBItemCell.m */,
+				4F7D56001994570F006834D1 /* KLBItemCell.xib */,
 				4FF50DF01990CD1D00AB01D8 /* KLBDateViewController.h */,
 				4FF50DF11990CD1D00AB01D8 /* KLBDateViewController.m */,
 				4FF50DF21990CD1D00AB01D8 /* KLBDateViewController.xib */,
@@ -234,6 +242,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "KLab Cyscorpions, Inc.";
 				TargetAttributes = {
+					4F73B3B5198F8C95003B2F22 = {
+						DevelopmentTeam = 59636WNZ2S;
+					};
 					4F73B3D0198F8C95003B2F22 = {
 						TestTargetID = 4F73B3B5198F8C95003B2F22;
 					};
@@ -263,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FF50DEF1990B77600AB01D8 /* KLBDetailViewController.xib in Resources */,
+				4F7D560219946B66006834D1 /* KLBItemCell.xib in Resources */,
 				4F73B3C4198F8C95003B2F22 /* InfoPlist.strings in Resources */,
 				4FF50DF41990CD1D00AB01D8 /* KLBDateViewController.xib in Resources */,
 				4F73B3CC198F8C95003B2F22 /* Images.xcassets in Resources */,
@@ -294,6 +306,7 @@
 				4F73B3EA198F8DA2003B2F22 /* KLBItemsViewController.m in Sources */,
 				4F73B3C6198F8C95003B2F22 /* main.m in Sources */,
 				4FF50DF31990CD1D00AB01D8 /* KLBDateViewController.m in Sources */,
+				4F7D55FF199456EB006834D1 /* KLBItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +364,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CYSCORPIONS INC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CYSCORPIONS INC";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -389,7 +403,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CYSCORPIONS INC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CYSCORPIONS INC";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -410,11 +425,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Homepwner/Homepwner-Prefix.pch";
 				INFOPLIST_FILE = "Homepwner/Homepwner-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -425,11 +443,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Homepwner/Homepwner-Prefix.pch";
 				INFOPLIST_FILE = "Homepwner/Homepwner-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

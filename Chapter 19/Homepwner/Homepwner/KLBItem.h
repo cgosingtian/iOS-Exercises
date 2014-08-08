@@ -17,6 +17,9 @@
 }
 
 @property (nonatomic, copy) NSString *itemKey;
+@property (strong, nonatomic) UIImage *thumbnail;
+
+- (void)setThumbnailFromImage:(UIImage *)image;
 
 + (instancetype)randomItem;
 
