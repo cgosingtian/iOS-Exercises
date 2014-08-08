@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="VHO-42-D27"/>
-                            <constraint firstAttribute="width" constant="40" id="hVQ-Hc-KPo"/>
+                            <constraint firstAttribute="width" constant="40" placeholder="YES" id="hVQ-Hc-KPo"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAe-pA-Qha">
@@ -69,7 +69,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageViewHeightConstraint" destination="VHO-42-D27" id="LlA-W4-3Ib"/>
-                <outlet property="imageViewWidthConstraint" destination="hVQ-Hc-KPo" id="SBz-Wn-VDL"/>
                 <outlet property="nameLabel" destination="DAe-pA-Qha" id="yGy-d8-Pij"/>
                 <outlet property="serialNumberLabel" destination="kzm-VR-Ucs" id="GIo-cf-kDK"/>
                 <outlet property="thumbnailView" destination="MGd-x0-Wbg" id="bCG-Ja-1X5"/>
