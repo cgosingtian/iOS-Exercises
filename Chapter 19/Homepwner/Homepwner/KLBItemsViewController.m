@@ -12,8 +12,11 @@
 #import "KLBItemStore.h"
 #import "KLBItemCell.h"
 #import "KLBImageStore.h"
+#import "KLBImageViewController.h"
 
-@interface KLBItemsViewController ()
+@interface KLBItemsViewController ()<UIPopoverControllerDelegate>
+
+@property (strong, nonatomic) UIPopoverController *imagePopover;
 //@property (nonatomic, strong) IBOutlet UIView *headerView; //strong because top-level view; weak otherwise
 @end
 
@@ -79,13 +82,54 @@
     cell.nameLabel.text = item.itemName;
     cell.serialNumberLabel.text = item.serialNumber;
     cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    if (item.valueInDollars > 50)
+        cell.valueLabel.textColor = [UIColor greenColor];
+    else
+        cell.valueLabel.textColor = [UIColor redColor];
     cell.thumbnailView.image = item.thumbnail;
+    
+    __weak KLBItemCell *weakCell = cell;
     
     cell.actionBlock = ^{
         NSLog(@"Going to show image for %@", item);
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            NSString *itemKey = item.itemKey;
+            // If there is no image, we don't need to display anything
+            UIImage *img = [[KLBImageStore sharedStore] imageForKey:itemKey];
+            if (!img) {
+                return;
+            }
+            
+            KLBItemCell *strongCell = weakCell;
+            
+            // Make a rectangle for the frame of the thumbnail relative to
+            // our table view
+            // Note: there will be a warning on this line that we'll soon discuss
+//            CGRect rect = [self.view convertRect:cell.thumbnailView.bounds fromView:cell.thumbnailView];
+            CGRect rect = [self.view convertRect:strongCell.thumbnailView.bounds
+                                        fromView:strongCell.thumbnailView];
+            
+            // Create a new BNRImageViewController and set its image
+            KLBImageViewController *ivc = [[KLBImageViewController alloc] init];
+            ivc.image = img;
+            // Present a 600x600 popover from the rect
+            self.imagePopover = [[UIPopoverController alloc]
+                                 initWithContentViewController:ivc];
+            self.imagePopover.delegate = self;
+            self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
+            [self.imagePopover presentPopoverFromRect:rect
+                                               inView:self.view
+                             permittedArrowDirections:UIPopoverArrowDirectionAny
+                                             animated:YES];
+        }
     };
 
     return cell;
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.imagePopover = nil;
 }
 
 - (void)viewDidLoad
