@@ -120,8 +120,14 @@
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
 
-    [self.tableView registerClass:[KLBUpcomingCoursesCell class]
-           forCellReuseIdentifier:@"KLBUpcomingCoursesCell"];
+//    [self.tableView registerClass:[KLBUpcomingCoursesCell class]
+//           forCellReuseIdentifier:@"KLBUpcomingCoursesCell"];
+
+    UINib *nib = [UINib nibWithNibName:@"KLBUpcomingCoursesCell" bundle:nil];
+    // Register this NIB, which contains the cell
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:@"KLBUpcomingCoursesCell"];
+
     
   //    [self.tableView registerNib:[UINib nibWithNibName:@"KLBUpcomingCoursesCell" bundle:nil] forCellReuseIdentifier:@"KLBUpcomingCoursesCell"];
 }
