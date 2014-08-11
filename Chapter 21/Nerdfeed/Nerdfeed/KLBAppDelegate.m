@@ -7,6 +7,8 @@
 //
 
 #import "KLBAppDelegate.h"
+#import "KLBCoursesViewController.h"
+#import "KLBWebViewController.h"
 
 @implementation KLBAppDelegate
 
@@ -14,6 +16,18 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    //table view
+    KLBCoursesViewController *kvc = [[KLBCoursesViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    KLBWebViewController *wvc = [[KLBWebViewController alloc] init];
+    //add web view to table view
+    kvc.webViewController = wvc;
+    
+    //navigation controller
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:kvc];
+    self.window.rootViewController = nc;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

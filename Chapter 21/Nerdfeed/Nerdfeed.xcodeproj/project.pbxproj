@@ -19,6 +19,9 @@
 		4F7D562E1994C886006834D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7D56161994C886006834D1 /* UIKit.framework */; };
 		4F7D56361994C886006834D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F7D56341994C886006834D1 /* InfoPlist.strings */; };
 		4F7D56381994C886006834D1 /* NerdfeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D56371994C886006834D1 /* NerdfeedTests.m */; };
+		4F7D56441994C8E8006834D1 /* KLBCoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D56431994C8E8006834D1 /* KLBCoursesViewController.m */; };
+		4FF17C8719985BC300C4E9BC /* KLBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF17C8619985BC300C4E9BC /* KLBWebViewController.m */; };
+		4FF17C8F19986D7D00C4E9BC /* KLBWebViewToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF17C8E19986D7D00C4E9BC /* KLBWebViewToolbar.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,11 @@
 		4F7D56331994C886006834D1 /* NerdfeedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NerdfeedTests-Info.plist"; sourceTree = "<group>"; };
 		4F7D56351994C886006834D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F7D56371994C886006834D1 /* NerdfeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NerdfeedTests.m; sourceTree = "<group>"; };
+		4F7D56421994C8E8006834D1 /* KLBCoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBCoursesViewController.h; sourceTree = "<group>"; };
+		4F7D56431994C8E8006834D1 /* KLBCoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBCoursesViewController.m; sourceTree = "<group>"; };
+		4FF17C8519985BC300C4E9BC /* KLBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBWebViewController.h; sourceTree = "<group>"; };
+		4FF17C8619985BC300C4E9BC /* KLBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBWebViewController.m; sourceTree = "<group>"; };
+		4FF17C8E19986D7D00C4E9BC /* KLBWebViewToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBWebViewToolbar.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,8 @@
 		4F7D56181994C886006834D1 /* Nerdfeed */ = {
 			isa = PBXGroup;
 			children = (
+				4FF17C88199864DB00C4E9BC /* Views */,
+				4F7D56411994C8C0006834D1 /* Controllers */,
 				4F7D56211994C886006834D1 /* KLBAppDelegate.h */,
 				4F7D56221994C886006834D1 /* KLBAppDelegate.m */,
 				4F7D56241994C886006834D1 /* Images.xcassets */,
@@ -142,6 +152,25 @@
 				4F7D56341994C886006834D1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4F7D56411994C8C0006834D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4F7D56421994C8E8006834D1 /* KLBCoursesViewController.h */,
+				4F7D56431994C8E8006834D1 /* KLBCoursesViewController.m */,
+				4FF17C8519985BC300C4E9BC /* KLBWebViewController.h */,
+				4FF17C8619985BC300C4E9BC /* KLBWebViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4FF17C88199864DB00C4E9BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4FF17C8E19986D7D00C4E9BC /* KLBWebViewToolbar.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +251,7 @@
 			files = (
 				4F7D561D1994C886006834D1 /* InfoPlist.strings in Resources */,
 				4F7D56251994C886006834D1 /* Images.xcassets in Resources */,
+				4FF17C8F19986D7D00C4E9BC /* KLBWebViewToolbar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +271,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F7D56231994C886006834D1 /* KLBAppDelegate.m in Sources */,
+				4F7D56441994C8E8006834D1 /* KLBCoursesViewController.m in Sources */,
 				4F7D561F1994C886006834D1 /* main.m in Sources */,
+				4FF17C8719985BC300C4E9BC /* KLBWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +472,7 @@
 				4F7D563D1994C886006834D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F7D563E1994C886006834D1 /* Build configuration list for PBXNativeTarget "NerdfeedTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +481,7 @@
 				4F7D56401994C886006834D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
