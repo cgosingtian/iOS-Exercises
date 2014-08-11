@@ -11,5 +11,8 @@
 @interface KLBWebViewController : UIViewController
 
 @property (nonatomic) NSURL *URL;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *enableButton;
 
 @end

@@ -38,8 +38,8 @@
     self = [super init];
     if (self)
     {
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(goBack)];
-        UIBarButtonItem *forwardButton = [[UIBarButtonItem alloc] initWithTitle:@"Forward" style:UIBarButtonItemStyleBordered target:self action:@selector(goForward)];
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(goBack:)];
+        UIBarButtonItem *forwardButton = [[UIBarButtonItem alloc] initWithTitle:@"Forward" style:UIBarButtonItemStyleBordered target:self action:@selector(goForward:)];
         UIBarButtonItem *enableButton = [[UIBarButtonItem alloc] initWithTitle:@"Enable" style:UIBarButtonItemStyleBordered target:self action:@selector(activateButtons)];
         [enableButton setTag:1];
         
@@ -54,17 +54,27 @@
     [self.navigationController setToolbarHidden:NO animated:animated];
 }
 
-- (void) goBack
+- (IBAction)goBack:(id) sender
 {
     UIWebView *webView = (UIWebView *)self.view;
     [webView goBack];
 }
-- (void) goForward
+
+- (IBAction)goForward:(id) sender
 {
     UIWebView *webView = (UIWebView *)self.view;
     [webView goForward];
 }
-- (void) activateButtons
+//- (IBAction)activateButtons:(id) sender
+//{
+//    [_backButton setEnabled:!_enableButtons];
+//    [_forwardButton setEnabled:!_enableButtons];
+//    [_enableButton setTitle:_enableButtons ? @"Disable" : @"Enable"];
+//    _enableButtons = !_enableButtons;
+//    
+//    NSLog(@"xib!");
+//}
+- (void)activateButtons
 {
     for (UIBarButtonItem *item in self.toolbarItems)
     {
