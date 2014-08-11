@@ -27,6 +27,8 @@
 		4F7D55FF199456EB006834D1 /* KLBItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D55FE199456EB006834D1 /* KLBItemCell.m */; };
 		4F7D560219946B66006834D1 /* KLBItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7D56001994570F006834D1 /* KLBItemCell.xib */; };
 		4F7D560519948406006834D1 /* KLBImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D560419948406006834D1 /* KLBImageViewController.m */; };
+		4FF17C9A1998BF2500C4E9BC /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FF17C981998BF2500C4E9BC /* Homepwner.xcdatamodeld */; };
+		4FF17C9D1998C15B00C4E9BC /* KLBImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF17C9C1998C15B00C4E9BC /* KLBImageTransformer.m */; };
 		4FF50DEA19908F9C00AB01D8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF50DE919908F9C00AB01D8 /* HeaderView.xib */; };
 		4FF50DEE1990B77600AB01D8 /* KLBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */; };
 		4FF50DEF1990B77600AB01D8 /* KLBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */; };
@@ -75,6 +77,9 @@
 		4F7D56001994570F006834D1 /* KLBItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBItemCell.xib; sourceTree = "<group>"; };
 		4F7D560319948406006834D1 /* KLBImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBImageViewController.h; sourceTree = "<group>"; };
 		4F7D560419948406006834D1 /* KLBImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBImageViewController.m; sourceTree = "<group>"; };
+		4FF17C991998BF2500C4E9BC /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		4FF17C9B1998C15B00C4E9BC /* KLBImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBImageTransformer.h; sourceTree = "<group>"; };
+		4FF17C9C1998C15B00C4E9BC /* KLBImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBImageTransformer.m; sourceTree = "<group>"; };
 		4FF50DE919908F9C00AB01D8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		4FF50DEB1990B77600AB01D8 /* KLBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBDetailViewController.h; sourceTree = "<group>"; };
 		4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBDetailViewController.m; sourceTree = "<group>"; };
@@ -156,6 +161,7 @@
 				4FF50DF21990CD1D00AB01D8 /* KLBDateViewController.xib */,
 				4F73B3E8198F8DA2003B2F22 /* KLBItemsViewController.h */,
 				4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */,
+				4FF17C981998BF2500C4E9BC /* Homepwner.xcdatamodeld */,
 				4F7D560319948406006834D1 /* KLBImageViewController.h */,
 				4F7D560419948406006834D1 /* KLBImageViewController.m */,
 				4FF50DE919908F9C00AB01D8 /* HeaderView.xib */,
@@ -166,6 +172,8 @@
 				4F16B1DF198FA51A0058764E /* logo.png */,
 				4F73B3CB198F8C95003B2F22 /* Images.xcassets */,
 				4F73B3C0198F8C95003B2F22 /* Supporting Files */,
+				4FF17C9B1998C15B00C4E9BC /* KLBImageTransformer.h */,
+				4FF17C9C1998C15B00C4E9BC /* KLBImageTransformer.m */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -306,8 +314,10 @@
 				4F73B3CA198F8C95003B2F22 /* KLBAppDelegate.m in Sources */,
 				4F73B3F0198F8FC3003B2F22 /* KLBItem.m in Sources */,
 				4F73B3F3198F90D2003B2F22 /* KLBItemStore.m in Sources */,
+				4FF17C9D1998C15B00C4E9BC /* KLBImageTransformer.m in Sources */,
 				4F5E2EEA1991BECC0085BB5C /* KLBImageStore.m in Sources */,
 				4FF50DEE1990B77600AB01D8 /* KLBDetailViewController.m in Sources */,
+				4FF17C9A1998BF2500C4E9BC /* Homepwner.xcdatamodeld in Sources */,
 				4F73B3EA198F8DA2003B2F22 /* KLBItemsViewController.m in Sources */,
 				4F73B3C6198F8C95003B2F22 /* main.m in Sources */,
 				4FF50DF31990CD1D00AB01D8 /* KLBDateViewController.m in Sources */,
@@ -533,6 +543,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4FF17C981998BF2500C4E9BC /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4FF17C991998BF2500C4E9BC /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = 4FF17C991998BF2500C4E9BC /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4F73B3AE198F8C94003B2F22 /* Project object */;
 }
