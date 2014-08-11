@@ -18,15 +18,14 @@
 //    
 //    if (self)
 //    {
+//        NSLog(@"INSTANTIATED");
+//        upcomingLabel = [[UILabel alloc] init];
 //        upcomingLabel.text = @"coming soon";
+//        NSLog(@"%@",upcomingLabel.text);
 //        courseLabel.text = @"course";
+//        NSLog(@"%@",courseLabel.text);
 //    }
 //    return self;
 //}
-
-- (void) drawRect:(CGRect)rect
-{
-    NSLog(@"DRAW");
-}
 
 @end

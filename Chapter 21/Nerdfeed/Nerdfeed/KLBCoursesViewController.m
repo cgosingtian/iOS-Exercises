@@ -93,7 +93,8 @@
     }
     else
     {
-        KLBUpcomingCoursesCell *upCell = [tableView dequeueReusableCellWithIdentifier:@"KLBUpcomingCoursesCell" forIndexPath:indexPath];
+        KLBUpcomingCoursesCell *upCell = [tableView dequeueReusableCellWithIdentifier:@"KLBUpcomingCoursesCell"
+                                                                         forIndexPath:indexPath];
         
         upCell.courseLabel.text = course[@"title"];
         //upCell.textLabel.text = @"KLBUpcomingCoursesCell FAILED TO LOAD";
@@ -115,12 +116,14 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    //[super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
 
     [self.tableView registerClass:[KLBUpcomingCoursesCell class]
            forCellReuseIdentifier:@"KLBUpcomingCoursesCell"];
+    
+  //    [self.tableView registerNib:[UINib nibWithNibName:@"KLBUpcomingCoursesCell" bundle:nil] forCellReuseIdentifier:@"KLBUpcomingCoursesCell"];
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task

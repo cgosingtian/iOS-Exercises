@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface KLBUpcomingCoursesCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *courseLabel;
-@property (weak, nonatomic) IBOutlet UILabel *upcomingLabel;
+@property (nonatomic,weak) IBOutlet UILabel *courseLabel;
+@property (nonatomic,weak) IBOutlet UILabel *upcomingLabel;
 
 @end
