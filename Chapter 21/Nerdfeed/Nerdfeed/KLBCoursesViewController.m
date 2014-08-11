@@ -8,6 +8,7 @@
 
 #import "KLBCoursesViewController.h"
 #import "KLBWebViewController.h"
+#import "KLBUpcomingCoursesCell.h"
 
 @interface KLBCoursesViewController () <NSURLSessionDelegate>
 
@@ -78,11 +79,28 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //return nil;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
-    NSDictionary *course = _courses[indexPath.row];
-    cell.textLabel.text = course[@"title"];
     
-    return cell;
+    NSDictionary *course = _courses[indexPath.row];
+    NSArray *upcoming = course[@"upcoming"];
+    
+    if (upcoming.count == 1)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+        
+        cell.textLabel.text = course[@"title"];
+        
+        return cell;
+    }
+    else
+    {
+        KLBUpcomingCoursesCell *upCell = [tableView dequeueReusableCellWithIdentifier:@"KLBUpcomingCoursesCell" forIndexPath:indexPath];
+        
+        upCell.courseLabel.text = course[@"title"];
+        //upCell.textLabel.text = @"KLBUpcomingCoursesCell FAILED TO LOAD";
+        upCell.upcomingLabel.text = [NSString stringWithFormat:@"%@",upcoming[1][@"start_date"]];
+        
+        return upCell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,6 +118,9 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+
+    [self.tableView registerClass:[KLBUpcomingCoursesCell class]
+           forCellReuseIdentifier:@"KLBUpcomingCoursesCell"];
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task

@@ -22,6 +22,8 @@
 		4F7D56441994C8E8006834D1 /* KLBCoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D56431994C8E8006834D1 /* KLBCoursesViewController.m */; };
 		4FF17C8719985BC300C4E9BC /* KLBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF17C8619985BC300C4E9BC /* KLBWebViewController.m */; };
 		4FF17C8F19986D7D00C4E9BC /* KLBWebViewToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF17C8E19986D7D00C4E9BC /* KLBWebViewToolbar.xib */; };
+		4FF17C9319987ABC00C4E9BC /* KLBUpcomingCoursesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF17C9219987ABC00C4E9BC /* KLBUpcomingCoursesCell.m */; };
+		4FF17C9519987B2600C4E9BC /* KLBUpcomingCoursesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF17C9419987B2600C4E9BC /* KLBUpcomingCoursesCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,9 @@
 		4FF17C8519985BC300C4E9BC /* KLBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBWebViewController.h; sourceTree = "<group>"; };
 		4FF17C8619985BC300C4E9BC /* KLBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBWebViewController.m; sourceTree = "<group>"; };
 		4FF17C8E19986D7D00C4E9BC /* KLBWebViewToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBWebViewToolbar.xib; sourceTree = "<group>"; };
+		4FF17C9119987ABC00C4E9BC /* KLBUpcomingCoursesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBUpcomingCoursesCell.h; sourceTree = "<group>"; };
+		4FF17C9219987ABC00C4E9BC /* KLBUpcomingCoursesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBUpcomingCoursesCell.m; sourceTree = "<group>"; };
+		4FF17C9419987B2600C4E9BC /* KLBUpcomingCoursesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBUpcomingCoursesCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +120,7 @@
 		4F7D56181994C886006834D1 /* Nerdfeed */ = {
 			isa = PBXGroup;
 			children = (
+				4FF17C9019987AA600C4E9BC /* Models */,
 				4FF17C88199864DB00C4E9BC /* Views */,
 				4F7D56411994C8C0006834D1 /* Controllers */,
 				4F7D56211994C886006834D1 /* KLBAppDelegate.h */,
@@ -168,9 +174,19 @@
 		4FF17C88199864DB00C4E9BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4FF17C9419987B2600C4E9BC /* KLBUpcomingCoursesCell.xib */,
 				4FF17C8E19986D7D00C4E9BC /* KLBWebViewToolbar.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		4FF17C9019987AA600C4E9BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4FF17C9119987ABC00C4E9BC /* KLBUpcomingCoursesCell.h */,
+				4FF17C9219987ABC00C4E9BC /* KLBUpcomingCoursesCell.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +267,7 @@
 			files = (
 				4F7D561D1994C886006834D1 /* InfoPlist.strings in Resources */,
 				4F7D56251994C886006834D1 /* Images.xcassets in Resources */,
+				4FF17C9519987B2600C4E9BC /* KLBUpcomingCoursesCell.xib in Resources */,
 				4FF17C8F19986D7D00C4E9BC /* KLBWebViewToolbar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +290,7 @@
 				4F7D56231994C886006834D1 /* KLBAppDelegate.m in Sources */,
 				4F7D56441994C8E8006834D1 /* KLBCoursesViewController.m in Sources */,
 				4F7D561F1994C886006834D1 /* main.m in Sources */,
+				4FF17C9319987ABC00C4E9BC /* KLBUpcomingCoursesCell.m in Sources */,
 				4FF17C8719985BC300C4E9BC /* KLBWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
