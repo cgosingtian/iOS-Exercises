@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 //#import "KLBItem.h"
 @class KLBItem; //speeds up compile times; ok not to use import since we don't send messages to KLBItem in here
 
@@ -26,5 +27,6 @@
                 toIndex:(NSUInteger)toIndex;
 - (BOOL)saveChanges;
 - (void)addAssetType:(NSString *)value forKey:(NSString *)key;
+- (NSArray *)allItemsOfAssetType:(NSManagedObject *)type;
 
 @end

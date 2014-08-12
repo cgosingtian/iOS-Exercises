@@ -250,11 +250,32 @@
     return _allAssetTypes;
 }
 
+- (NSArray *)allItemsOfAssetType:(NSManagedObject *)type
+{
+    NSArray *items;
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"KLBItem" inManagedObjectContext:self.context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assetType = %@",type];
+    NSError *error;
+    
+    request.entity = e;
+    request.predicate = predicate;
+    
+    items = [self.context executeFetchRequest:request error:&error];
+    
+    return items;
+}
+
 - (void)addAssetType:(NSString *)value forKey:(NSString *)key
 {
     NSManagedObject *type;
     type = [NSEntityDescription insertNewObjectForEntityForName:@"KLBAssetType" inManagedObjectContext:self.context];
     [type setValue:value forKey:key];
     [_allAssetTypes addObject:type];
+}
+
++ (NSManagedObjectContext *)context
+{
+    return self.context;
 }
 @end

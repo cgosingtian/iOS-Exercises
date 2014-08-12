@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 @class KLBItem;
 
 @interface KLBAssetTypeViewController : UITableViewController
 
 @property (nonatomic, strong) KLBItem *item;
+@property (nonatomic, retain) NSManagedObject *selectedType;
 
 @end

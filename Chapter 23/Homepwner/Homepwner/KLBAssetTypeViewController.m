@@ -13,7 +13,7 @@
 
 @implementation KLBAssetTypeViewController
 
-@synthesize item;
+@synthesize item,selectedType;
 
 - (instancetype)init
 {
@@ -47,12 +47,25 @@
 //    UINib *nib = [UINib nibWithNibName:@"UITableViewCell" bundle:[NSBundle mainBundle]];
 //    [self.tableView registerNib:nib forCellReuseIdentifier:@"UITableViewCell"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    selectedType = [item assetType];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [[[KLBItemStore sharedStore] allAssetTypes] count];
+    if (section == 0) //asset types
+    {
+        return [[[KLBItemStore sharedStore] allAssetTypes] count];
+    }
+    else if (section == 1)//items having that asset type
+    {
+        return [[[KLBItemStore sharedStore] allItemsOfAssetType:selectedType] count];
+    }
+    else return 0;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -61,18 +74,33 @@
     UITableViewCell *cell =
     [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
                                     forIndexPath:indexPath];
+    if (indexPath.section == 0)
+    {
+        NSArray *allAssets = [[KLBItemStore sharedStore] allAssetTypes];
     
-    NSArray *allAssets = [[KLBItemStore sharedStore] allAssetTypes];
+        NSManagedObject *assetType = [allAssets objectAtIndex:indexPath.row];
     
-    NSManagedObject *assetType = [allAssets objectAtIndex:indexPath.row];
+        cell.textLabel.text = [assetType valueForKey:@"label"];
     
-    cell.textLabel.text = [assetType valueForKey:@"label"];
-    
-    // Checkmark the one that is currently selected
-    if (assetType == self.item.assetType) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        // Checkmark the one that is currently selected
+        if (assetType == self.item.assetType) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    }
+    else if (indexPath.section == 1)
+    {
+        if (selectedType)
+        {
+            NSArray *result = [[KLBItemStore sharedStore] allItemsOfAssetType:selectedType];
+            
+            NSLog(@"found %@",result);
+            
+            KLBItem *itemResult = result[indexPath.row];
+            
+            cell.textLabel.text = itemResult.itemName;
+        }
     }
     
     return cell;
@@ -80,18 +108,22 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    if (indexPath.section == 0)
+    {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
-    NSArray *allAssets = [[KLBItemStore sharedStore] allAssetTypes];
+        NSArray *allAssets = [[KLBItemStore sharedStore] allAssetTypes];
     
-    NSManagedObject *assetType = [allAssets objectAtIndex:indexPath.row];
+        NSManagedObject *assetType = [allAssets objectAtIndex:indexPath.row];
     
-    self.item.assetType = assetType;
+        self.item.assetType = assetType;
+        selectedType = assetType;
     
-    [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     
-    [self.tableView reloadData];
+        [self.tableView reloadData];
+    }
 }
 
 - (IBAction)addNewAsset:(id)sender
@@ -105,6 +137,15 @@
     [self presentViewController:navController
                        animated:YES
                      completion:^(){}];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(section == 0)
+        return @"Asset Types";
+    if(section == 1)
+        return @"Assets of Selected Type";
+    else return @"";
 }
 
 @end
