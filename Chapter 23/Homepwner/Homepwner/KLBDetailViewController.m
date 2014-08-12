@@ -75,6 +75,7 @@
 @interface KLBDetailViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate,UIPopoverControllerDelegate>
 
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
+@property (strong, nonatomic) UIPopoverController *assetTypePopover;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
@@ -263,8 +264,20 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    NSLog(@"User dismissed popover");
-    self.imagePickerPopover = nil;
+    if (popoverController == self.imagePickerPopover)
+    {
+        NSLog(@"User dismissed popover: image picker");
+        self.imagePickerPopover = nil;
+    }
+    else if (popoverController == self.assetTypePopover)
+    {
+        KLBAssetTypeViewController *kvc = (KLBAssetTypeViewController *)self.assetTypePopover.contentViewController;
+        self.item.assetType = kvc.item.assetType;
+        self.assetTypeButton.title = [NSString stringWithFormat:@"Type: %@",[self.item.assetType valueForKey:@"label"]];
+        [self.assetTypePopover dismissPopoverAnimated:YES];
+        self.assetTypePopover = nil;
+        NSLog(@"User dismissed popover: asset type");
+    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker
@@ -320,8 +333,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         self.cameraButton.enabled = YES;
     }
 }
-- (void)willAnimateRotationToInterfaceOrientation:
-(UIInterfaceOrientation)toInterfaceOrientation
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
                                          duration:(NSTimeInterval)duration
 {
     [self prepareViewsForOrientation:toInterfaceOrientation];
@@ -400,7 +412,19 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
     {
-        //popover
+        if ([self.assetTypePopover isPopoverVisible])
+        {
+            [self.assetTypePopover dismissPopoverAnimated:YES];
+            self.assetTypePopover = nil;
+        }
+        
+        self.assetTypePopover = [[UIPopoverController alloc] initWithContentViewController:kvc];
+        self.assetTypePopover.delegate = self;
+        
+        [self.assetTypePopover
+         presentPopoverFromBarButtonItem:sender
+         permittedArrowDirections:UIPopoverArrowDirectionAny
+         animated:YES];
     }
     else
     {

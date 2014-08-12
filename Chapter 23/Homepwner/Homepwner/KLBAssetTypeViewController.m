@@ -12,6 +12,8 @@
 
 @implementation KLBAssetTypeViewController
 
+@synthesize item;
+
 - (instancetype)init
 {
     return [super initWithStyle:UITableViewStylePlain];
@@ -70,6 +72,8 @@
     self.item.assetType = assetType;
     
     [self.navigationController popViewControllerAnimated:YES];
+    
+    [self.tableView reloadData];
 }
 
 @end
