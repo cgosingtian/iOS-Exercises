@@ -364,6 +364,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
+        self.restorationIdentifier = NSStringFromClass([self class]);
+        self.restorationClass = [self class];
+        
         // we're setting these navigation items because we will be wrapping this VC with a ui nav VC
         if (isNew) {
             UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]
@@ -433,6 +436,44 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         [self.navigationController pushViewController:kvc animated:YES];
     }
+}
+
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)path
+                                                            coder:(NSCoder *)coder
+{
+    BOOL isNew = NO;
+    if ([path count] == 3) {
+        isNew = YES;
+    }
+    return [[self alloc] initForNewItem:isNew];
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.item.itemKey
+                 forKey:@"item.itemKey"];
+    
+    // Save changes into item
+    self.item.itemName = self.nameField.text;
+    self.item.serialNumber = self.serialField.text;
+    self.item.valueInDollars = [self.valueField.text intValue];
+    // Have store save changes to disk
+    [[KLBItemStore sharedStore] saveChanges];
+    
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    NSString *itemKey =
+    [coder decodeObjectForKey:@"item.itemKey"];
+    for (KLBItem *item in [[KLBItemStore sharedStore] allItems]) {
+        if ([itemKey isEqualToString:item.itemKey]) {
+            self.item = item;
+            break;
+        }
+    }
+    [super decodeRestorableStateWithCoder:coder];
 }
 
 @end

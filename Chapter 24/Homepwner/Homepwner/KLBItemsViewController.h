@@ -9,7 +9,7 @@
 //#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface KLBItemsViewController : UITableViewController <UITableViewDataSource>
+@interface KLBItemsViewController : UITableViewController <UITableViewDataSource,UIViewControllerRestoration>
 
 - (IBAction)addNewItem:(id)sender;
 //- (IBAction)toggleEditingMode:(id)sender;

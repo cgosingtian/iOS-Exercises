@@ -16,19 +16,40 @@
 
 @implementation KLBAppDelegate
 @synthesize ivc;
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+
+//method gets called BEFORE state restoration starts
+- (BOOL)application:(UIApplication *)application
+willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    ivc = [[KLBItemsViewController alloc]init];
-    
-    [[ivc tableView] setRowHeight:60];
-    
-    UINavigationController *unc = [[UINavigationController alloc]initWithRootViewController:ivc];
-    
-    self.window.rootViewController = unc;
-    
     self.window.backgroundColor = [UIColor whiteColor];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    //we set up the view hierarchy if state restoration doesn't kick in
+    if (!self.window.rootViewController)
+    {
+        NSLog(@"State restoration failed - manually initializing view hierarchy!");
+        
+        // Override point for customization after application launch.
+        ivc = [[KLBItemsViewController alloc]init];
+    
+        [[ivc tableView] setRowHeight:60];
+    
+        UINavigationController *unc = [[UINavigationController alloc]initWithRootViewController:ivc];
+    
+        // Give the navigation controller a restoration identifier that is
+        // the same name as the class
+        unc.restorationIdentifier = NSStringFromClass([unc class]);
+    
+        self.window.rootViewController = unc;
+    }
+    
+    //self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -73,4 +94,34 @@
 //    [(UITableView *)ivc.view reloadData];
 //}
 
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
+{
+    return YES;
+}
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+{
+    return YES;
+}
+
+- (UIViewController *)application:(UIApplication *)application
+viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents
+                            coder:(NSCoder *)coder
+{
+    // Create a new navigation controller
+    UIViewController *vc = [[UINavigationController alloc] init];
+    // The last object in the path array is the restoration
+    // identifier for this view controller
+    vc.restorationIdentifier = [identifierComponents lastObject];
+    if ([identifierComponents count] == 1) {
+        // If there is only 1 identifier component, then
+        // this is the root view controller
+        self.window.rootViewController = vc;
+    }
+    else {
+        // Else, it is the navigation controller for a new item,
+        // so you need to set its modal presentation style
+        vc.modalPresentationStyle = UIModalPresentationFormSheet;
+    }
+    return vc;
+}
 @end

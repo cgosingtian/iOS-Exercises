@@ -14,7 +14,7 @@
 #import "KLBImageStore.h"
 #import "KLBImageViewController.h"
 
-@interface KLBItemsViewController ()<UIPopoverControllerDelegate>
+@interface KLBItemsViewController ()<UIPopoverControllerDelegate, UIDataSourceModelAssociation>
 
 @property (strong, nonatomic) UIPopoverController *imagePopover;
 //@property (nonatomic, strong) IBOutlet UIView *headerView; //strong because top-level view; weak otherwise
@@ -33,6 +33,9 @@
     if (self) {
         UINavigationItem *navItem = self.navigationItem; //same idea here as getting self.navigationController
         navItem.title = @"Homepwner";
+        
+        self.restorationIdentifier = NSStringFromClass([self class]);
+        self.restorationClass = [self class];
         
         // Create a new bar button item that will send
         // addNewItem: to BNRItemsViewController
@@ -159,6 +162,8 @@
 //    [self.tableView setTableHeaderView:header];
     
     [self.tableView setBackgroundView:bg];
+    
+    self.tableView.restorationIdentifier = @"KLBItemsViewControllerTableView";
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -217,6 +222,9 @@
     };
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:detailViewController];
+    
+    navController.restorationIdentifier = NSStringFromClass([navController class]);
+    
     navController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:navController animated:YES completion:NULL];
 }
@@ -336,4 +344,50 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [self.tableView reloadData];
 }
 
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)path
+                                                            coder:(NSCoder *)coder
+{
+    return [[self alloc] init];
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeBool:self.isEditing forKey:@"TableViewIsEditing"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.editing = [coder decodeBoolForKey:@"TableViewIsEditing"];
+    [super decodeRestorableStateWithCoder:coder];
+}
+
+- (NSString *)modelIdentifierForElementAtIndexPath:(NSIndexPath *)path
+                                            inView:(UIView *)view
+{
+    NSString *identifier = nil;
+    if (path && view) {
+        // Return an identifier of the given NSIndexPath,
+        // in case next time the data source changes
+        KLBItem *item = [[KLBItemStore sharedStore] allItems][path.row];
+        identifier = item.itemKey;
+    }
+    return identifier;
+}
+
+- (NSIndexPath *)indexPathForElementWithModelIdentifier:(NSString *)identifier
+                                                 inView:(UIView *)view
+{
+    NSIndexPath *indexPath = nil;
+    if (identifier && view) {
+        NSArray *items = [[KLBItemStore sharedStore] allItems];
+        for (KLBItem *item in items) {
+            if ([identifier isEqualToString:item.itemKey]) {
+                int row = [items indexOfObjectIdenticalTo:item];
+                indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+                break;
+            }
+        }
+    }
+    return indexPath;
+}
 @end

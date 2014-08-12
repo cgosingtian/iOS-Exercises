@@ -10,7 +10,7 @@
 
 @class KLBItem;
 
-@interface KLBDetailViewController : UIViewController
+@interface KLBDetailViewController : UIViewController <UIViewControllerRestoration>
 
 @property (nonatomic,strong) KLBItem *item;
 @property (nonatomic, copy) void (^dismissBlock)(void);
