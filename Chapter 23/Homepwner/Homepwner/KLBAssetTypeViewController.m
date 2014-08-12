@@ -9,6 +9,7 @@
 #import "KLBAssetTypeViewController.h"
 #import "KLBItemStore.h"
 #import "KLBItem.h"
+#import "KLBAssetViewController.h"
 
 @implementation KLBAssetTypeViewController
 
@@ -16,7 +17,24 @@
 
 - (instancetype)init
 {
-    return [super initWithStyle:UITableViewStylePlain];
+    self = [super initWithStyle:UITableViewStylePlain];
+    
+    if (self)
+    {
+        UINavigationItem *navItem = self.navigationItem; //same idea here as getting self.navigationController
+        navItem.title = @"Select Asset Type";
+        
+        // Create a new bar button item that will send
+        // addNewItem: to BNRItemsViewController
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                target:self
+                                action:@selector(addNewAsset:)];
+        // Set this bar button item as the right item in the navigationItem
+        navItem.rightBarButtonItem = bbi;
+    }
+    
+    return self;
 }
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
@@ -74,6 +92,19 @@
     [self.navigationController popViewControllerAnimated:YES];
     
     [self.tableView reloadData];
+}
+
+- (IBAction)addNewAsset:(id)sender
+{
+    KLBAssetViewController *avc = [[KLBAssetViewController alloc] init];
+    avc.source = self;
+    
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:avc];
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:navController
+                       animated:YES
+                     completion:^(){}];
 }
 
 @end

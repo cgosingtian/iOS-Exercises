@@ -271,7 +271,7 @@
     }
     else if (popoverController == self.assetTypePopover)
     {
-        KLBAssetTypeViewController *kvc = (KLBAssetTypeViewController *)self.assetTypePopover.contentViewController;
+        KLBAssetTypeViewController *kvc = (KLBAssetTypeViewController *)self.assetTypePopover.contentViewController.childViewControllers[0];
         self.item.assetType = kvc.item.assetType;
         self.assetTypeButton.title = [NSString stringWithFormat:@"Type: %@",[self.item.assetType valueForKey:@"label"]];
         [self.assetTypePopover dismissPopoverAnimated:YES];
@@ -418,7 +418,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             self.assetTypePopover = nil;
         }
         
-        self.assetTypePopover = [[UIPopoverController alloc] initWithContentViewController:kvc];
+        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:kvc];
+        
+        self.assetTypePopover = [[UIPopoverController alloc] initWithContentViewController:nc];
         self.assetTypePopover.delegate = self;
         
         [self.assetTypePopover

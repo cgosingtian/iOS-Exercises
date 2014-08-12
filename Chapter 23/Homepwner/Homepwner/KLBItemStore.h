@@ -25,5 +25,6 @@
 - (void)moveItemAtIndex:(NSUInteger)fromIndex
                 toIndex:(NSUInteger)toIndex;
 - (BOOL)saveChanges;
+- (void)addAssetType:(NSString *)value forKey:(NSString *)key;
 
 @end

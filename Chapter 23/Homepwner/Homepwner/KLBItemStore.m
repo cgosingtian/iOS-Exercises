@@ -249,4 +249,12 @@
     
     return _allAssetTypes;
 }
+
+- (void)addAssetType:(NSString *)value forKey:(NSString *)key
+{
+    NSManagedObject *type;
+    type = [NSEntityDescription insertNewObjectForEntityForName:@"KLBAssetType" inManagedObjectContext:self.context];
+    [type setValue:value forKey:key];
+    [_allAssetTypes addObject:type];
+}
 @end
