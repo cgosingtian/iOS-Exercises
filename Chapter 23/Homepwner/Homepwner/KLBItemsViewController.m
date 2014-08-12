@@ -46,7 +46,7 @@
         //creates a button for you with selector that activates set editing
         navItem.leftBarButtonItem = self.editButtonItem;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableViewForDynamicTypeSize) name:UIContentSizeCategoryDidChangeNotification object:nil];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableViewForDynamicTypeSize) name:UIContentSizeCategoryDidChangeNotification object:nil];
         
 //        for (int i = 0; i < 5; i++) {
 //            [[KLBItemStore sharedStore] createItem];
@@ -94,6 +94,8 @@
     else
         cell.valueLabel.textColor = [UIColor redColor];
     cell.thumbnailView.image = item.thumbnail;
+    
+    cell.orderLabel.text = [NSString stringWithFormat:@"%f",item.orderingValue];
     
     __weak KLBItemCell *weakCell = cell;
     
@@ -261,6 +263,7 @@
 //    {
         [[KLBItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row
                                             toIndex:destinationIndexPath.row];
+    [self.tableView reloadData];
 //    }
 }
 
@@ -311,7 +314,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [super viewWillAppear:animated];
     //[self.tableView reloadData];
     
-    [self updateTableViewForDynamicTypeSize];
+    //[self updateTableViewForDynamicTypeSize];
 }
 
 - (void)updateTableViewForDynamicTypeSize

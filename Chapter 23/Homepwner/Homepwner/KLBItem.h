@@ -1,49 +1,26 @@
 //
-//  BNRItem.h
-//  RandomItems
+//  KLBItem.h
+//  Homepwner
 //
-//  Created by John Gallagher on 1/12/14.
-//  Copyright (c) 2014 Big Nerd Ranch. All rights reserved.
+//  Created by Chase Gosingtian on 8/12/14.
+//  Copyright (c) 2014 KLab Cyscorpions, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface KLBItem : NSObject <NSCoding>
-{
-    NSString *_itemName;
-    NSString *_serialNumber;
-    int _valueInDollars;
-    NSDate *_dateCreated;
-}
 
-@property (nonatomic, copy) NSString *itemKey;
-@property (strong, nonatomic) UIImage *thumbnail;
+@interface KLBItem : NSManagedObject
+
+@property (nonatomic, retain) NSDate * dateCreated;
+@property (nonatomic, retain) NSString * itemKey;
+@property (nonatomic, retain) NSString * itemName;
+@property (nonatomic, assign) double orderingValue;
+@property (nonatomic, retain) NSString * serialNumber;
+@property (nonatomic, retain) UIImage * thumbnail;
+@property (nonatomic, assign) int valueInDollars;
+@property (nonatomic, retain) NSManagedObject *assetType;
 
 - (void)setThumbnailFromImage:(UIImage *)image;
-
-+ (instancetype)randomItem;
-
-// Designated initializer for BNRItem
-- (instancetype)initWithItemName:(NSString *)name
-                  valueInDollars:(int)value
-                    serialNumber:(NSString *)sNumber;
-
-- (instancetype)initWithItemName:(NSString *)name;
-
-- (void)setItemName:(NSString *)str;
-- (NSString *)itemName;
-
-- (void)setSerialNumber:(NSString *)str;
-- (NSString *)serialNumber;
-
-- (void)setValueInDollars:(int)v;
-- (int)valueInDollars;
-
-- (void)setDateCreated:(NSDate *)date;
-- (NSDate *)dateCreated;
-
-#pragma mark - NSCoding Protocol
-- (void)encodeWithCoder:(NSCoder *)aCoder;
-- (instancetype)initWithCoder:(NSCoder *)aDecoder;
 
 @end

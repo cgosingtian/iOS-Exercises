@@ -15,7 +15,7 @@
 
 @implementation KLBItemCell
 
-@synthesize nameLabel,imageView,valueLabel,serialNumberLabel;
+@synthesize nameLabel,imageView,valueLabel,serialNumberLabel,orderLabel;
 
 - (IBAction)showImage:(id)sender
 {
@@ -30,6 +30,7 @@
     self.nameLabel.font = font;
     self.serialNumberLabel.font = font;
     self.valueLabel.font = font;
+    self.orderLabel.font = font;
     
     static NSDictionary *imageSizeDictionary;
     if (!imageSizeDictionary)
@@ -52,12 +53,14 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    [self updateInterfaceForDynamicTypeSize];
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self
-           selector:@selector(updateInterfaceForDynamicTypeSize)
-               name:UIContentSizeCategoryDidChangeNotification
-             object:nil];
+    //[self updateInterfaceForDynamicTypeSize];
+    
+//    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+//    [nc addObserver:self
+//           selector:@selector(updateInterfaceForDynamicTypeSize)
+//               name:UIContentSizeCategoryDidChangeNotification
+//             object:nil];
+    
     NSLayoutConstraint *constraint =
     [NSLayoutConstraint constraintWithItem:self.thumbnailView
                                  attribute:NSLayoutAttributeHeight

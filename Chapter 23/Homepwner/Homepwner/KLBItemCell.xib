@@ -51,18 +51,27 @@
                             <action selector="showImage:" destination="uK5-aK-L3F" eventType="touchUpInside" id="e5i-aL-UL9"/>
                         </connections>
                     </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKn-ce-ohz">
+                        <rect key="frame" x="288" y="30" width="26" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="kzm-VR-Ucs" secondAttribute="bottom" constant="5" id="1IS-Cc-L0S"/>
                     <constraint firstItem="DAe-pA-Qha" firstAttribute="leading" secondItem="pxl-YX-uth" secondAttribute="trailing" constant="5" id="BRU-Di-JgO"/>
                     <constraint firstItem="MGd-x0-Wbg" firstAttribute="leading" secondItem="dpk-OY-VHs" secondAttribute="leading" constant="2" id="JBy-x1-aL6"/>
                     <constraint firstItem="P21-PD-aoA" firstAttribute="centerY" secondItem="dpk-OY-VHs" secondAttribute="centerY" id="Pbr-7T-P9V"/>
+                    <constraint firstAttribute="bottom" secondItem="fKn-ce-ohz" secondAttribute="bottom" constant="1" id="Zq3-dr-lot"/>
                     <constraint firstItem="kzm-VR-Ucs" firstAttribute="leading" secondItem="DAe-pA-Qha" secondAttribute="leading" id="aX9-jE-Fbn"/>
                     <constraint firstItem="MGd-x0-Wbg" firstAttribute="trailing" secondItem="pxl-YX-uth" secondAttribute="trailing" id="cGd-c8-p8m"/>
                     <constraint firstItem="MGd-x0-Wbg" firstAttribute="bottom" secondItem="pxl-YX-uth" secondAttribute="bottom" id="gmu-ih-gzO"/>
                     <constraint firstItem="MGd-x0-Wbg" firstAttribute="top" secondItem="pxl-YX-uth" secondAttribute="top" id="nBW-59-kcQ"/>
                     <constraint firstItem="MGd-x0-Wbg" firstAttribute="leading" secondItem="pxl-YX-uth" secondAttribute="leading" id="nQ7-wu-eab"/>
                     <constraint firstItem="DAe-pA-Qha" firstAttribute="top" secondItem="dpk-OY-VHs" secondAttribute="top" constant="5" id="phg-pk-BZR"/>
+                    <constraint firstItem="P21-PD-aoA" firstAttribute="trailing" secondItem="fKn-ce-ohz" secondAttribute="trailing" id="t27-id-HyY"/>
                     <constraint firstAttribute="trailing" secondItem="P21-PD-aoA" secondAttribute="trailing" constant="6" id="yPp-Oo-JOA"/>
                     <constraint firstItem="pxl-YX-uth" firstAttribute="centerY" secondItem="P21-PD-aoA" secondAttribute="centerY" id="yvI-WY-tzv"/>
                 </constraints>
@@ -70,6 +79,7 @@
             <connections>
                 <outlet property="imageViewHeightConstraint" destination="VHO-42-D27" id="LlA-W4-3Ib"/>
                 <outlet property="nameLabel" destination="DAe-pA-Qha" id="yGy-d8-Pij"/>
+                <outlet property="orderLabel" destination="fKn-ce-ohz" id="fD3-BU-xYt"/>
                 <outlet property="serialNumberLabel" destination="kzm-VR-Ucs" id="GIo-cf-kDK"/>
                 <outlet property="thumbnailView" destination="MGd-x0-Wbg" id="bCG-Ja-1X5"/>
                 <outlet property="valueLabel" destination="P21-PD-aoA" id="RB6-TO-Cej"/>

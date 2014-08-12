@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F16B1E0198FA51A0058764E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F16B1DF198FA51A0058764E /* logo.png */; };
 		4F5E2EEA1991BECC0085BB5C /* KLBImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */; };
+		4F6CD33F19999C8900802A72 /* KLBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CD33E19999C8900802A72 /* KLBItem.m */; };
 		4F73B3BA198F8C95003B2F22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3B9198F8C95003B2F22 /* Foundation.framework */; };
 		4F73B3BC198F8C95003B2F22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3BB198F8C95003B2F22 /* CoreGraphics.framework */; };
 		4F73B3BE198F8C95003B2F22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3BD198F8C95003B2F22 /* UIKit.framework */; };
@@ -22,7 +23,6 @@
 		4F73B3DD198F8C95003B2F22 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F73B3DB198F8C95003B2F22 /* InfoPlist.strings */; };
 		4F73B3DF198F8C95003B2F22 /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3DE198F8C95003B2F22 /* HomepwnerTests.m */; };
 		4F73B3EA198F8DA2003B2F22 /* KLBItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */; };
-		4F73B3F0198F8FC3003B2F22 /* KLBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3EF198F8FC3003B2F22 /* KLBItem.m */; };
 		4F73B3F3198F90D2003B2F22 /* KLBItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */; };
 		4F7D55FF199456EB006834D1 /* KLBItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7D55FE199456EB006834D1 /* KLBItemCell.m */; };
 		4F7D560219946B66006834D1 /* KLBItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7D56001994570F006834D1 /* KLBItemCell.xib */; };
@@ -50,6 +50,8 @@
 		4F16B1DF198FA51A0058764E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		4F5E2EE81991BECC0085BB5C /* KLBImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBImageStore.h; sourceTree = "<group>"; };
 		4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBImageStore.m; sourceTree = "<group>"; };
+		4F6CD33D19999C8900802A72 /* KLBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItem.h; sourceTree = "<group>"; };
+		4F6CD33E19999C8900802A72 /* KLBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItem.m; sourceTree = "<group>"; };
 		4F73B3B6198F8C95003B2F22 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F73B3B9198F8C95003B2F22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F73B3BB198F8C95003B2F22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,8 +70,6 @@
 		4F73B3DE198F8C95003B2F22 /* HomepwnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepwnerTests.m; sourceTree = "<group>"; };
 		4F73B3E8198F8DA2003B2F22 /* KLBItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItemsViewController.h; sourceTree = "<group>"; };
 		4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItemsViewController.m; sourceTree = "<group>"; };
-		4F73B3EE198F8FC3003B2F22 /* KLBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItem.h; sourceTree = "<group>"; };
-		4F73B3EF198F8FC3003B2F22 /* KLBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItem.m; sourceTree = "<group>"; };
 		4F73B3F1198F90D2003B2F22 /* KLBItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItemStore.h; sourceTree = "<group>"; };
 		4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBItemStore.m; sourceTree = "<group>"; };
 		4F7D55FD199456EB006834D1 /* KLBItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItemCell.h; sourceTree = "<group>"; };
@@ -162,11 +162,11 @@
 				4F73B3E8198F8DA2003B2F22 /* KLBItemsViewController.h */,
 				4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */,
 				4FF17C981998BF2500C4E9BC /* Homepwner.xcdatamodeld */,
+				4F6CD33D19999C8900802A72 /* KLBItem.h */,
+				4F6CD33E19999C8900802A72 /* KLBItem.m */,
 				4F7D560319948406006834D1 /* KLBImageViewController.h */,
 				4F7D560419948406006834D1 /* KLBImageViewController.m */,
 				4FF50DE919908F9C00AB01D8 /* HeaderView.xib */,
-				4F73B3EE198F8FC3003B2F22 /* KLBItem.h */,
-				4F73B3EF198F8FC3003B2F22 /* KLBItem.m */,
 				4F73B3F1198F90D2003B2F22 /* KLBItemStore.h */,
 				4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */,
 				4F16B1DF198FA51A0058764E /* logo.png */,
@@ -312,7 +312,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F73B3CA198F8C95003B2F22 /* KLBAppDelegate.m in Sources */,
-				4F73B3F0198F8FC3003B2F22 /* KLBItem.m in Sources */,
 				4F73B3F3198F90D2003B2F22 /* KLBItemStore.m in Sources */,
 				4FF17C9D1998C15B00C4E9BC /* KLBImageTransformer.m in Sources */,
 				4F5E2EEA1991BECC0085BB5C /* KLBImageStore.m in Sources */,
@@ -323,6 +322,7 @@
 				4FF50DF31990CD1D00AB01D8 /* KLBDateViewController.m in Sources */,
 				4F7D560519948406006834D1 /* KLBImageViewController.m in Sources */,
 				4F7D55FF199456EB006834D1 /* KLBItemCell.m in Sources */,
+				4F6CD33F19999C8900802A72 /* KLBItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

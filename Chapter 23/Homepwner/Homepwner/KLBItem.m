@@ -1,169 +1,23 @@
 //
-//  BNRItem.m
-//  RandomItems
+//  KLBItem.m
+//  Homepwner
 //
-//  Created by John Gallagher on 1/12/14.
-//  Copyright (c) 2014 Big Nerd Ranch. All rights reserved.
+//  Created by Chase Gosingtian on 8/12/14.
+//  Copyright (c) 2014 KLab Cyscorpions, Inc. All rights reserved.
 //
 
 #import "KLBItem.h"
-#import "KLBImageStore.h"
 
 @implementation KLBItem
 
-@synthesize itemKey,thumbnail;
-
-+ (instancetype)randomItem
-{
-    // Create an immutable array of three adjectives
-    NSArray *randomAdjectiveList = @[@"Fluffy", @"Rusty", @"Shiny"];
-
-    // Create an immutable array of three nouns
-    NSArray *randomNounList = @[@"Bear", @"Spork", @"Mac"];
-
-    // Get the index of a random adjective/noun from the lists
-    // Note: The % operator, called the modulo operator, gives
-    // you the remainder. So adjectiveIndex is a random number
-    // from 0 to 2 inclusive.
-    NSInteger adjectiveIndex = arc4random() % [randomAdjectiveList count];
-    NSInteger nounIndex = arc4random() % [randomNounList count];
-
-    // Note that NSInteger is not an object, but a type definition
-    // for "long"
-
-    NSString *randomName = [NSString stringWithFormat:@"%@ %@",
-                            randomAdjectiveList[adjectiveIndex],
-                            randomNounList[nounIndex]];
-
-    int randomValue = arc4random() % 100;
-
-    NSString *randomSerialNumber = [NSString stringWithFormat:@"%c%c%c%c%c",
-                                    '0' + arc4random() % 10,
-                                    'A' + arc4random() % 26,
-                                    '0' + arc4random() % 10,
-                                    'A' + arc4random() % 26,
-                                    '0' + arc4random() % 10];
-
-    KLBItem *newItem = [[self alloc] initWithItemName:randomName
-                                       valueInDollars:randomValue
-                                         serialNumber:randomSerialNumber];
-
-    return newItem;
-}
-
-- (instancetype)initWithItemName:(NSString *)name
-                  valueInDollars:(int)value
-                    serialNumber:(NSString *)sNumber
-{
-    // Call the superclass's designated initializer
-    self = [super init];
-
-    // Did the superclass's designated initializer succeed?
-    if (self) {
-        // Give the instance variables initial values
-        _itemName = name;
-        _serialNumber = sNumber;
-        _valueInDollars = value;
-        // Set _dateCreated to the current date and time
-        _dateCreated = [[NSDate alloc] init];
-        
-        //create nsuuid object and set as key
-        NSUUID *uuid = [[NSUUID alloc] init];
-        itemKey = [uuid UUIDString];
-    }
-
-    // Return the address of the newly initialized object
-    return self;
-}
-
-- (instancetype)initWithItemName:(NSString *)name
-{
-    return [self initWithItemName:name
-                   valueInDollars:0
-                     serialNumber:@""];
-}
-
-- (instancetype)init
-{
-    return [self initWithItemName:@"Item"];
-}
-
-- (void)setItemName:(NSString *)str
-{
-    _itemName = str;
-}
-
-- (NSString *)itemName
-{
-    return _itemName;
-}
-
-- (void)setSerialNumber:(NSString *)str
-{
-    _serialNumber = str;
-}
-
-- (NSString *)serialNumber
-{
-    return _serialNumber;
-}
-
-- (void)setValueInDollars:(int)v
-{
-    _valueInDollars = v;
-}
-
-- (int)valueInDollars
-{
-    return _valueInDollars;
-}
-
-- (void)setDateCreated:(NSDate *)date
-{
-    _dateCreated = date;
-}
-
-- (NSDate *)dateCreated
-{
-    return _dateCreated;
-}
-
-- (NSString *)description
-{
-    NSString *descriptionString =
-        [[NSString alloc] initWithFormat:@"%@ (%@): Worth $%d, recorded on %@",
-         self.itemName,
-         self.serialNumber,
-         self.valueInDollars,
-         self.dateCreated];
-    return descriptionString;
-}
-
-#pragma mark - NSCoding Protocol
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.itemName forKey:@"itemName"];
-    [aCoder encodeObject:self.serialNumber forKey:@"serialNumber"];
-    [aCoder encodeObject:self.dateCreated forKey:@"dateCreated"];
-    [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
-    [aCoder encodeInt:self.valueInDollars forKey:@"valueInDollars"];
-    //[aCoder encodeObject:UIImagePNGRepresentation(self.thumbnail) forKey:@"thumbnail"];
-    [aCoder encodeObject:self.thumbnail forKey:@"thumbnail"];
-}
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-    if (self) {
-        _itemName = [aDecoder decodeObjectForKey:@"itemName"];
-        _serialNumber = [aDecoder decodeObjectForKey:@"serialNumber"];
-        _dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
-        itemKey = [aDecoder decodeObjectForKey:@"itemKey"];
-        _valueInDollars = [aDecoder decodeIntForKey:@"valueInDollars"];
-        //thumbnail = [UIImage imageWithData:[aDecoder decodeObjectForKey:@"thumbnail"]];
-        thumbnail =[aDecoder decodeObjectForKey:@"thumbnail"];
-    }
-    return self;
-}
+@dynamic dateCreated;
+@dynamic itemKey;
+@dynamic itemName;
+@dynamic orderingValue;
+@dynamic serialNumber;
+@dynamic thumbnail;
+@dynamic valueInDollars;
+@dynamic assetType;
 
 - (void)setThumbnailFromImage:(UIImage *)image
 {
@@ -196,16 +50,13 @@
     UIGraphicsEndImageContext();
 }
 
-- (UIImage *)thumbnail
+- (void)awakeFromInsert
 {
-    if (!thumbnail)
-    {
-        NSLog(@"Creating thumbnail for item with image but no thumbnail...");
-        // this is for compatibility with previously saved items that
-        // didn't have thumbnails prior to this version
-        [self setThumbnailFromImage:[[KLBImageStore sharedStore] imageForKey:itemKey]];
-    }
-    
-    return thumbnail;
+    [super awakeFromInsert];
+    self.dateCreated = [NSDate date];
+    // Create an NSUUID object - and get its string representation
+    NSUUID *uuid = [[NSUUID alloc] init];
+    NSString *key = [uuid UUIDString];
+    self.itemKey = key;
 }
 @end
