@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KLBDetailViewController">
             <connections>
+                <outlet property="assetTypeButton" destination="7zA-oK-qqW" id="Vb9-pM-nvJ"/>
                 <outlet property="cameraButton" destination="x6C-H4-KSO" id="iM0-pB-m0M"/>
                 <outlet property="dateLabel" destination="kcS-cK-PM9" id="1n5-jC-jIk"/>
                 <outlet property="imageView" destination="bxZ-nD-bgT" id="FfX-Zi-7wn"/>
@@ -123,6 +124,11 @@
                         <barButtonItem systemItem="stop" id="skX-w5-NKS">
                             <connections>
                                 <action selector="clearImage:" destination="-1" id="6WM-sH-X0G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Type: Unknown" id="7zA-oK-qqW">
+                            <connections>
+                                <action selector="changeItemType:" destination="-1" id="aoH-n7-gd0"/>
                             </connections>
                         </barButtonItem>
                     </items>

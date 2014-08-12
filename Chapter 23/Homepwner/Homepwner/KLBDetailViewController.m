@@ -8,6 +8,7 @@
 
 #import "KLBDetailViewController.h"
 #import "KLBDateViewController.h"
+#import "KLBAssetTypeViewController.h"
 #import "KLBItem.h"
 #import "KLBItemStore.h"
 #import "KLBImageStore.h"
@@ -15,7 +16,6 @@
 @class PopoverBackground;
 @interface PopoverBackground: UIPopoverBackgroundView
 @end
-
 @implementation PopoverBackground
 
 - (void)dealloc
@@ -85,6 +85,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *assetTypeButton;
 
 
 @end
@@ -169,6 +170,12 @@
     }
     
     self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
+    
+    NSString *typeLabel = [self.item.assetType valueForKey:@"label"];
+    if (!typeLabel) {
+        typeLabel = @"None";
+    }
+    self.assetTypeButton.title = [NSString stringWithFormat:@"Type: %@", typeLabel];
     
     UIInterfaceOrientation io =
     [[UIApplication sharedApplication] statusBarOrientation];
@@ -384,6 +391,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [NSException raise:@"Wrong initializer"
                 format:@"Use initForNewItem:"];
     return nil;
+}
+- (IBAction)changeItemType:(id)sender {
+    [self.view endEditing:YES];
+    KLBAssetTypeViewController *kvc = [[KLBAssetTypeViewController alloc] init];
+    
+    kvc.item = self.item;
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        //popover
+    }
+    else
+    {
+        
+        [self.navigationController pushViewController:kvc animated:YES];
+    }
 }
 
 @end

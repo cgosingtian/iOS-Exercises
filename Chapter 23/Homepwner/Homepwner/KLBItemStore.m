@@ -213,4 +213,40 @@
         self.privateItems = [[NSMutableArray alloc] initWithArray:result];
     }
 }
+
+- (NSArray *)allAssetTypes
+{
+    if (!_allAssetTypes)
+    {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        NSEntityDescription *e = [NSEntityDescription entityForName:@"KLBAssetType" inManagedObjectContext:self.context];
+        request.entity = e;
+        NSError *error;
+        NSArray *result = [[self.context executeFetchRequest:request error:&error] mutableCopy];
+        if (!result)
+        {
+            [NSException raise:@"Fetch failed" format:[error localizedDescription]];
+        }
+        _allAssetTypes = [result mutableCopy];
+    }
+    
+    if (_allAssetTypes.count == 0) //if nothing saved, add default values
+    {
+        NSManagedObject *type;
+        
+        type = [NSEntityDescription insertNewObjectForEntityForName:@"KLBAssetType" inManagedObjectContext:self.context];
+        [type setValue:@"Furniture" forKey:@"label"];
+        [_allAssetTypes addObject:type];
+        
+        type = [NSEntityDescription insertNewObjectForEntityForName:@"KLBAssetType" inManagedObjectContext:self.context];
+        [type setValue:@"Jewelry" forKey:@"label"];
+        [_allAssetTypes addObject:type];
+        
+        type = [NSEntityDescription insertNewObjectForEntityForName:@"KLBAssetType" inManagedObjectContext:self.context];
+        [type setValue:@"Electronics" forKey:@"label"];
+        [_allAssetTypes addObject:type];
+    }
+    
+    return _allAssetTypes;
+}
 @end

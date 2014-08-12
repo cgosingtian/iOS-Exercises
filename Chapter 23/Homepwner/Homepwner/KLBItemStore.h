@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSManagedObjectModel *model;
 
+- (NSArray *)allAssetTypes;
+
 +(instancetype)sharedStore;
 -(KLBItem *)createItem;
 -(void)removeItem:(KLBItem *)item;
