@@ -12,6 +12,8 @@
 		4F340F73199B3B2A00C94DF4 /* KLBDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F340F75199B3B2A00C94DF4 /* KLBDateViewController.xib */; };
 		4F340F76199B3B4100C94DF4 /* KLBAssetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F340F78199B3B4100C94DF4 /* KLBAssetViewController.xib */; };
 		4F340F7F199B3E1400C94DF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F340F81199B3E1400C94DF4 /* Localizable.strings */; };
+		4F340F85199B442100C94DF4 /* KLBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F340F84199B442100C94DF4 /* KLBConstants.m */; };
+		4F340F87199B4DE000C94DF4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4F340F86199B4DE000C94DF4 /* Settings.bundle */; };
 		4F5E2EEA1991BECC0085BB5C /* KLBImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */; };
 		4F6CD33F19999C8900802A72 /* KLBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CD33E19999C8900802A72 /* KLBItem.m */; };
 		4F6CD3421999B81800802A72 /* KLBAssetTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CD3411999B81800802A72 /* KLBAssetTypeViewController.m */; };
@@ -60,6 +62,9 @@
 		4F340F7C199B3BC000C94DF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/KLBDateViewController.strings; sourceTree = "<group>"; };
 		4F340F80199B3E1400C94DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F340F82199B3E4E00C94DF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F340F83199B442100C94DF4 /* KLBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBConstants.h; sourceTree = "<group>"; };
+		4F340F84199B442100C94DF4 /* KLBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBConstants.m; sourceTree = "<group>"; };
+		4F340F86199B4DE000C94DF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4F5E2EE81991BECC0085BB5C /* KLBImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBImageStore.h; sourceTree = "<group>"; };
 		4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBImageStore.m; sourceTree = "<group>"; };
 		4F6CD33D19999C8900802A72 /* KLBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItem.h; sourceTree = "<group>"; };
@@ -165,6 +170,8 @@
 				4F73B3CB198F8C95003B2F22 /* Images.xcassets */,
 				4F73B3C8198F8C95003B2F22 /* KLBAppDelegate.h */,
 				4F73B3C9198F8C95003B2F22 /* KLBAppDelegate.m */,
+				4F340F83199B442100C94DF4 /* KLBConstants.h */,
+				4F340F84199B442100C94DF4 /* KLBConstants.m */,
 				4F6CD3401999B81800802A72 /* KLBAssetTypeViewController.h */,
 				4F6CD3411999B81800802A72 /* KLBAssetTypeViewController.m */,
 				4F6CD3431999CBB900802A72 /* KLBAssetViewController.h */,
@@ -189,6 +196,7 @@
 				4F7D56001994570F006834D1 /* KLBItemCell.xib */,
 				4F73B3F1198F90D2003B2F22 /* KLBItemStore.h */,
 				4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */,
+				4F340F86199B4DE000C94DF4 /* Settings.bundle */,
 				4F73B3E8198F8DA2003B2F22 /* KLBItemsViewController.h */,
 				4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */,
 				4F340F81199B3E1400C94DF4 /* Localizable.strings */,
@@ -310,6 +318,7 @@
 			files = (
 				4F340F6E199B347500C94DF4 /* KLBDetailViewController.xib in Resources */,
 				4F7D560219946B66006834D1 /* KLBItemCell.xib in Resources */,
+				4F340F87199B4DE000C94DF4 /* Settings.bundle in Resources */,
 				4F73B3C4198F8C95003B2F22 /* InfoPlist.strings in Resources */,
 				4F340F76199B3B4100C94DF4 /* KLBAssetViewController.xib in Resources */,
 				4F340F7F199B3E1400C94DF4 /* Localizable.strings in Resources */,
@@ -343,6 +352,7 @@
 				4FF17C9A1998BF2500C4E9BC /* Homepwner.xcdatamodeld in Sources */,
 				4F73B3EA198F8DA2003B2F22 /* KLBItemsViewController.m in Sources */,
 				4F73B3C6198F8C95003B2F22 /* main.m in Sources */,
+				4F340F85199B442100C94DF4 /* KLBConstants.m in Sources */,
 				4FF50DF31990CD1D00AB01D8 /* KLBDateViewController.m in Sources */,
 				4F6CD3421999B81800802A72 /* KLBAssetTypeViewController.m in Sources */,
 				4F7D560519948406006834D1 /* KLBImageViewController.m in Sources */,

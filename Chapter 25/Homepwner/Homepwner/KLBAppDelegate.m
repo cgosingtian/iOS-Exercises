@@ -17,6 +17,14 @@
 @implementation KLBAppDelegate
 @synthesize ivc;
 
++ (void) initialize
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *settings = @{KLBNextItemNamePrefsKey:@"Coffee Cup",
+                               KLBNextItemValuePrefsKey:@75};
+    [defaults registerDefaults:settings];
+}
+
 //method gets called BEFORE state restoration starts
 - (BOOL)application:(UIApplication *)application
 willFinishLaunchingWithOptions:(NSDictionary *)launchOptions

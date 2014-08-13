@@ -33,6 +33,12 @@
     
     item.orderingValue = order;
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    item.valueInDollars = [defaults integerForKey:KLBNextItemValuePrefsKey];
+    item.itemName = [defaults objectForKey:KLBNextItemNamePrefsKey];
+    
+                NSLog(@"defaults = %@", [defaults dictionaryRepresentation]);
+    
     [self.privateItems addObject:item];
     NSLog(@"Adding %@",item);
     return item;
