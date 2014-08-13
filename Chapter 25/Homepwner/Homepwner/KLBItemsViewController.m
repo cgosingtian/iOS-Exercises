@@ -51,6 +51,12 @@
         
         //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTableViewForDynamicTypeSize) name:UIContentSizeCategoryDidChangeNotification object:nil];
         
+        // Register for locale change notifications
+        [[NSNotificationCenter defaultCenter] addObserver:self
+               selector:@selector(localeChanged:)
+                   name:NSCurrentLocaleDidChangeNotification
+                 object:nil];
+        
 //        for (int i = 0; i < 5; i++) {
 //            [[KLBItemStore sharedStore] createItem];
 //        }
@@ -62,6 +68,11 @@
 -(instancetype)initWithStyle:(UITableViewStyle)style
 {
     return [self init];
+}
+
+- (void)localeChanged:(NSNotification *)note
+{
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -91,7 +102,18 @@
     
     cell.nameLabel.text = item.itemName;
     cell.serialNumberLabel.text = item.serialNumber;
-    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    
+    //cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    
+    NSNumberFormatter *currencyFormatter//;
+    //if (currencyFormatter == nil) {
+    //currencyFormatter
+    = [[NSNumberFormatter alloc] init];
+        currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    //}
+    
+    cell.valueLabel.text = [currencyFormatter stringFromNumber:@(item.valueInDollars)];
+    
     if (item.valueInDollars > 50)
         cell.valueLabel.textColor = [UIColor greenColor];
     else
@@ -320,7 +342,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //[self.tableView reloadData];
+    [self.tableView reloadData];
     
     //[self updateTableViewForDynamicTypeSize];
 }
