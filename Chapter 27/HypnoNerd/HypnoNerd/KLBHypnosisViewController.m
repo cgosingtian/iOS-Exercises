@@ -10,13 +10,14 @@
 #import "KLBHypnosisView.h"
 
 @interface KLBHypnosisViewController () <UITextFieldDelegate>
-
+@property (nonatomic, weak) UITextField *textField;
 @end
 
 @implementation KLBHypnosisViewController
 
 - (void)loadView
 {
+    
     CGRect frame = [UIScreen mainScreen].bounds;
     KLBHypnosisView *backgroundView = [[KLBHypnosisView alloc]initWithFrame:frame];
     
@@ -32,13 +33,16 @@
     [self.view addSubview:colorOptions];
     
     //EXERCISE 7 START
-    CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
+//    CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
+    CGRect textFieldRect = CGRectMake(40, -30, 240, 30);
+    
     UITextField *textField = [[UITextField alloc] initWithFrame:textFieldRect];
     // Setting the border style on the text field will allow us to see it more easily
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.placeholder = @"Hypnotize me!";
     textField.returnKeyType = UIReturnKeyDone;
     
+    self.textField = textField;
     textField.delegate = self;
     
     [backgroundView addSubview:textField];
@@ -68,6 +72,21 @@
     // Always call the super implementation of viewDidLoad
     [super viewDidLoad];
     NSLog(@"KLBHypnosisViewController loaded its view.");
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [UIView animateWithDuration:2.0
+                          delay:0.0
+         usingSpringWithDamping:0.25
+          initialSpringVelocity:0.0
+                        options:0
+                     animations:^{
+                         CGRect frame = CGRectMake(40, 70, 240, 30);
+                         self.textField.frame = frame;
+                     }
+                     completion:NULL];
 }
 
 - (void)changeHypnosisViewColor:(id)sender
@@ -132,6 +151,33 @@
         [messageLabel addMotionEffect:motionEffect];
         
         [self.view addSubview:messageLabel];
+        
+        // Set the label's initial alpha
+        messageLabel.alpha = 0.0;
+        // Animate the alpha to 1.0
+//        [UIView animateWithDuration:0.5 animations:^{
+//            messageLabel.alpha = 1.0;
+//        }];
+        
+        [UIView animateWithDuration:0.5
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat
+                         animations:^{
+                             messageLabel.alpha = 1.0;
+                         }
+                         completion:NULL];
+        
+        [UIView animateKeyframesWithDuration:1.0 delay:0.0
+                                     options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
+            [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.8 animations:^{
+                messageLabel.center = self.view.center;
+            }];
+            [UIView addKeyframeWithRelativeStartTime:0.8 relativeDuration:0.2 animations:^{
+                int x = arc4random() % width;
+                int y = arc4random() % height;
+                messageLabel.center = CGPointMake(x, y);
+            }];
+        } completion:NULL];
     }
 }
 @end

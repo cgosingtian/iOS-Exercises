@@ -71,6 +71,25 @@
     // Display the string in the question label
         //self.questionField.text = question;
     [_questionField setText:question];
+
+    _questionField.alpha = 0;
+    CGRect fieldPos = _questionField.frame;
+    CGFloat x = fieldPos.origin.x;
+    CGFloat y = fieldPos.origin.y;
+    CGFloat width = fieldPos.size.width;
+    CGFloat height = fieldPos.size.height;
+    
+    _questionField.frame = CGRectMake(-x, y, width, height);
+
+    [UIView animateKeyframesWithDuration:1.5 delay:0 options:0 animations:^(){
+        [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.4 animations:^(){
+            _questionField.alpha = 1.0;
+        }];
+        [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^(){
+            _questionField.frame = CGRectMake(x, y, width, height);
+        }];
+    } completion:^(BOOL finished){}];
+    
     // Reset the answer label
         //self.answerField.text = @"???";
     [_answerField setText:@"???"];
@@ -81,7 +100,29 @@
     NSString *answer = [_answers objectAtIndex:_currentQuestionIndex];
     // Display it in the answer label
         //self.answerLabel.text = answer;
+    
+    _answerField.alpha = 0;
+    CGRect fieldPos = _answerField.frame;
+    CGFloat x = fieldPos.origin.x;
+    CGFloat y = fieldPos.origin.y;
+    CGFloat width = fieldPos.size.width;
+    CGFloat height = fieldPos.size.height;
+    
+    _answerField.frame = CGRectMake(-x*2, y, width, height);
+    
     [_answerField setText:answer];
+    
+    [UIView animateKeyframesWithDuration:1.5 delay:0 options:0 animations:^(){
+        [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.4 animations:^(){
+            _answerField.alpha = 1.0;
+        }];
+        [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1.0 animations:^(){
+            _answerField.frame = CGRectMake(x, y, width, height);
+        }];
+    } completion:^(BOOL finished){
+    }];
+    
+//    [_answerField setText:answer];
 }
 
 @end
