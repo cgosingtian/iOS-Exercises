@@ -32,7 +32,7 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         UINavigationItem *navItem = self.navigationItem; //same idea here as getting self.navigationController
-        navItem.title = @"Homepwner";
+        navItem.title = NSLocalizedString(@"Homepwner",@"Homepwner Application Title");
         
         self.restorationIdentifier = NSStringFromClass([self class]);
         self.restorationClass = [self class];
@@ -312,7 +312,7 @@
 
 //bronze challenge
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return @"Remove";
+    return NSLocalizedString(@"Remove",@"Delete Button Text");
 }
 
 - (void)tableView:(UITableView *)tableView

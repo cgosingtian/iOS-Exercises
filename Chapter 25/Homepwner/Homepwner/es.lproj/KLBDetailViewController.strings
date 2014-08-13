@@ -1,0 +1,24 @@
+
+/* Class = "IBUIBarButtonItem"; title = "Type: Unknown"; ObjectID = "7zA-oK-qqW"; */
+"7zA-oK-qqW.title" = "Tipo: Desconocido";
+
+/* Class = "IBUILabel"; text = "Name"; ObjectID = "QUu-XS-p95"; */
+"QUu-XS-p95.text" = "Nombre";
+
+/* Class = "IBUILabel"; text = "Serial"; ObjectID = "Thz-f5-OQR"; */
+"Thz-f5-OQR.text" = "Numéro de serie";
+
+/* Class = "IBUILabel"; text = "Date of creation:"; ObjectID = "d0b-yV-7ol"; */
+"d0b-yV-7ol.text" = "Fecha de creación:";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "hKO-zO-u37"; */
+"hKO-zO-u37.text" = "Label";
+
+/* Class = "IBUIButton"; normalTitle = "Change Date"; ObjectID = "iag-S8-Cuq"; */
+"iag-S8-Cuq.normalTitle" = "Change Date";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "kcS-cK-PM9"; */
+"kcS-cK-PM9.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Value"; ObjectID = "qNa-C9-qYw"; */
+"qNa-C9-qYw.text" = "Valor";

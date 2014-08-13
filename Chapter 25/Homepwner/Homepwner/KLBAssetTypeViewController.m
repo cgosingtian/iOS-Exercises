@@ -22,7 +22,7 @@
     if (self)
     {
         UINavigationItem *navItem = self.navigationItem; //same idea here as getting self.navigationController
-        navItem.title = @"Select Asset Type";
+        navItem.title = NSLocalizedString(@"Select Asset Type",@"AssetTypeViewController Title");
         
         // Create a new bar button item that will send
         // addNewItem: to BNRItemsViewController
@@ -142,9 +142,9 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if(section == 0)
-        return @"Asset Types";
+        return NSLocalizedString(@"Asset Types",@"Asset Types Header Section Name");
     if(section == 1)
-        return @"Assets of Selected Type";
+        return NSLocalizedString(@"Assets of Selected Type",@"Assets of Selected Type Header Section Name");
     else return @"";
 }
 

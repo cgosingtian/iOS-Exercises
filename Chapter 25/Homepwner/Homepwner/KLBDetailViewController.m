@@ -174,9 +174,9 @@
     
     NSString *typeLabel = [self.item.assetType valueForKey:@"label"];
     if (!typeLabel) {
-        typeLabel = @"None";
+        typeLabel = NSLocalizedString(@"None",@"The undefined asset type");
     }
-    self.assetTypeButton.title = [NSString stringWithFormat:@"Type: %@", typeLabel];
+    self.assetTypeButton.title = [NSString stringWithFormat:NSLocalizedString(@"Type: %@",@"Asset Type Button Text"), typeLabel];
     
     UIInterfaceOrientation io =
     [[UIApplication sharedApplication] statusBarOrientation];
@@ -273,7 +273,7 @@
     {
         KLBAssetTypeViewController *kvc = (KLBAssetTypeViewController *)self.assetTypePopover.contentViewController.childViewControllers[0];
         self.item.assetType = kvc.item.assetType;
-        self.assetTypeButton.title = [NSString stringWithFormat:@"Type: %@",[self.item.assetType valueForKey:@"label"]];
+        self.assetTypeButton.title = [NSString stringWithFormat:NSLocalizedString(@"Type: %@",@"Asset Type Button Text"),[self.item.assetType valueForKey:@"label"]];
         [self.assetTypePopover dismissPopoverAnimated:YES];
         self.assetTypePopover = nil;
         NSLog(@"User dismissed popover: asset type");

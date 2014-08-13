@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4F16B1E0198FA51A0058764E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F16B1DF198FA51A0058764E /* logo.png */; };
+		4F340F6E199B347500C94DF4 /* KLBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F340F70199B347500C94DF4 /* KLBDetailViewController.xib */; };
+		4F340F73199B3B2A00C94DF4 /* KLBDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F340F75199B3B2A00C94DF4 /* KLBDateViewController.xib */; };
+		4F340F76199B3B4100C94DF4 /* KLBAssetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F340F78199B3B4100C94DF4 /* KLBAssetViewController.xib */; };
+		4F340F7F199B3E1400C94DF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F340F81199B3E1400C94DF4 /* Localizable.strings */; };
 		4F5E2EEA1991BECC0085BB5C /* KLBImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */; };
 		4F6CD33F19999C8900802A72 /* KLBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CD33E19999C8900802A72 /* KLBItem.m */; };
 		4F6CD3421999B81800802A72 /* KLBAssetTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CD3411999B81800802A72 /* KLBAssetTypeViewController.m */; };
 		4F6CD3461999CBB900802A72 /* KLBAssetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CD3441999CBB900802A72 /* KLBAssetViewController.m */; };
-		4F6CD3471999CBB900802A72 /* KLBAssetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6CD3451999CBB900802A72 /* KLBAssetViewController.xib */; };
 		4F73B3BA198F8C95003B2F22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3B9198F8C95003B2F22 /* Foundation.framework */; };
 		4F73B3BC198F8C95003B2F22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3BB198F8C95003B2F22 /* CoreGraphics.framework */; };
 		4F73B3BE198F8C95003B2F22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F73B3BD198F8C95003B2F22 /* UIKit.framework */; };
@@ -34,9 +37,7 @@
 		4FF17C9D1998C15B00C4E9BC /* KLBImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF17C9C1998C15B00C4E9BC /* KLBImageTransformer.m */; };
 		4FF50DEA19908F9C00AB01D8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF50DE919908F9C00AB01D8 /* HeaderView.xib */; };
 		4FF50DEE1990B77600AB01D8 /* KLBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */; };
-		4FF50DEF1990B77600AB01D8 /* KLBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */; };
 		4FF50DF31990CD1D00AB01D8 /* KLBDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF50DF11990CD1D00AB01D8 /* KLBDateViewController.m */; };
-		4FF50DF41990CD1D00AB01D8 /* KLBDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF50DF21990CD1D00AB01D8 /* KLBDateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,14 @@
 
 /* Begin PBXFileReference section */
 		4F16B1DF198FA51A0058764E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		4F340F71199B348300C94DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/KLBDetailViewController.xib; sourceTree = "<group>"; };
+		4F340F72199B352100C94DF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/KLBDetailViewController.strings; sourceTree = "<group>"; };
+		4F340F74199B3B2A00C94DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/KLBDateViewController.xib; sourceTree = "<group>"; };
+		4F340F77199B3B4100C94DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/KLBAssetViewController.xib; sourceTree = "<group>"; };
+		4F340F7A199B3BB400C94DF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/KLBAssetViewController.strings; sourceTree = "<group>"; };
+		4F340F7C199B3BC000C94DF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/KLBDateViewController.strings; sourceTree = "<group>"; };
+		4F340F80199B3E1400C94DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F340F82199B3E4E00C94DF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F5E2EE81991BECC0085BB5C /* KLBImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBImageStore.h; sourceTree = "<group>"; };
 		4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBImageStore.m; sourceTree = "<group>"; };
 		4F6CD33D19999C8900802A72 /* KLBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBItem.h; sourceTree = "<group>"; };
@@ -59,7 +68,6 @@
 		4F6CD3411999B81800802A72 /* KLBAssetTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBAssetTypeViewController.m; sourceTree = "<group>"; };
 		4F6CD3431999CBB900802A72 /* KLBAssetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBAssetViewController.h; sourceTree = "<group>"; };
 		4F6CD3441999CBB900802A72 /* KLBAssetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBAssetViewController.m; sourceTree = "<group>"; };
-		4F6CD3451999CBB900802A72 /* KLBAssetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBAssetViewController.xib; sourceTree = "<group>"; };
 		4F73B3B6198F8C95003B2F22 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F73B3B9198F8C95003B2F22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F73B3BB198F8C95003B2F22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,10 +99,8 @@
 		4FF50DE919908F9C00AB01D8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		4FF50DEB1990B77600AB01D8 /* KLBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBDetailViewController.h; sourceTree = "<group>"; };
 		4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBDetailViewController.m; sourceTree = "<group>"; };
-		4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBDetailViewController.xib; sourceTree = "<group>"; };
 		4FF50DF01990CD1D00AB01D8 /* KLBDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBDateViewController.h; sourceTree = "<group>"; };
 		4FF50DF11990CD1D00AB01D8 /* KLBDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBDateViewController.m; sourceTree = "<group>"; };
-		4FF50DF21990CD1D00AB01D8 /* KLBDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBDateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,13 +169,13 @@
 				4F6CD3411999B81800802A72 /* KLBAssetTypeViewController.m */,
 				4F6CD3431999CBB900802A72 /* KLBAssetViewController.h */,
 				4F6CD3441999CBB900802A72 /* KLBAssetViewController.m */,
-				4F6CD3451999CBB900802A72 /* KLBAssetViewController.xib */,
+				4F340F78199B3B4100C94DF4 /* KLBAssetViewController.xib */,
 				4FF50DF01990CD1D00AB01D8 /* KLBDateViewController.h */,
 				4FF50DF11990CD1D00AB01D8 /* KLBDateViewController.m */,
-				4FF50DF21990CD1D00AB01D8 /* KLBDateViewController.xib */,
+				4F340F75199B3B2A00C94DF4 /* KLBDateViewController.xib */,
 				4FF50DEB1990B77600AB01D8 /* KLBDetailViewController.h */,
 				4FF50DEC1990B77600AB01D8 /* KLBDetailViewController.m */,
-				4FF50DED1990B77600AB01D8 /* KLBDetailViewController.xib */,
+				4F340F70199B347500C94DF4 /* KLBDetailViewController.xib */,
 				4F5E2EE81991BECC0085BB5C /* KLBImageStore.h */,
 				4F5E2EE91991BECC0085BB5C /* KLBImageStore.m */,
 				4FF17C9B1998C15B00C4E9BC /* KLBImageTransformer.h */,
@@ -185,6 +191,7 @@
 				4F73B3F2198F90D2003B2F22 /* KLBItemStore.m */,
 				4F73B3E8198F8DA2003B2F22 /* KLBItemsViewController.h */,
 				4F73B3E9198F8DA2003B2F22 /* KLBItemsViewController.m */,
+				4F340F81199B3E1400C94DF4 /* Localizable.strings */,
 				4F16B1DF198FA51A0058764E /* logo.png */,
 				4F73B3C0198F8C95003B2F22 /* Supporting Files */,
 			);
@@ -282,6 +289,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
+				es,
 			);
 			mainGroup = 4F73B3AD198F8C94003B2F22;
 			productRefGroup = 4F73B3B7198F8C95003B2F22 /* Products */;
@@ -299,11 +308,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FF50DEF1990B77600AB01D8 /* KLBDetailViewController.xib in Resources */,
+				4F340F6E199B347500C94DF4 /* KLBDetailViewController.xib in Resources */,
 				4F7D560219946B66006834D1 /* KLBItemCell.xib in Resources */,
 				4F73B3C4198F8C95003B2F22 /* InfoPlist.strings in Resources */,
-				4F6CD3471999CBB900802A72 /* KLBAssetViewController.xib in Resources */,
-				4FF50DF41990CD1D00AB01D8 /* KLBDateViewController.xib in Resources */,
+				4F340F76199B3B4100C94DF4 /* KLBAssetViewController.xib in Resources */,
+				4F340F7F199B3E1400C94DF4 /* Localizable.strings in Resources */,
+				4F340F73199B3B2A00C94DF4 /* KLBDateViewController.xib in Resources */,
 				4F73B3CC198F8C95003B2F22 /* Images.xcassets in Resources */,
 				4F16B1E0198FA51A0058764E /* logo.png in Resources */,
 				4FF50DEA19908F9C00AB01D8 /* HeaderView.xib in Resources */,
@@ -361,6 +371,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4F340F70199B347500C94DF4 /* KLBDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F340F71199B348300C94DF4 /* Base */,
+				4F340F72199B352100C94DF4 /* es */,
+			);
+			name = KLBDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		4F340F75199B3B2A00C94DF4 /* KLBDateViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F340F74199B3B2A00C94DF4 /* Base */,
+				4F340F7C199B3BC000C94DF4 /* es */,
+			);
+			name = KLBDateViewController.xib;
+			sourceTree = "<group>";
+		};
+		4F340F78199B3B4100C94DF4 /* KLBAssetViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F340F77199B3B4100C94DF4 /* Base */,
+				4F340F7A199B3BB400C94DF4 /* es */,
+			);
+			name = KLBAssetViewController.xib;
+			sourceTree = "<group>";
+		};
+		4F340F81199B3E1400C94DF4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F340F80199B3E1400C94DF4 /* Base */,
+				4F340F82199B3E4E00C94DF4 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		4F73B3C2198F8C95003B2F22 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
