@@ -30,6 +30,8 @@
         [sv setPagingEnabled:NO];
         [sv setMaximumZoomScale:99.0];
         [self addSubview:sv];
+        
+        self.restorationIdentifier = NSStringFromClass([self class]);
     }
     return self;
 }

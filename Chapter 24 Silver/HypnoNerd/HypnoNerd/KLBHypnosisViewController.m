@@ -58,9 +58,18 @@
         UIImage *image = [UIImage imageNamed:@"Hypno.png"];
         
         self.tabBarItem.image = image;
+        
+        self.restorationIdentifier = NSStringFromClass([self class]);
+        self.restorationClass = [self class];
     }
     
     return self;
+}
+
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)path
+                                                            coder:(NSCoder *)coder
+{
+    return [[self alloc] init];
 }
 
 - (void)viewDidLoad
@@ -133,5 +142,18 @@
         
         [self.view addSubview:messageLabel];
     }
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    //[coder encodeObject:self.datePicker.date forKey:@"date"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    //NSDate *dateDecoded = [coder decodeObjectForKey:@"date"];
+    //self.datePicker.date = dateDecoded;
+    [super decodeRestorableStateWithCoder:coder];
 }
 @end

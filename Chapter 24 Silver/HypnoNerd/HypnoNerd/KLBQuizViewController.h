@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KLBQuizViewController : UIViewController
+@interface KLBQuizViewController : UIViewController <UIViewControllerRestoration>
+
+@property (nonatomic, assign) bool answerShown;
 
 @property (nonatomic, assign) int currentQuestionIndex;
 @property (nonatomic, copy) NSArray *questions;

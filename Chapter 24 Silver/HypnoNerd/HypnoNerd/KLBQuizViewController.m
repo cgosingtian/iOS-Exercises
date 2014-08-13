@@ -18,10 +18,12 @@
             questionField = _questionField,
             currentQuestionIndex = _currentQuestionIndex,
             questions = _questions,
-            answers = _answers;
+            answers = _answers,
+            answerShown = _answerShown;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    NSLog(@"Initializing Quiz View Controller");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Create two arrays filled with questions and answers
@@ -33,6 +35,7 @@
                          @"14",
                          @"Montpelier"];
         self.currentQuestionIndex=0;
+        _answerShown = false;
         
         //tab bar item's title
         self.tabBarItem.title = @"Quiz";
@@ -41,9 +44,17 @@
 //        UIImage *image = [UIImage imageNamed:@"Time.png"];
 //        
 //        self.tabBarItem.image = image;
-
+        
+        //self.restorationIdentifier = NSStringFromClass([self class]);
+        self.restorationClass = [self class];
     }
     return self;
+}
+
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)path
+                                                            coder:(NSCoder *)coder
+{
+    return [[self alloc] init];
 }
 
 - (void)viewDidLoad
@@ -74,6 +85,7 @@
     // Reset the answer label
         //self.answerField.text = @"???";
     [_answerField setText:@"???"];
+    _answerShown = false;
 }
 - (IBAction)showAnswer:(id)sender
 {
@@ -82,6 +94,53 @@
     // Display it in the answer label
         //self.answerLabel.text = answer;
     [_answerField setText:answer];
+    _answerShown = false;
+}
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:[NSNumber numberWithInt:_currentQuestionIndex]
+                 forKey:@"currentQuestionIndex"];
+    
+    [coder encodeObject:[NSNumber numberWithBool:_answerShown] forKey:@"answerShown"];
+    
+    [coder encodeObject:_questions forKey:@"questions"];
+    [coder encodeObject:_answers forKey:@"answers"];
+    //you may need to save fields onto the item here
+    //otherwise changes will be lost
+    
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    NSNumber *currentQuestionIndexDecoded = [coder decodeObjectForKey:@"currentQuestionIndex"];
+    NSNumber *answerShownDecoded = [coder decodeObjectForKey:@"answerShown"];
+    NSArray *questionsDecoded = [coder decodeObjectForKey:@"questions"];
+    NSArray *answersDecoded = [coder decodeObjectForKey:@"answers"];
+    
+    _questions = questionsDecoded;
+    _answers = answersDecoded;
+    
+    _answerShown = [answerShownDecoded boolValue];
+    _currentQuestionIndex = [currentQuestionIndexDecoded intValue];
+    
+    if (_questions)
+    {
+        NSString *question = [_questions objectAtIndex:_currentQuestionIndex];
+        [_questionField setText:question];
+    }
+    
+    if (_answerShown)
+    {
+        if (_answers)
+        {
+            NSString *answer = [_answers objectAtIndex:_currentQuestionIndex];
+            [_answerField setText:answer];
+        }
+    }
+    
+    [super decodeRestorableStateWithCoder:coder];
 }
 
 @end

@@ -18,32 +18,49 @@
 
 @implementation KLBAppDelegate
 
-@synthesize hvc;
+//@synthesize hvc;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
     
     //pointer to object that represents main bundle
     //NSBundle *appBundle = [NSBundle mainBundle];
     
-    hvc = [[KLBHypnosisViewController alloc]init];
-    [[(KLBHypnosisView *)hvc.view sv] setDelegate:self];
+    if (!self.window.rootViewController)
+    {
+        NSLog(@"Initializing root view controller...");
+        KLBHypnosisViewController *hvc = [[KLBHypnosisViewController alloc]init];
+        [[(KLBHypnosisView *)hvc.view sv] setDelegate:self];
         
-    //KLBReminderViewController *rvc = [[KLBReminderViewController alloc]initWithNibName:@"KLBReminderViewController" bundle:appBundle];
-    KLBReminderViewController *rvc = [[KLBReminderViewController alloc]init];
-    
-    KLBQuizViewController *qvc = [[KLBQuizViewController alloc]init];
+        KLBReminderViewController *rvc = [[KLBReminderViewController alloc]init];
         
-    UITabBarController *tbc = [[UITabBarController alloc]init];
-    tbc.viewControllers = @[hvc,rvc,qvc];
-    //    [self.window addSubview:sv];
+        KLBQuizViewController *qvc = [[KLBQuizViewController alloc]init];
+        
+        UITabBarController *tbc = [[UITabBarController alloc]init];
+        
+        hvc.restorationIdentifier = @"hvc";
+        rvc.restorationIdentifier = @"rvc";
+        qvc.restorationIdentifier = @"qvc";
+        tbc.restorationIdentifier = @"tabBar";
+        tbc.viewControllers = @[hvc,rvc,qvc];
+        
+        //    [self.window addSubview:sv];
+        
+        [self.window setRootViewController:tbc];
+    } else NSLog(@"Root view controller restored");
+
     
-    [self.window setRootViewController:tbc];
-    
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
     return YES;
 }
 
@@ -74,9 +91,21 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+//- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+//{
+//    return hvc.view;
+//}
+
+//Chapter 24 Challenge - State Restoration
+- (BOOL)application:(UIApplication *)application
+shouldSaveApplicationState:(NSCoder *)coder
 {
-    return hvc.view;
+    return YES;
+}
+- (BOOL)application:(UIApplication *)application
+shouldRestoreApplicationState:(NSCoder *)coder
+{
+    return YES;
 }
 
 @end

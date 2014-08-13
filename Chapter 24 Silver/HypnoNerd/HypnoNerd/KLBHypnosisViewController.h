@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KLBHypnosisViewController : UIViewController
+@interface KLBHypnosisViewController : UIViewController <UIViewControllerRestoration>
 
 @end

@@ -31,6 +31,7 @@
     
     if (self)
     {
+        NSLog(@"init happening");
         //tab bar item's title
         self.tabBarItem.title = @"Reminder";
         
@@ -38,9 +39,19 @@
         UIImage *image = [UIImage imageNamed:@"Time.png"];
         
         self.tabBarItem.image = image;
+        
+        //self.restorationIdentifier = NSStringFromClass([self class]);
+        self.restorationClass = [self class];
     }
     
     return self;
+}
+
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)path
+                                                            coder:(NSCoder *)coder
+{
+    NSLog(@"restoration id returned");
+    return [[self alloc] init];
 }
 
 - (void)viewDidLoad
@@ -58,4 +69,34 @@
 //    [self.datePicker setMinimumDate:[NSDate dateWithTimeIntervalSinceNow:60]];
 }
 
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    NSString *dateString = @"";
+    
+    // Convert Date to string
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    //[dateFormat setDateFormat:@"EEEE MMMM d, YYYY"];
+    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormat setTimeStyle:NSDateFormatterMediumStyle];
+    dateString = [dateFormat stringFromDate:self.datePicker.date];
+    
+    [coder encodeObject:dateString forKey:@"date"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    NSString *dateStringDecoded = [coder decodeObjectForKey:@"date"];
+    
+    // Convert string to date
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormat setTimeStyle:NSDateFormatterMediumStyle];
+    //[dateFormat setDateFormat:@"EEEE MMMM d, YYYY"];
+    NSDate *date = [dateFormat dateFromString:dateStringDecoded];
+    
+    [self.datePicker setDate:date animated:YES];
+    [super decodeRestorableStateWithCoder:coder];
+}
 @end

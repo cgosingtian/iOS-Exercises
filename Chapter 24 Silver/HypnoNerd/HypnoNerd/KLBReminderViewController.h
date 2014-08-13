@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KLBReminderViewController : UIViewController
+@interface KLBReminderViewController : UIViewController <UIViewControllerRestoration>
 
 @end
