@@ -9,13 +9,20 @@
 #import "KLBColorViewController.h"
 
 @interface KLBColorViewController ()
-@property (nonatomic, weak) IBOutlet UITextField *textField;
-@property (nonatomic, weak) IBOutlet UISlider *redSlider;
-@property (nonatomic, weak) IBOutlet UISlider *greenSlider;
-@property (nonatomic, weak) IBOutlet UISlider *blueSlider;
+@property (nonatomic, unsafe_unretained) IBOutlet UITextField *textField;
+@property (nonatomic, unsafe_unretained) IBOutlet UISlider *redSlider;
+@property (nonatomic, unsafe_unretained) IBOutlet UISlider *greenSlider;
+@property (nonatomic, unsafe_unretained) IBOutlet UISlider *blueSlider;
 @end
 
 @implementation KLBColorViewController
+
+//- (void)dealloc
+//{
+//    [_colorDescription release];
+//    _colorDescription = nil;
+//    [super dealloc];
+//}
 
 - (void)viewDidLoad
 {
@@ -25,13 +32,21 @@
         _textField.text = _colorDescription.name;
         
         float red,green,blue,alpha;
+
+        if (_colorDescription.color)
+        {
+            [_colorDescription.color getRed:&red green:&green blue:&blue alpha:&alpha];
+//            const CGFloat *components = CGColorGetComponents(_colorDescription.color.CGColor);
+//            CGFloat red = components[0];
+//            CGFloat green = components[1];
+//            CGFloat blue = components[2];
+//            CGFloat alpha = components[3];
         
-        [_colorDescription.color getRed:&red green:&green blue:&blue alpha:&alpha];
-        
-        [self applyColorRed:red
-                      green:green
-                       blue:blue
-                      alpha:alpha];
+            [self applyColorRed:red
+                          green:green
+                           blue:blue
+                          alpha:alpha];
+        }
     }
     else
     {

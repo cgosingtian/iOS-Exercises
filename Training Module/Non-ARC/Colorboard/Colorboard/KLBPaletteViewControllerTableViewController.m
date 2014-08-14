@@ -18,6 +18,11 @@
 
 @synthesize colors;
 
+//- (void) dealloc
+//{
+//    [colors release];
+//}
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -48,6 +53,9 @@
     [colors addObject:color2];
     
     NSLog(@"%@",colors);
+    
+//    [color1 release];
+//    [color2 release];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -161,18 +169,26 @@
         KLBColorViewController *mvc =
         (KLBColorViewController *)[nc topViewController];
         mvc.colorDescription = color;
+        
+        //[color release];
     }
     else if ([segue.identifier isEqualToString:@"ExistingColor"]) {
         NSLog(@"EXISTING COLOR");
         // For the push segue, the sender is the UITableViewCell
         NSIndexPath *ip = [self.tableView indexPathForCell:sender];
+        NSLog(@"1");
         KLBColorDescription *color = self.colors[ip.row];
+        if (color == nil)
+            NSLog(@"COLOR NIL 2");
         // Set the color, and also tell the view controller that this
         // is an existing color
         KLBColorViewController *cvc =
         (KLBColorViewController *)segue.destinationViewController;
+        NSLog(@"3");
         cvc.colorDescription = color;
+        NSLog(@"4");
         cvc.existingColor = YES;
+        NSLog(@"%@",cvc.colorDescription.name);
     }
 }
 

@@ -12,6 +12,6 @@
 @interface KLBColorViewController : UIViewController
 
 @property (nonatomic) BOOL existingColor;
-@property (nonatomic) KLBColorDescription *colorDescription;
+@property (nonatomic, retain) KLBColorDescription *colorDescription;
 
 @end
