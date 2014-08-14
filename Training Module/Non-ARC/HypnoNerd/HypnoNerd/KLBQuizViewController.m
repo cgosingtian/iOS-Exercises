@@ -20,6 +20,16 @@
             questions = _questions,
             answers = _answers;
 
+- (void)dealloc
+{
+    [_questions release];
+    [_answers release];
+    
+    _questions = nil;
+    _answers = nil;
+    [super dealloc];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

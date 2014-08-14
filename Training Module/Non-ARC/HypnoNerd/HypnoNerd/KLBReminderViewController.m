@@ -9,10 +9,15 @@
 #import "KLBReminderViewController.h"
 
 @interface KLBReminderViewController ()
-@property (nonatomic, weak) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, unsafe_unretained) IBOutlet UIDatePicker *datePicker;
 @end
 
 @implementation KLBReminderViewController
+
+- (void)dealloc
+{
+    [super dealloc];
+}
 
 - (IBAction)addReminder:(id)sender
 {
@@ -23,6 +28,7 @@
     note.alertBody = @"Hypnotize me!";
     note.fireDate = date;
     [[UIApplication sharedApplication] scheduleLocalNotification:note];
+    [note release];
 }
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

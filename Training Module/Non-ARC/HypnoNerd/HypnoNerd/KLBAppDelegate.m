@@ -42,6 +42,11 @@
     
     [self.window setRootViewController:tbc];
     
+    [hvc release];
+    [rvc release];
+    [qvc release];
+    [tbc release];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

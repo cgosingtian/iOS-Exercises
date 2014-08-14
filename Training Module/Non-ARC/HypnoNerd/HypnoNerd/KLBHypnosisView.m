@@ -18,6 +18,12 @@
 
 @synthesize sv;
 
+- (void) dealloc
+{
+    sv.delegate = nil;
+    [super dealloc];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -30,6 +36,7 @@
         [sv setPagingEnabled:NO];
         [sv setMaximumZoomScale:99.0];
         [self addSubview:sv];
+        [sv release];
     }
     return self;
 }
@@ -103,6 +110,8 @@
     
     CGContextRestoreGState(currentContext); // shadow end
     
+    [pathTriangle release];
+    [path release];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

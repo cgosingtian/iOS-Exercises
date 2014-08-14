@@ -10,7 +10,7 @@
 
 @interface KLBHypnosisView : UIView
 
-@property (nonatomic) UIScrollView *sv;
+@property (nonatomic, strong) UIScrollView *sv;
 
 - (void)setCircleColor:(UIColor *)circleColor;
 

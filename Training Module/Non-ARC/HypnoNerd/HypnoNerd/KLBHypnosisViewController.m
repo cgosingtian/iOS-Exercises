@@ -10,7 +10,7 @@
 #import "KLBHypnosisView.h"
 
 @interface KLBHypnosisViewController () <UITextFieldDelegate>
-@property (nonatomic, weak) UITextField *textField;
+@property (nonatomic, unsafe_unretained) UITextField *textField;
 @end
 
 @implementation KLBHypnosisViewController
@@ -22,6 +22,7 @@
     KLBHypnosisView *backgroundView = [[KLBHypnosisView alloc]initWithFrame:frame];
     
     self.view = backgroundView;
+    [backgroundView release];
     
     UISegmentedControl *colorOptions = [[UISegmentedControl alloc] initWithItems:@[@"Red",@"Green",@"Blue"]];
     [colorOptions addTarget:self action:@selector(changeHypnosisViewColor:) forControlEvents:UIControlEventValueChanged];
@@ -31,6 +32,7 @@
     [colorOptions setFrame:CGRectMake(frame.origin.x+(frame.size.width/2.0)/2.0, frame.origin.y + 30.0, 150.0, 20.0)];
     
     [self.view addSubview:colorOptions];
+    [colorOptions release];
     
     //EXERCISE 7 START
 //    CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
@@ -46,6 +48,7 @@
     textField.delegate = self;
     
     [backgroundView addSubview:textField];
+    [textField release];
     //EXERCISE 7 END
 }
 
@@ -178,6 +181,8 @@
                 messageLabel.center = CGPointMake(x, y);
             }];
         } completion:NULL];
+        
+        [messageLabel release];
     }
 }
 @end
