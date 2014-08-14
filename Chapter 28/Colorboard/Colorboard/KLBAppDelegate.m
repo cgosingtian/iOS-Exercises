@@ -7,15 +7,27 @@
 //
 
 #import "KLBAppDelegate.h"
+#import "KLBPaletteViewControllerTableViewController.h"
 
 @implementation KLBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    //Commented out the window creation code because the storyboard does this for us
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+    
+//    UINavigationController *nc = (UINavigationController *)self.window.rootViewController;
+//    KLBPaletteViewControllerTableViewController *pvc = nc.viewControllers[0];
+//    [pvc test];
+    
+    // resume here. test works - use this to populate the colors array
+    // for some reason, the table view IS NOT UPDATING
+    
+    
     return YES;
 }
 

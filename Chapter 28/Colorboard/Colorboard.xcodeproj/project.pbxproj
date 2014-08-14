@@ -19,6 +19,10 @@
 		4F340FB0199B621A00C94DF4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F340F98199B621A00C94DF4 /* UIKit.framework */; };
 		4F340FB8199B621A00C94DF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F340FB6199B621A00C94DF4 /* InfoPlist.strings */; };
 		4F340FBA199B621A00C94DF4 /* ColorboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F340FB9199B621A00C94DF4 /* ColorboardTests.m */; };
+		4F340FC4199B625200C94DF4 /* Colorboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F340FC3199B625200C94DF4 /* Colorboard.storyboard */; };
+		4F340FC7199B6CD300C94DF4 /* KLBColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F340FC6199B6CD300C94DF4 /* KLBColorViewController.m */; };
+		4F340FCA199B709100C94DF4 /* KLBPaletteViewControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F340FC9199B709100C94DF4 /* KLBPaletteViewControllerTableViewController.m */; };
+		4F340FCD199B711A00C94DF4 /* KLBColorDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F340FCC199B711A00C94DF4 /* KLBColorDescription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,13 @@
 		4F340FB5199B621A00C94DF4 /* ColorboardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColorboardTests-Info.plist"; sourceTree = "<group>"; };
 		4F340FB7199B621A00C94DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F340FB9199B621A00C94DF4 /* ColorboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorboardTests.m; sourceTree = "<group>"; };
+		4F340FC3199B625200C94DF4 /* Colorboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Colorboard.storyboard; sourceTree = "<group>"; };
+		4F340FC5199B6CD300C94DF4 /* KLBColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBColorViewController.h; sourceTree = "<group>"; };
+		4F340FC6199B6CD300C94DF4 /* KLBColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBColorViewController.m; sourceTree = "<group>"; };
+		4F340FC8199B709100C94DF4 /* KLBPaletteViewControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBPaletteViewControllerTableViewController.h; sourceTree = "<group>"; };
+		4F340FC9199B709100C94DF4 /* KLBPaletteViewControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBPaletteViewControllerTableViewController.m; sourceTree = "<group>"; };
+		4F340FCB199B711A00C94DF4 /* KLBColorDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLBColorDescription.h; sourceTree = "<group>"; };
+		4F340FCC199B711A00C94DF4 /* KLBColorDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLBColorDescription.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +119,14 @@
 			isa = PBXGroup;
 			children = (
 				4F340FA3199B621A00C94DF4 /* KLBAppDelegate.h */,
+				4F340FC3199B625200C94DF4 /* Colorboard.storyboard */,
+				4F340FC8199B709100C94DF4 /* KLBPaletteViewControllerTableViewController.h */,
+				4F340FC9199B709100C94DF4 /* KLBPaletteViewControllerTableViewController.m */,
+				4F340FCB199B711A00C94DF4 /* KLBColorDescription.h */,
+				4F340FCC199B711A00C94DF4 /* KLBColorDescription.m */,
 				4F340FA4199B621A00C94DF4 /* KLBAppDelegate.m */,
+				4F340FC5199B6CD300C94DF4 /* KLBColorViewController.h */,
+				4F340FC6199B6CD300C94DF4 /* KLBColorViewController.m */,
 				4F340FA6199B621A00C94DF4 /* Images.xcassets */,
 				4F340F9B199B621A00C94DF4 /* Supporting Files */,
 			);
@@ -220,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F340FC4199B625200C94DF4 /* Colorboard.storyboard in Resources */,
 				4F340F9F199B621A00C94DF4 /* InfoPlist.strings in Resources */,
 				4F340FA7199B621A00C94DF4 /* Images.xcassets in Resources */,
 			);
@@ -240,8 +259,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F340FC7199B6CD300C94DF4 /* KLBColorViewController.m in Sources */,
 				4F340FA5199B621A00C94DF4 /* KLBAppDelegate.m in Sources */,
+				4F340FCA199B709100C94DF4 /* KLBPaletteViewControllerTableViewController.m in Sources */,
 				4F340FA1199B621A00C94DF4 /* main.m in Sources */,
+				4F340FCD199B711A00C94DF4 /* KLBColorDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +460,7 @@
 				4F340FBF199B621A00C94DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F340FC0199B621A00C94DF4 /* Build configuration list for PBXNativeTarget "ColorboardTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +469,7 @@
 				4F340FC2199B621A00C94DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
