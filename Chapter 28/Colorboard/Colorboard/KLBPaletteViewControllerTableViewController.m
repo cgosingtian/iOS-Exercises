@@ -12,8 +12,6 @@
 
 @interface KLBPaletteViewControllerTableViewController ()
 
-
-
 @end
 
 @implementation KLBPaletteViewControllerTableViewController
@@ -89,7 +87,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"table number of rows: %lu",(unsigned long)[colors count]);
     return [colors count];
 }
 
@@ -99,8 +96,6 @@
     UITableViewCell *cell =
     [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
                                     forIndexPath:indexPath];
-    
-    if (cell == nil) NSLog(@"CELL IS NIL");
     
     KLBColorDescription *cd = (KLBColorDescription *)[colors objectAtIndex:indexPath.row];
     NSLog(@"cell name: %@",cd.name);
