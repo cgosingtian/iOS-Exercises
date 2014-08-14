@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        _color = [UIColor colorWithRed:0
+        self.color = [UIColor colorWithRed:0
                                  green:0
                                   blue:1
                                  alpha:1];

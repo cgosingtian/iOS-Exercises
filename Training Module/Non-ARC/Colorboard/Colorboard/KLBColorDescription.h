@@ -10,7 +10,7 @@
 
 @interface KLBColorDescription : NSObject
 
-@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, retain) UIColor *color;
 @property (nonatomic, copy) NSString *name;
 
 @end
