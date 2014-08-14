@@ -22,6 +22,8 @@
 {
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter removeObserver:self];
+    
+    [super dealloc];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -76,22 +78,33 @@
 
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 @property (strong, nonatomic) UIPopoverController *assetTypePopover;
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *serialField;
-@property (weak, nonatomic) IBOutlet UITextField *valueField;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
-@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *assetTypeButton;
+@property (unsafe_unretained, nonatomic) IBOutlet UITextField *nameField;
+@property (unsafe_unretained, nonatomic) IBOutlet UITextField *serialField;
+@property (unsafe_unretained, nonatomic) IBOutlet UITextField *valueField;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *dateLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *imageView;
+@property (unsafe_unretained, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (unsafe_unretained, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *nameLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *serialNumberLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *valueLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UIBarButtonItem *assetTypeButton;
 
 
 @end
 
 @implementation KLBDetailViewController
+
+- (void) dealloc
+{
+    [_item release];
+    [_imagePickerPopover release];
+    [_assetTypePopover release];
+    _item = nil;
+    _imagePickerPopover = nil;
+    _assetTypePopover = nil;
+    [super dealloc];
+}
 
 - (void)updateFonts
 {
@@ -119,6 +132,7 @@
     [self.view addSubview:iv];
     // The image view was pointed to by the imageView property
     self.imageView = iv;
+    [iv release];
     
     // Map the objects to names
     NSDictionary *nameMap = @{@"imageView" : self.imageView,
@@ -214,14 +228,17 @@
     dvc.item = self.item;
     
     [self.navigationController pushViewController:dvc animated:YES];
+    [dvc release];
 }
 
 - (IBAction)takePicture:(id)sender {
-    UIImagePickerController *picControl = [[UIImagePickerController alloc]init];
+    //UIImagePickerController *picControl = [[UIImagePickerController alloc]init];
+    UIImagePickerController *picControl = [KLBDetailViewController picController];
     
     if ([self.imagePickerPopover isPopoverVisible])
     {
         [self.imagePickerPopover dismissPopoverAnimated:YES];
+        [_imagePickerPopover release];
         self.imagePickerPopover = nil;
     }
     
@@ -244,9 +261,15 @@
     // Check for iPad device before instantiating the popover controller
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         // Create a new popover controller that will display the imagePicker
-        self.imagePickerPopover = [[UIPopoverController alloc]
-                                   initWithContentViewController:picControl];
+        UIPopoverController *popoverControl = [[UIPopoverController alloc]
+                                               initWithContentViewController:picControl];
+        self.imagePickerPopover = popoverControl;
         self.imagePickerPopover.delegate = self;
+        
+        [popoverControl release];
+//        picControl.delegate = nil;
+//        [picControl release];
+//        picControl = nil;
         
         //popover background view class
         [self.imagePickerPopover setPopoverBackgroundViewClass:[PopoverBackground class]];
@@ -258,7 +281,13 @@
          permittedArrowDirections:UIPopoverArrowDirectionAny
          animated:YES];
     } else {
-        [self presentViewController:picControl animated:YES completion:NULL];
+        [self presentViewController:picControl animated:YES completion:^()
+         {
+//             NSLog(@"iphone - image picker control dismissed");
+         }];
+//        picControl.delegate = nil;
+//        [picControl release];
+//        picControl = nil;
     }
 }
 
@@ -267,7 +296,9 @@
     if (popoverController == self.imagePickerPopover)
     {
         NSLog(@"User dismissed popover: image picker");
-        self.imagePickerPopover = nil;
+        _imagePickerPopover.delegate = nil;
+        [_imagePickerPopover release];
+        _imagePickerPopover = nil;
     }
     else if (popoverController == self.assetTypePopover)
     {
@@ -275,6 +306,8 @@
         self.item.assetType = kvc.item.assetType;
         self.assetTypeButton.title = [NSString stringWithFormat:NSLocalizedString(@"Type: %@",@"Asset Type Button Text"),[self.item.assetType valueForKey:@"label"]];
         [self.assetTypePopover dismissPopoverAnimated:YES];
+        [self.assetTypePopover release];
+        [kvc release];
         self.assetTypePopover = nil;
         NSLog(@"User dismissed popover: asset type");
     }
@@ -291,6 +324,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [[KLBImageStore sharedStore] setImage:image forKey:self.item.itemKey];
     [self.item setThumbnailFromImage:image];
     
+    //[image release];
+    
     // Take image picker off the screen -
     // you must call this dismiss method
     //[self dismissViewControllerAnimated:YES completion:NULL];
@@ -298,11 +333,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if (self.imagePickerPopover) {
         // Dismiss it
         [self.imagePickerPopover dismissPopoverAnimated:YES];
+        _imagePickerPopover.delegate = nil;
+        [_imagePickerPopover release];
         self.imagePickerPopover = nil;
     } else {
         // Dismiss the modal image picker
         [self dismissViewControllerAnimated:YES completion:NULL];
+        //picker.delegate = nil;
     }
+    
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -422,19 +462,25 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
         
         UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:kvc];
+        [kvc release];
         
-        self.assetTypePopover = [[UIPopoverController alloc] initWithContentViewController:nc];
+        UIPopoverController *popoverControl = [[UIPopoverController alloc] initWithContentViewController:nc];
+        self.assetTypePopover = popoverControl;
         self.assetTypePopover.delegate = self;
         
         [self.assetTypePopover
          presentPopoverFromBarButtonItem:sender
          permittedArrowDirections:UIPopoverArrowDirectionAny
          animated:YES];
+        
+        [nc release];
+        [popoverControl release];
     }
     else
     {
         
         [self.navigationController pushViewController:kvc animated:YES];
+        [kvc release];
     }
 }
 
@@ -474,6 +520,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
     }
     [super decodeRestorableStateWithCoder:coder];
+}
+
+#pragma mark - UIImagePickerController Singleton
++ (UIImagePickerController *)picController
+{
+    static UIImagePickerController *picController;
+    if (!picController)
+    {
+        picController = [[UIImagePickerController alloc] init];
+    }
+    return picController;
 }
 
 @end

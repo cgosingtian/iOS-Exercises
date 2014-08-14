@@ -40,6 +40,7 @@
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.view = imageView;
+    [imageView release];
     
     self.view.userInteractionEnabled = YES;
     UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinch:)];

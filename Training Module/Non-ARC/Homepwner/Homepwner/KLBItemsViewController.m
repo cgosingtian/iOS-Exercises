@@ -24,7 +24,12 @@
 
 - (void)dealloc
 {
+    [_imagePopover release];
+    
+    _imagePopover = nil;
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
 }
 
 -(instancetype)init
@@ -60,7 +65,6 @@
 //        for (int i = 0; i < 5; i++) {
 //            [[KLBItemStore sharedStore] createItem];
 //        }
-        
     }
     return self;
 }
@@ -98,21 +102,17 @@
     // will appear in on the tableview
     NSArray *items = [[KLBItemStore sharedStore] allItems];
     KLBItem *item = items[indexPath.row];
-//    cell.textLabel.text = [item description];
     
     cell.nameLabel.text = item.itemName;
     cell.serialNumberLabel.text = item.serialNumber;
     
-    //cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
     
-    NSNumberFormatter *currencyFormatter//;
-    //if (currencyFormatter == nil) {
-    //currencyFormatter
-    = [[NSNumberFormatter alloc] init];
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
         currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    //}
     
     cell.valueLabel.text = [currencyFormatter stringFromNumber:@(item.valueInDollars)];
+    
+    [currencyFormatter release];
     
     if (item.valueInDollars > 50)
         cell.valueLabel.textColor = [UIColor greenColor];
@@ -122,7 +122,7 @@
     
     cell.orderLabel.text = [NSString stringWithFormat:@"%f",item.orderingValue];
     
-    __weak KLBItemCell *weakCell = cell;
+    __block KLBItemCell *weakCell = cell;
     
     cell.actionBlock = ^{
         NSLog(@"Going to show image for %@", item);
@@ -136,6 +136,8 @@
             
             KLBItemCell *strongCell = weakCell;
             
+            [strongCell autorelease];
+            
             // Make a rectangle for the frame of the thumbnail relative to
             // our table view
             // Note: there will be a warning on this line that we'll soon discuss
@@ -148,14 +150,18 @@
             //ivc.view.autoresizingMask = UIViewAutoresizingNone;
             ivc.image = img;
             // Present a 600x600 popover from the rect
-            self.imagePopover = [[UIPopoverController alloc]
-                                 initWithContentViewController:ivc];
+            UIPopoverController *popControl = [[UIPopoverController alloc]
+                                              initWithContentViewController:ivc];
+            self.imagePopover = popControl;
             self.imagePopover.delegate = self;
             self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
             [self.imagePopover presentPopoverFromRect:rect
                                                inView:self.view
                              permittedArrowDirections:UIPopoverArrowDirectionAny
                                              animated:YES];
+            
+            [popControl release];
+            [ivc release];
         }
     };
 
@@ -184,6 +190,7 @@
 //    [self.tableView setTableHeaderView:header];
     
     [self.tableView setBackgroundView:bg];
+    [bg release];
     
     self.tableView.restorationIdentifier = @"KLBItemsViewControllerTableView";
 }
@@ -249,6 +256,7 @@
     
     navController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:navController animated:YES completion:NULL];
+    [navController release];
 }
 
 //- (IBAction)toggleEditingMode:(id)sender
@@ -318,25 +326,16 @@
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (indexPath.row != [[[KLBItemStore sharedStore] allItems] count]-1)
-//    {
-        //KLBDetailViewController *detailViewController = [[KLBDetailViewController alloc] init];
-        
-        KLBDetailViewController *detailViewController = [[KLBDetailViewController alloc] initForNewItem:NO];
+    KLBDetailViewController *detailViewController = [[KLBDetailViewController alloc] initForNewItem:NO];
     
-        NSArray *items = [[KLBItemStore sharedStore] allItems];
-        KLBItem *selectedItem = [items objectAtIndex:indexPath.row];
+    NSArray *items = [[KLBItemStore sharedStore] allItems];
+    KLBItem *selectedItem = [items objectAtIndex:indexPath.row];
     
-        detailViewController.item = selectedItem;
+    detailViewController.item = selectedItem;
     
-        // Push it onto the top of the navigation controller's stack
-        [self.navigationController pushViewController:detailViewController
-                                             animated:YES];
-//    }
-//    else
-//    {
-//        [self resignFirstResponder];
-//    }
+    [self.navigationController pushViewController:detailViewController
+                                         animated:YES];
+    [detailViewController release];
 }
 
 - (void)viewWillAppear:(BOOL)animated

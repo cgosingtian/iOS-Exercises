@@ -11,10 +11,11 @@
 @class KLBItem;
 
 @interface KLBDetailViewController : UIViewController <UIViewControllerRestoration>
-
-@property (nonatomic,strong) KLBItem *item;
+{
+}
+@property (nonatomic,retain) KLBItem *item;
 @property (nonatomic, copy) void (^dismissBlock)(void);
 
 - (instancetype)initForNewItem:(BOOL)isNew;
-
++ (UIImagePickerController *)picController;
 @end

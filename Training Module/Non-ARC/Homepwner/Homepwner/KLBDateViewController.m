@@ -10,12 +10,19 @@
 #import "KLBItem.h"
 
 @interface KLBDateViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *dateLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end
 
 @implementation KLBDateViewController
+
+- (void) dealloc
+{
+    [_item release];
+    _item = nil;
+    [super dealloc];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

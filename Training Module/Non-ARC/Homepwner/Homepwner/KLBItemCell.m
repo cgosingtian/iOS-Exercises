@@ -9,7 +9,7 @@
 #import "KLBItemCell.h"
 
 @interface KLBItemCell ()
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *imageViewHeightConstraint;
+@property (nonatomic, unsafe_unretained) IBOutlet NSLayoutConstraint *imageViewHeightConstraint;
 //@property (nonatomic, weak) IBOutlet NSLayoutConstraint *imageViewWidthConstraint;
 @end
 
@@ -76,6 +76,7 @@
 {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver:self];
+    [super dealloc];
 }
 
 @end

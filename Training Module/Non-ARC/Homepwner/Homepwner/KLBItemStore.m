@@ -11,10 +11,25 @@
 #import "KLBImageStore.h"
 
 @interface KLBItemStore ()
-@property (nonatomic) NSMutableArray *privateItems;
+@property (nonatomic,retain) NSMutableArray *privateItems;
 @end
 
 @implementation KLBItemStore
+
+- (void)dealloc
+{
+    [_allAssetTypes release];
+    [_context release];
+    [_model release];
+    [_privateItems release];
+    
+    _allAssetTypes = nil;
+    _context = nil;
+    _model = nil;
+    _privateItems = nil;
+    
+    [super dealloc];
+}
 
 - (KLBItem *)createItem
 {
@@ -25,7 +40,8 @@
     if ([self.allItems count] == 0) {
         order = 1.0;
     } else {
-        order = [[self.privateItems lastObject] orderingValue] + 1.0;
+        KLBItem *lastItem = [self.privateItems lastObject];
+        order = [lastItem orderingValue] + 1.0;
     }
     NSLog(@"Adding after %d items, order = %.2f", [self.privateItems count], order);
     
@@ -41,6 +57,8 @@
     
     [self.privateItems addObject:item];
     NSLog(@"Adding %@",item);
+    
+    
     return item;
 }
 
@@ -106,6 +124,8 @@
         
         [self loadAllItems];
         
+        [psc release];
+        
         // If the array hadn't been saved previously, create a new empty one
         if (!_privateItems) {
             _privateItems = [[NSMutableArray alloc] init];
@@ -116,8 +136,9 @@
 
 - (NSArray *)allItems
 {
-    NSMutableArray *arrCopy = [self.privateItems mutableCopy];
+    NSMutableArray *arrCopy = [[self.privateItems mutableCopy] autorelease];
     //[arrCopy addObject:@"No more items!"];
+//    [_privateItems release];
     return arrCopy;
 }
 
@@ -212,11 +233,19 @@
         request.sortDescriptors = @[sd];
         NSError *error;
         NSArray *result = [self.context executeFetchRequest:request error:&error];
+        [request release];
         if (!result) {
+            [result release];
             [NSException raise:@"Fetch failed"
                         format:@"Reason: %@", [error localizedDescription]];
         }
-        self.privateItems = [[NSMutableArray alloc] initWithArray:result];
+        if (!_privateItems)
+        {
+            _privateItems = [[NSMutableArray alloc] init];
+        }
+        NSMutableArray *resultCopy = [result mutableCopy];
+        self.privateItems = resultCopy;
+        [resultCopy release];
     }
 }
 
@@ -229,11 +258,13 @@
         request.entity = e;
         NSError *error;
         NSArray *result = [[self.context executeFetchRequest:request error:&error] mutableCopy];
+        [request release];
         if (!result)
         {
             [NSException raise:@"Fetch failed" format:[error localizedDescription]];
         }
         _allAssetTypes = [result mutableCopy];
+        [result release];
     }
     
     if (_allAssetTypes.count == 0) //if nothing saved, add default values
@@ -268,6 +299,11 @@
     request.predicate = predicate;
     
     items = [self.context executeFetchRequest:request error:&error];
+    
+    [request release];
+    request = nil;
+    e = nil;
+    predicate = nil;
     
     return items;
 }

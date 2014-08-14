@@ -55,6 +55,8 @@ willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         unc.restorationIdentifier = NSStringFromClass([unc class]);
     
         self.window.rootViewController = unc;
+        [unc release];
+        //[ivc release];
     }
     
     //self.window.backgroundColor = [UIColor whiteColor];
@@ -130,6 +132,6 @@ viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents
         // so you need to set its modal presentation style
         vc.modalPresentationStyle = UIModalPresentationFormSheet;
     }
-    return vc;
+    return [vc autorelease];
 }
 @end

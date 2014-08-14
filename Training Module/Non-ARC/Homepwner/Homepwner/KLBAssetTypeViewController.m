@@ -133,10 +133,12 @@
     
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:avc];
+    [avc release];
     navController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:navController
                        animated:YES
                      completion:^(){}];
+    [navController release];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

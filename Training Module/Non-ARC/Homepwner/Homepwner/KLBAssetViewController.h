@@ -10,11 +10,11 @@
 #import "KLBItem.h"
 
 @interface KLBAssetViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *addButton;
-@property (weak, nonatomic) IBOutlet UITextField *assetLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *addButton;
+@property (unsafe_unretained, nonatomic) IBOutlet UITextField *assetLabel;
 
 @property (strong,nonatomic) NSManagedObjectContext *context;
 
-@property (weak,nonatomic) UITableViewController *source;
+@property (unsafe_unretained,nonatomic) UITableViewController *source;
 
 @end

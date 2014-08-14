@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface KLBItemCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
-@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *nameLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *serialNumberLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *valueLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *thumbnailView;
 @property (copy, nonatomic) void (^actionBlock)(void);
-@property (weak, nonatomic) IBOutlet UILabel *orderLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *orderLabel;
 
 @end
